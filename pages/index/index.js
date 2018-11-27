@@ -53,6 +53,28 @@ Page({
   },
   onLoad: function () {
     var that = this//不要漏了这句，很重要
+    var url = 'https://blog.eunji.cn/api/archives/year'
+    var userAvatarUrl = 'https://blog.eunji.cn'
+    wx.request({
+      url: url,
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      success: function (res) {
+        //将获取到的json数据，存在名字叫zhihu的这个数组中
+        console.log(res.data.result[0].posts[0].user)
+        that.setData({
+          //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+          userName: res.data.result[0].posts[0].user.userDisplayName,
+          userDesc: res.data.result[0].posts[0].user.userDesc,
+          userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
+          title: res.data.result[0].posts[0].postTitle,
+          content: res.data.result[0].posts[0].postContent,
+          posts: res.data.result[0].posts,
+        })
+      }
+    })
+
     // https://blog.eunji.cn/api/archives/year
     // wx.request({
     //   url: 'https://blog.eunji.cn/api/archives/year', //仅为示例，并非真实的接口地址
@@ -64,20 +86,5 @@ Page({
     //     console.log(res.data)
     //   }
     // })
-    wx.request({
-      url: 'https://blog.eunji.cn/api/archives/year',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      success: function (res) {
-        //将获取到的json数据，存在名字叫zhihu的这个数组中
-        console.log(res.data.result[0].posts[0].postId)
-        that.setData({
-          zhihu: res.data.stories,
-          //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-
-        })
-      }
-    })
   }
 })
