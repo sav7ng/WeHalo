@@ -13,7 +13,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "2.4.0",
 	"appid": "wxe0face0d131e0bd2",
-	"projectname": "blog",
+	"projectname": "wxBlog",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

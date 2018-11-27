@@ -11,7 +11,7 @@
     <image src="{{userAvatar}}"></image>
   </view>
   <view>
-    <text>{{userName}}Blog</text>
+    <text>{{userName}}'s Blog</text>
   </view>
   <view>
     <text>{{userDesc}}</text>
