@@ -7,6 +7,13 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view> -->
+  <i-grid-item i-class="item">
+    <i-spin custom>
+        <i-icon type="refresh" size="20" i-class="icon-load"></i-icon>
+        <view>Loading</view>
+    </i-spin>
+  </i-grid-item>
+
   <view class='card' wx:for="{{posts}}" wx:key="postId">
     <!-- <i-card title="" extra="{{userName}}Blog" thumb="{{userAvatar}}"> -->
     <i-card title="{{item.postTitle}}">
