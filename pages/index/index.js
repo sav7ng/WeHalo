@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const jinrishici = require('../../utils/jinrishici.js')
 
 Page({
   data: {
@@ -62,7 +63,7 @@ Page({
       },
       success: function (res) {
         //将获取到的json数据，存在名字叫zhihu的这个数组中
-        console.log(res.data.result[0].posts[0].user)
+        console.log(res.data.result[0].posts[0])
         that.setData({
           //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
           userName: res.data.result[0].posts[0].user.userDisplayName,
@@ -73,6 +74,14 @@ Page({
           posts: res.data.result[0].posts,
         })
       }
+    }),
+    jinrishici.load(result => {
+      // 下面是处理逻辑示例
+      console.log(result)
+      this.setData({
+        "jinrishici": result.data.content,
+        shici: result.data.origin.content,
+      })
     })
 
     // https://blog.eunji.cn/api/archives/year

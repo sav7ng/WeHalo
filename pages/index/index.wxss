@@ -20,18 +20,7 @@
   margin-top: 200px;
 }
 
-.posts {
-  width: 300px;
-  border: 1px solid #000;
-  text-align: center;
-  margin: 5px;
-}
-
-.userAvatar {
-  text-align: center;
-}
-
-.userAvatar image{
-  width: 100px;
-  height: 100px;
+.card {
+  width: 100%;
+  margin-top: 5px;
 }

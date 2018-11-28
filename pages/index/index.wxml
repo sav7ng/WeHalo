@@ -7,16 +7,12 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view> -->
-  <view class='userAvatar'>
-    <image src="{{userAvatar}}"></image>
+  <view class='card' wx:for="{{posts}}" wx:key="postId">
+    <!-- <i-card title="" extra="{{userName}}Blog" thumb="{{userAvatar}}"> -->
+    <i-card title="{{item.postTitle}}">
+      <!-- <view slot="content">{{item.postSummary}}</view> -->
+      <view slot="footer">{{item.postSummary}}</view>
+    </i-card>
   </view>
-  <view>
-    <text>{{userName}}Blog</text>
-  </view>
-  <view>
-    <text>{{userDesc}}</text>
-  </view>
-  <view wx:for="{{posts}}" wx:key="postId">
-    <view class='posts'><text>{{item.postTitle}}</text></view>
-  </view>
+
 </view>
