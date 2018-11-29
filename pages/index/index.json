@@ -4,5 +4,7 @@
     "i-avatar": "../../dist/avatar/index",
     "i-spin": "../../dist/spin/index",
     "i-tag": "../../dist/tag/index"
-  }
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
 }
