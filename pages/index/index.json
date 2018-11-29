@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-card": "../../dist/card/index",
     "i-avatar": "../../dist/avatar/index",
-    "i-spin": "../../dist/spin/index"
+    "i-spin": "../../dist/spin/index",
+    "i-tag": "../../dist/tag/index"
   }
 }
