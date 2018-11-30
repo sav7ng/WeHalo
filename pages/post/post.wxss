@@ -1,0 +1,8 @@
+/* pages/post/post.wxss */
+.stickyTitle {
+    /* text-align:center; */
+    font-size: 18px;
+    font-weight: 700;
+    padding: 5px;
+    background-color:#fff;
+}

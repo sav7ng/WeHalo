@@ -1,0 +1,14 @@
+<!--pages/post/post.wxml-->
+<view>
+    <i-sticky scrollTop="{{scrollTop}}">
+        <i-sticky-item>
+            <view slot="title">
+                <view class="stickyTitle" style="text-align:center">{{post.postTitle}}</view>
+            </view>
+            <view slot="content" style="margin-top:10px;">
+                <view style="text-align:center">{{postId}}</view>
+                <view>{{post.postContent}}</view>
+            </view>
+        </i-sticky-item>
+    </i-sticky>
+</view>

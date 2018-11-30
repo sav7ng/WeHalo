@@ -1,57 +1,59 @@
 <!--index.wxml-->
 <view class="container">
 
-  <!-- loading...加载 -->
-  <i-spin fix wx:if="{{spinShow}}"></i-spin>
+    <!-- loading...加载 -->
+    <i-spin fix wx:if="{{spinShow}}"></i-spin>
 
-  <!-- 首页图片 -->
-  <view class="top">
-    <!-- <cover-image class="img" mode="widthFix" src="{{imgUrl}}"></cover-image> -->
-    <view class="aquanblog">
-      AquanBlog
-      <view class="aquanblogs">{{jinrishici}}</view>
-    </view>
-    <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
-  </view>
-
-  <!-- Posts -->
-  <view class="post-card" wx:for="{{posts}}" wx:key="postId">
-    <view class="post-card-image-link">
-      <image class="img" mode="widthFix" src="https://blog.eunji.cn{{item.postThumbnail}}"></image>
-    </view>
-    <view class="post-card-content">
-      <view style="margin-left: 10px; color: #cccccc;">
-        <i-tag wx:for="{{item.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
-          {{item.tagName}}
-        </i-tag>
-      </view>
-      <view class="title">{{item.postTitle}}</view>
-      <view class="summary">{{item.postSummary}}</view>
-      <view class="footer">
-        <!-- <i-avatar src="{{userAvatar}}" size="small"></i-avatar> -->
-        <image mode="widthFix" class='userAvatar' src="{{userAvatar}}"></image>
-        <view class="postDate">{{item.postDate}}</view>
-      </view>
-    </view>
-  </view>
-
-  
-  <!-- 第一版本 -->
-  <!-- <view class='card' wx:for="{{posts}}" wx:key="postId">
-    <i-card title="" extra="{{userName}}Blog" thumb="{{userAvatar}}">
-    <i-card title="{{item.postTitle}}" style="background-image: {{userAvatar}};">
-      <view slot="content">{{item.postSummary}}</view>
-      <view slot="footer">
-        <i-tag wx:for="{{item.tags}}" wx:key="tagId" color="blue" type="border" style="margin-right:5px;">
-          {{item.tagName}}
-        </i-tag>
-        <view style="float: right;">
-          <i-avatar src="{{userAvatar}}" size="small"></i-avatar>
-          <text style="margin-left: 5px;">{{item.postDate}}</text>
+    <!-- 首页图片 -->
+    <view class="top">
+        <!-- <cover-image class="img" mode="widthFix" src="{{imgUrl}}"></cover-image> -->
+        <view class="aquanblog">
+            AquanBlog<view class="aquanblogs">{{jinrishici}}</view>
         </view>
-      </view>
-    </i-card>
-  </view> -->
+        <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
+    </view>
+
+
+    <!-- Posts -->
+    <view class="post-card" wx:for="{{posts}}" wx:key="postId">
+        <navigator url="../post/post?postId={{item.postId}}">
+            <view class="post-card-image-link">
+                <image class="img" mode="widthFix" src="https://blog.eunji.cn{{item.postThumbnail}}"></image>
+            </view>
+            <view class="post-card-content">
+                <view style="margin-left: 10px; color: #cccccc;">
+                    <i-tag wx:for="{{item.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
+                        {{item.tagName}}
+                    </i-tag>
+                </view>
+                <view class="title">{{item.postTitle}}</view>
+                <view class="summary">{{item.postSummary}}</view>
+                <view class="footer">
+                    <!-- <i-avatar src="{{userAvatar}}" size="small"></i-avatar> -->
+                    <image mode="widthFix" class='userAvatar' src="{{userAvatar}}"></image>
+                    <view class="postDate">{{item.postDate}}</view>
+                </view>
+            </view>
+        </navigator>
+    </view>
+
+    
+    <!-- 第一版本 -->
+    <!-- <view class='card' wx:for="{{posts}}" wx:key="postId">
+        <i-card title="" extra="{{userName}}Blog" thumb="{{userAvatar}}">
+        <i-card title="{{item.postTitle}}" style="background-image: {{userAvatar}};">
+            <view slot="content">{{item.postSummary}}</view>
+            <view slot="footer">
+                <i-tag wx:for="{{item.tags}}" wx:key="tagId" color="blue" type="border" style="margin-right:5px;">
+                    {{item.tagName}}
+                </i-tag>
+                <view style="float: right;">
+                    <i-avatar src="{{userAvatar}}" size="small"></i-avatar>
+                    <text style="margin-left: 5px;">{{item.postDate}}</text>
+                </view>
+            </view>
+        </i-card>
+    </view> -->
 
   
 </view>

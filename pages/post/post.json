@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "i-sticky": "../../dist/sticky/index",
+    "i-sticky-item": "../../dist/sticky-item/index"
+  }
+}
