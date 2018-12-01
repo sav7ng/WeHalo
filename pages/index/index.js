@@ -26,6 +26,7 @@ Page({
         // })
         wx.request({
         url: url,
+        method: 'GET',
         headers: {
             'Content-Type': 'application/json'
         },
@@ -76,6 +77,7 @@ Page({
         // })
         wx.request({
             url: url,
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -95,6 +97,9 @@ Page({
                 })
                 //取消Loading效果
                 // wx.hideLoading()
+            },
+            fail: function () {
+                console.log('接口调用失败');
             }
         })
         jinrishici.load(result => {
@@ -110,8 +115,8 @@ Page({
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo
         this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
+            userInfo: e.detail.userInfo,
+            hasUserInfo: true
         })
     },
 })

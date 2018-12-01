@@ -31,6 +31,7 @@ Page({
         // })
         wx.request({
             url: url,
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
             },
