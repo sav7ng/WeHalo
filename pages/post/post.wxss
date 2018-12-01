@@ -1,7 +1,31 @@
 /* pages/post/post.wxss */
+.content {
+    padding: 10px;
+}
+
+.top {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #cccccc;
+}
+
+.titleTags {
+    margin-left: 10px; 
+    margin-right: 10px; 
+    color: #cccccc;
+}
+
+.titleData {
+    float: right;
+    font-size: 12px;
+    color: #cccccc;
+    line-height: 37px;
+}
+
 .stickyTitle {
     /* text-align:center; */
-    font-size: 18px;
+    font-size: 28px;
     font-weight: 700;
     padding: 5px;
+    text-align: center;
 }
+

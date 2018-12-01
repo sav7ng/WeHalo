@@ -65,13 +65,6 @@ Page({
             url: '../logs/logs'
         })
     },
-    onSwitchChange({ detail }) {
-        const value = detail.value;
-        this.setData({
-            switch: value,
-            spinShow: !value
-        });
-    },
     onLoad: function () {
         var that = this//不要漏了这句，很重要
         var url = 'https://blog.eunji.cn/api/archives/year'
@@ -120,5 +113,5 @@ Page({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
         })
-    }
+    },
 })

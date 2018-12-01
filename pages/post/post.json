@@ -1,8 +1,8 @@
 {
-  "usingComponents": {
-    "i-sticky": "../../dist/sticky/index",
-    "i-sticky-item": "../../dist/sticky-item/index",
-    "htmltowxml": "plugin://htmltowxml/view",
-    "i-spin": "../../dist/spin/index"
-  }
+    "usingComponents": {
+        "htmltowxml": "plugin://htmltowxml/view",
+        "i-spin": "../../dist/spin/index",
+        "i-tag": "../../dist/tag/index",
+        "i-icon": "../../dist/icon/index"
+    }
 }

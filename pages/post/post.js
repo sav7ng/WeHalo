@@ -14,6 +14,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
         this.setData({
             postId: options.postId,
         })
@@ -31,34 +32,38 @@ Page({
         wx.request({
             url: url,
             headers: {
-            'Content-Type': 'application/json'
+                'Content-Type': 'application/json'
             },
             success: function (res) {
-            //将获取到的json数据，存在名字叫zhihu的这个数组中
-            console.log(res.data.result)
-            that.setData({
-                post: res.data.result,
-            })
-            //取消Loading效果
-            // wx.hideLoading()
+                //将获取到的json数据，存在名字叫zhihu的这个数组中
+                console.log(res.data.result)
+                that.setData({
+                    post: res.data.result,
+                })
+                //取消Loading效果
+                // wx.hideLoading()
             }
         })
+
+        setTimeout(function () {
+            that.setData({
+                spinShow: !that.data.spinShow,
+            });
+            // console.log("spinShow");
+        }.bind(that), 2000)
     },
+
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-        this.setData({
-            spinShow: false,
-        })
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
     },
 
     /**
@@ -95,17 +100,5 @@ Page({
     onShareAppMessage: function () {
 
     },
-    
-    /**
-     * Sticky 吸顶容器
-     */
-    onChange(event) {
-        console.log(event.detail, 'click right menu callback data')
-    },
-    //页面滚动执行方式
-    onPageScroll(event) {
-        this.setData({
-            scrollTop: 1
-        })
-    }
+
 })
