@@ -19,6 +19,8 @@ Page({
             postId: options.postId,
         })
 
+        
+
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this//不要漏了这句，很重要
         var postId = options.postId
@@ -43,6 +45,9 @@ Page({
                 })
                 //取消Loading效果
                 // wx.hideLoading()
+                wx.setNavigationBarTitle({
+                    title: res.data.result.postTitle,
+                })
             }
         })
 
