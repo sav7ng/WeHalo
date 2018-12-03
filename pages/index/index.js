@@ -27,7 +27,6 @@ Page({
             'Content-Type': 'application/json'
         },
         success: function (res) {
-            //将获取到的json数据，存在名字叫zhihu的这个数组中
             console.log(res.data.result[0].posts[0])
             that.setData({
 
@@ -82,14 +81,15 @@ Page({
                 console.log(res.data.result[0].posts[0])
                 that.setData({
 
-                spinShow: false,
-                //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-                userName: res.data.result[0].posts[0].user.userDisplayName,
-                userDesc: res.data.result[0].posts[0].user.userDesc,
-                userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
-                title: res.data.result[0].posts[0].postTitle,
-                content: res.data.result[0].posts[0].postContent,
-                posts: res.data.result[0].posts,
+                    spinShow: false,
+                    //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+                    userName: res.data.result[0].posts[0].user.userDisplayName,
+                    userDesc: res.data.result[0].posts[0].user.userDesc,
+                    userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
+                    title: res.data.result[0].posts[0].postTitle,
+                    content: res.data.result[0].posts[0].postContent,
+                    posts: res.data.result[0].posts,
+                    imageUrl: app.globalData.URL
                 })
                 //取消Loading效果
                 // wx.hideLoading()
@@ -107,12 +107,9 @@ Page({
             })
         })
     },
-    getUserInfo: function(e) {
-        console.log(e)
-        app.globalData.userInfo = e.detail.userInfo
-        this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-        })
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
     },
 })

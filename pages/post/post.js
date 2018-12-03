@@ -21,8 +21,6 @@ Page({
             postId: options.postId,
         })
 
-        
-
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this//不要漏了这句，很重要
         var postId = options.postId
@@ -40,7 +38,6 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function (res) {
-                //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result)
                 that.setData({
                     post: res.data.result,
@@ -61,6 +58,7 @@ Page({
             });
             // console.log("spinShow");
         }.bind(that), 2000)
+
     },
 
 
@@ -80,14 +78,12 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function () {
-
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function () {
-
     },
 
     /**
@@ -101,7 +97,6 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
     },
 
     /**

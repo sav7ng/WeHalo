@@ -19,7 +19,7 @@
         <!-- Navigator页面跳转 -->
         <navigator url="../post/post?postId={{item.postId}}">
             <view class="post-card-image-link">
-                <image class="img" mode="widthFix" src="https://blog.eunji.cn{{item.postThumbnail}}"></image>
+                <image class="img" mode="widthFix" src="{{imageUrl}}{{item.postThumbnail}}"></image>
             </view>
             <view class="post-card-content">
                 <view style="margin-left: 10px; color: #cccccc;">
@@ -30,8 +30,8 @@
                 <view class="title">{{item.postTitle}}</view>
                 <view class="summary">{{item.postSummary}}</view>
                 <view class="footer">
-                    <!-- <i-avatar src="{{userAvatar}}" size="small"></i-avatar> -->
-                    <image mode="widthFix" class='userAvatar' src="{{userAvatar}}"></image>
+                    <i-avatar src="{{userAvatar}}" size="small"></i-avatar>
+                    <!-- <image mode="widthFix" class='userAvatar' src="{{userAvatar}}"></image> -->
                     <view class="postDate">{{item.postDate}}</view>
                 </view>
             </view>
@@ -41,24 +41,6 @@
     <view class="i-divider-mart">
         <i-divider>{{Author}}</i-divider>
     </view>
-
-    
-    <!-- 第一版本 -->
-    <!-- <view class='card' wx:for="{{posts}}" wx:key="postId">
-        <i-card title="" extra="{{userName}}Blog" thumb="{{userAvatar}}">
-        <i-card title="{{item.postTitle}}" style="background-image: {{userAvatar}};">
-            <view slot="content">{{item.postSummary}}</view>
-            <view slot="footer">
-                <i-tag wx:for="{{item.tags}}" wx:key="tagId" color="blue" type="border" style="margin-right:5px;">
-                    {{item.tagName}}
-                </i-tag>
-                <view style="float: right;">
-                    <i-avatar src="{{userAvatar}}" size="small"></i-avatar>
-                    <text style="margin-left: 5px;">{{item.postDate}}</text>
-                </view>
-            </view>
-        </i-card>
-    </view> -->
 
   
 </view>
