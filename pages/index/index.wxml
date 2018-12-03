@@ -16,6 +16,7 @@
 
     <!-- Posts -->
     <view class="post-card" wx:for="{{posts}}" wx:key="postId">
+        <!-- Navigator页面跳转 -->
         <navigator url="../post/post?postId={{item.postId}}">
             <view class="post-card-image-link">
                 <image class="img" mode="widthFix" src="https://blog.eunji.cn{{item.postThumbnail}}"></image>
@@ -35,6 +36,10 @@
                 </view>
             </view>
         </navigator>
+    </view>
+
+    <view class="i-divider-mart">
+        <i-divider>{{Author}}</i-divider>
     </view>
 
     

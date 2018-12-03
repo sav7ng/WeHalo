@@ -21,4 +21,9 @@
         <htmltowxml text="{{post.postContent}}" highlightStyle="dracula" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" ></htmltowxml>
     </view>
 
+   
+    <view class="i-divider-mart">
+        <i-divider>{{Author}}</i-divider>
+    </view>
+
 </view>

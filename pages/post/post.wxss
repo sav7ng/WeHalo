@@ -5,7 +5,7 @@
 
 .top {
     padding-bottom: 10px;
-    border-bottom: 1px solid #cccccc;
+    border-bottom: 1px solid #ddd;
 }
 
 .titleTags {

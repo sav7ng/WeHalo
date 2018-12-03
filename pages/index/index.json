@@ -3,7 +3,8 @@
     "i-card": "../../dist/card/index",
     "i-avatar": "../../dist/avatar/index",
     "i-spin": "../../dist/spin/index",
-    "i-tag": "../../dist/tag/index"
+    "i-tag": "../../dist/tag/index",
+    "i-divider": "../../dist/divider/index"
   },
   "enablePullDownRefresh": true,
   "backgroundTextStyle": "dark"

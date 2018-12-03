@@ -1,4 +1,5 @@
 // pages/post/post.js
+const app = getApp()
 Page({
 
     /**
@@ -8,6 +9,7 @@ Page({
         scrollTop: 0,
         linenums: false,
         spinShow: true,
+        Author: "Halo · Aquan",
     },
 
     /**
@@ -24,8 +26,8 @@ Page({
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this//不要漏了这句，很重要
         var postId = options.postId
-        var url = 'https://blog.eunji.cn/api/posts/' + postId
-        var userAvatarUrl = 'https://blog.eunji.cn'
+        var url = app.globalData.URL + '/api/posts/' + postId
+        var userAvatarUrl = app.globalData.URL
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -45,6 +47,8 @@ Page({
                 })
                 //取消Loading效果
                 // wx.hideLoading()
+
+                //动态设置当前页面的标题
                 wx.setNavigationBarTitle({
                     title: res.data.result.postTitle,
                 })

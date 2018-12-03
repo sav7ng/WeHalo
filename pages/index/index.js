@@ -5,20 +5,16 @@ const jinrishici = require('../../utils/jinrishici.js')
 
 Page({
     data: {
-        motto: 'Hello World',
-        userInfo: {},
-        hasUserInfo: false,
-        canIUse: wx.canIUse('button.open-type.getUserInfo'),
         spinShow: true,
-        imgUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg",
+        Author: "Halo · Aquan",
     },
     //下拉刷新
     onPullDownRefresh() {
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this//不要漏了这句，很重要
-        var url = 'https://blog.eunji.cn/api/archives/year'
-        var userAvatarUrl = 'https://blog.eunji.cn'
+        var url = app.globalData.URL + '/api/archives/year'
+        var userAvatarUrl = app.globalData.URL
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -68,8 +64,8 @@ Page({
     },
     onLoad: function () {
         var that = this//不要漏了这句，很重要
-        var url = 'https://blog.eunji.cn/api/archives/year'
-        var userAvatarUrl = 'https://blog.eunji.cn'
+        var url = app.globalData.URL + '/api/archives/year'
+        var userAvatarUrl = app.globalData.URL
 
         //微信自带Loading效果
         // wx.showLoading({
