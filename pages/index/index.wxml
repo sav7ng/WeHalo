@@ -8,7 +8,8 @@
     <view class="top">
         <!-- <cover-image class="img" mode="widthFix" src="{{imgUrl}}"></cover-image> -->
         <view class="aquanblog">
-            AquanBlog<view class="aquanblogs">{{jinrishici}}</view>
+            AquanBlog
+            <view class="aquanblogs">{{jinrishici}}</view>
         </view>
         <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
     </view>
@@ -42,5 +43,5 @@
         <i-divider>{{Author}}</i-divider>
     </view>
 
-  
+
 </view>

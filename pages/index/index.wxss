@@ -1,144 +1,147 @@
 /**index.wxss**/
+
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+    color: #aaa;
 }
 
 .usermotto {
-  margin-top: 200px;
+    margin-top: 200px;
 }
 
 .card {
-  width: 100%;
-  margin-top: 5px;
+    width: 100%;
+    margin-top: 5px;
 }
 
 .img {
-  width: 100%;
-  /* height: 100%; */
+    width: 100%;
+    /* height: 100%; */
 }
 
 .imgs {
-  width: 100%;
-  position: relative;
+    width: 100%;
+    position: relative;
 }
 
 .top {
-  margin-bottom: 20px;
-  width: 100%;
+    margin-bottom: 20px;
+    width: 100%;
 }
 
 .userAvatar {
-  width: 25px;
-  height: 25px;
-  float: left;
+    width: 25px;
+    height: 25px;
+    float: left;
 }
 
 .aquanblog {
-  /* position: absolute; */
-  font-weight: 800;
-  color: #fff;
-  font-size: 30px;
-  z-index: 99;
-  background-image: url("https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  height: 150px;
-  width: 100%;
-  position: relative;
-  background-position: center center;
-  background-size: cover;
-  text-align: center;
-  padding-top: 20%;
+    /* position: absolute; */
+    font-weight: 800;
+    color: #fff;
+    font-size: 30px;
+    z-index: 99;
+    background-image: url("https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 150px;
+    width: 100%;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    padding-top: 20%;
 }
 
 .aquanblogs {
-  font-weight: 100;
-  color: #fff;
-  font-size: 20px;
-  text-align: center;
-  padding:12px;
+    font-weight: 100;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    padding: 12px;
 }
+
 /****/
+
 .post-card, .post-feed {
-  display: -ms-flexbox;
-  display: flex;
+    display: -ms-flexbox;
+    display: flex;
 }
 
 .post-card {
-  -ms-flex: 1 1 300px;
-  /* flex: 1 1 300px; */
-  -ms-flex-direction: column;
-  flex-direction: column;
-  overflow: hidden;
-  margin: 0 20px 20px;
-  min-height: 300px;
-  background: #fff 50%;
-  background-size: cover;
-  border-radius: 5px;
-  box-shadow: 8px 14px 38px rgba(39,44,49,.06), 1px 3px 8px rgba(39,44,49,.03);
-  transition: all .5s ease;
-  width: 90%;
+    -ms-flex: 1 1 300px;
+    /* flex: 1 1 300px; */
+    -ms-flex-direction: column;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 0 20px 20px;
+    min-height: 300px;
+    background: #fff 50%;
+    background-size: cover;
+    border-radius: 5px;
+    box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06), 1px 3px 8px rgba(39, 44, 49, 0.03);
+    transition: all 0.5s ease;
+    width: 90%;
 }
 
 .post-card-image-link {
-  /* position: relative; */
-  display: block;
-  overflow: hidden;
-  border-radius: 5px 5px 0 0;
+    /* position: relative; */
+    display: block;
+    overflow: hidden;
+    border-radius: 5px 5px 0 0;
 }
 
 .post-card-content {
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 95%; 
-  height: 100%; 
-  /* border: 1px solid red; */
-  margin: 5px auto; 
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    width: 95%;
+    height: 100%;
+    /* border: 1px solid red; */
+    margin: 5px auto;
 }
 
 .title {
-  font-family: 微软雅黑;
-  line-height: 1.15;
-  font-weight: 700;
-  text-rendering: optimizeLegibility;
-  margin: 8px;
+    font-family: 微软雅黑;
+    line-height: 1.15;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+    margin: 8px;
 }
 
 .summary {
-  height: 100%;
-  font-size: 13px;
-  line-height: 1;
-  font-family: 微软雅黑;
-  margin: 0px 8px 8px 8px;
+    height: 100%;
+    font-size: 13px;
+    line-height: 1;
+    font-family: 微软雅黑;
+    margin: 0px 8px 8px 8px;
 }
 
 .footer {
-  margin: 8px 8px 2px 8px;
+    margin: 8px 8px 2px 8px;
 }
 
 .postDate {
-  float: right;
-  line-height: 30px;
-  font-size: 10px;
-  color: #738a94;
-  font-family: 微软雅黑;
+    float: right;
+    line-height: 30px;
+    font-size: 10px;
+    color: #738a94;
+    font-family: 微软雅黑;
 }

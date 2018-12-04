@@ -1,4 +1,5 @@
 /* pages/post/post.wxss */
+
 .content {
     padding: 10px;
 }
@@ -9,15 +10,15 @@
 }
 
 .titleTags {
-    margin-left: 10px; 
-    margin-right: 10px; 
-    color: #cccccc;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #ccc;
 }
 
 .titleData {
     float: right;
     font-size: 12px;
-    color: #cccccc;
+    color: #ccc;
     line-height: 37px;
 }
 
@@ -28,4 +29,3 @@
     padding: 5px;
     text-align: center;
 }
-

@@ -12,16 +12,16 @@
                 {{item.tagName}}
             </i-tag>
             <view class="titleData">
-                <i-icon type="time" size="12" color="#cccccc"/>{{post.postDate}}
-                <i-icon type="browse" size="12" color="#cccccc"/>{{post.postViews}}
+                <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
+                <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
             </view>
         </view>
     </view>
     <view slot="content" style="margin-top:10px;">
-        <htmltowxml text="{{post.postContent}}" highlightStyle="dracula" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" ></htmltowxml>
+        <htmltowxml text="{{post.postContent}}" highlightStyle="dracula" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap"></htmltowxml>
     </view>
 
-   
+
     <view class="i-divider-mart">
         <i-divider>{{Author}}</i-divider>
     </view>

@@ -12,7 +12,7 @@ Page({
     onPullDownRefresh() {
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
-        var that = this//不要漏了这句，很重要
+        var that = this //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year'
         var userAvatarUrl = app.globalData.URL
 
@@ -21,27 +21,27 @@ Page({
         //   title: '加载中',
         // })
         wx.request({
-        url: url,
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        success: function (res) {
-            console.log(res.data.result[0].posts[0])
-            that.setData({
+            url: url,
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            success: function(res) {
+                console.log(res.data.result[0].posts[0])
+                that.setData({
 
-                spinShow: false,
-                //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-                userName: res.data.result[0].posts[0].user.userDisplayName,
-                userDesc: res.data.result[0].posts[0].user.userDesc,
-                userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
-                title: res.data.result[0].posts[0].postTitle,
-                content: res.data.result[0].posts[0].postContent,
-                posts: res.data.result[0].posts,
-            })
-            //取消Loading效果
-            // wx.hideLoading()
-        }
+                    spinShow: false,
+                    //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+                    userName: res.data.result[0].posts[0].user.userDisplayName,
+                    userDesc: res.data.result[0].posts[0].user.userDesc,
+                    userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
+                    title: res.data.result[0].posts[0].postTitle,
+                    content: res.data.result[0].posts[0].postContent,
+                    posts: res.data.result[0].posts,
+                })
+                //取消Loading效果
+                // wx.hideLoading()
+            }
         })
         jinrishici.load(result => {
             // 下面是处理逻辑示例
@@ -61,8 +61,8 @@ Page({
             url: '../logs/logs'
         })
     },
-    onLoad: function () {
-        var that = this//不要漏了这句，很重要
+    onLoad: function() {
+        var that = this //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year'
         var userAvatarUrl = app.globalData.URL
 
@@ -76,7 +76,7 @@ Page({
             headers: {
                 'Content-Type': 'application/json'
             },
-            success: function (res) {
+            success: function(res) {
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result[0].posts[0])
                 that.setData({
@@ -94,7 +94,7 @@ Page({
                 //取消Loading效果
                 // wx.hideLoading()
             },
-            fail: function () {
+            fail: function() {
                 console.log('接口调用失败');
             }
         })
@@ -110,6 +110,5 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
-    },
+    onHide: function() {},
 })

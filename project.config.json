@@ -8,10 +8,12 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.0",
+	"libVersion": "2.4.1",
 	"appid": "wxe0face0d131e0bd2",
 	"projectname": "wxBlog",
 	"debugOptions": {
