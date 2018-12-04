@@ -10,6 +10,7 @@ Page({
         linenums: false,
         spinShow: true,
         Author: "Halo · Aquan",
+        spinShows: ''
     },
 
     /**
@@ -52,12 +53,12 @@ Page({
             }
         })
 
-        setTimeout(function() {
+        spinShows: setTimeout(function() {
             that.setData({
                 spinShow: !that.data.spinShow,
             });
             // console.log("spinShow");
-        }.bind(that), 2000)
+        }, 2000)
 
     },
 
@@ -80,7 +81,11 @@ Page({
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function() {},
+    onUnload: function() {
+        let spinShows = this.data.spinShows;
+        let that = this;
+        clearInterval(spinShows)
+    },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作

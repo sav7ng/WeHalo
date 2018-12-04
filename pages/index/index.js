@@ -111,4 +111,13 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {},
+    /**
+     * 用户点击右上角分享
+     */
+    onShareAppMessage: function () {
+        return{
+            title: "AquanBlog",
+            imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
+        }
+    },
 })
