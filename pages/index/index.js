@@ -6,8 +6,12 @@ const jinrishici = require('../../utils/jinrishici.js')
 Page({
     data: {
         spinShow: true,
-        Author: "Halo · Aquan",
+        Author: "Aquan · Halo",
+        Num: 5,
         pageNum: 0,
+        Flag: 0,
+        loadMore: false,
+        loadMores: true,
     },
     //下拉刷新
     onPullDownRefresh() {
@@ -29,6 +33,10 @@ Page({
             },
             success: function(res) {
                 console.log(res.data.result[0].posts[0])
+                var posts_list = [];
+                for (var i = 0; i < 5; i++) {
+                    posts_list.push(res.data.result[0].posts[i]);
+                }
                 that.setData({
 
                     spinShow: false,
@@ -38,7 +46,12 @@ Page({
                     userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
                     title: res.data.result[0].posts[0].postTitle,
                     content: res.data.result[0].posts[0].postContent,
-                    posts: res.data.result[0].posts,
+                    posts: posts_list,
+                    //加载更多数据归零
+                    pageNum: 0,
+                    Flag: 0,
+                    loadMores: true,
+
                 })
                 //取消Loading效果
                 // wx.hideLoading()
@@ -95,7 +108,8 @@ Page({
                     content: res.data.result[0].posts[0].postContent,
                     posts: posts_list,
                     posts_list: res.data.result[0].posts,
-                    imageUrl: app.globalData.URL
+                    imageUrl: app.globalData.URL,
+                    total: res.data.result[0].count,
                 })
                 //取消Loading效果
                 // wx.hideLoading()
@@ -133,15 +147,48 @@ Page({
         var pageNums = that.data.pageNum + 1;
         console.log('加载更多' + pageNums);
         var posts_list = [];
-        console.log(posts_list);
-        for (var i = 0; i < 5; i++) {
-            posts_list.push(that.data.posts_list[i+5]);
-        }
+        var total = that.data.total;
+        var a = total % 5;
+        // var b = (total / 5).toFixed(0);
+        var b = Math.floor(total / 5);
+        console.log(a + "|" + b);
+        var Num = 5;
+        var flag = 0;
+        if(flag == 0) {
+            if (that.data.pageNum < b-1) {
 
-        // 设置数据
+                console.log(that.data.pageNum)
+                for (var i = 0; i < 5; i++) {
+                    posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
+                }
+            } else{
+                for (var i = 0; i < b; i++) {
+                    posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
+                }
+                flag = 1;
+            }
+        }
+        console.log(posts_list);
+
         that.setData({
-            pageNum: pageNums,
-            posts: that.data.posts.concat(posts_list),
+            loadMore: true,
         });
+
+        if (that.data.Flag == 0) {
+            setTimeout(function () {
+                that.setData({
+                    pageNum: pageNums,
+                    posts: that.data.posts.concat(posts_list),
+                    Flag: flag,
+                    loadMore: false,
+                });
+            }, 500)
+        } else {
+            that.setData({
+                loadMore: false,
+                loadMores: false,
+            });
+        }
+        
     },
 })

@@ -9,7 +9,7 @@ Page({
         scrollTop: 0,
         linenums: false,
         spinShow: true,
-        Author: "Halo · Aquan",
+        Author: "Aquan · Halo",
         spinShows: ''
     },
 

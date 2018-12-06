@@ -43,5 +43,6 @@
         <i-divider>{{Author}}</i-divider>
     </view>
 
-
 </view>
+
+<i-load-more loading="{{loadMore}}" wx:if="{{loadMores}}"/>

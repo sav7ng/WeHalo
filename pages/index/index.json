@@ -4,7 +4,8 @@
         "i-avatar": "../../dist/avatar/index",
         "i-spin": "../../dist/spin/index",
         "i-tag": "../../dist/tag/index",
-        "i-divider": "../../dist/divider/index"
+        "i-divider": "../../dist/divider/index",
+        "i-load-more": "../../dist/load-more/index"
     },
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark"
