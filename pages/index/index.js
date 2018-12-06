@@ -7,6 +7,7 @@ Page({
     data: {
         spinShow: true,
         Author: "Halo · Aquan",
+        pageNum: 0,
     },
     //下拉刷新
     onPullDownRefresh() {
@@ -78,7 +79,11 @@ Page({
             },
             success: function(res) {
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
-                console.log(res.data.result[0].posts[0])
+                console.log(res.data.result[0].posts)
+                var posts_list = [];
+                for (var i = 0; i < 5; i++) {
+                    posts_list.push(res.data.result[0].posts[i]);
+                }
                 that.setData({
 
                     spinShow: false,
@@ -88,7 +93,8 @@ Page({
                     userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
                     title: res.data.result[0].posts[0].postTitle,
                     content: res.data.result[0].posts[0].postContent,
-                    posts: res.data.result[0].posts,
+                    posts: posts_list,
+                    posts_list: res.data.result[0].posts,
                     imageUrl: app.globalData.URL
                 })
                 //取消Loading效果
@@ -119,5 +125,23 @@ Page({
             title: "AquanBlog",
             imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
         }
+    },
+    //加载更多
+    onReachBottom: function () {
+        
+        var that = this;
+        var pageNums = that.data.pageNum + 1;
+        console.log('加载更多' + pageNums);
+        var posts_list = [];
+        console.log(posts_list);
+        for (var i = 0; i < 5; i++) {
+            posts_list.push(that.data.posts_list[i+5]);
+        }
+
+        // 设置数据
+        that.setData({
+            pageNum: pageNums,
+            posts: that.data.posts.concat(posts_list),
+        });
     },
 })
