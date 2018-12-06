@@ -20,7 +20,7 @@
         <!-- Navigator页面跳转 -->
         <navigator url="../post/post?postId={{item.postId}}">
             <view class="post-card-image-link">
-                <image class="img" mode="widthFix" src="{{imageUrl}}{{item.postThumbnail}}"></image>
+                <image class="img" lazy-load="true" mode="widthFix" src="{{imageUrl}}{{item.postThumbnail}}"></image>
             </view>
             <view class="post-card-content">
                 <view style="margin-left: 10px; color: #cccccc;">
