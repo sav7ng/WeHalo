@@ -46,3 +46,4 @@
 </view>
 
 <i-load-more loading="{{loadMore}}" wx:if="{{loadMores}}"/>
+<i-message id="message"/>

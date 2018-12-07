@@ -5,7 +5,8 @@
         "i-spin": "../../dist/spin/index",
         "i-tag": "../../dist/tag/index",
         "i-divider": "../../dist/divider/index",
-        "i-load-more": "../../dist/load-more/index"
+        "i-load-more": "../../dist/load-more/index",
+        "i-message": "../../dist/message/index"
     },
     "enablePullDownRefresh": true,
     "backgroundTextStyle": "dark"

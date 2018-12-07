@@ -1,5 +1,6 @@
 // pages/post/post.js
-const app = getApp()
+const app = getApp();
+const { $Message } = require('../../dist/base/index');
 Page({
 
     /**
@@ -23,10 +24,10 @@ Page({
         })
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
-        var that = this //不要漏了这句，很重要
-        var postId = options.postId
-        var url = app.globalData.URL + '/api/posts/' + postId
-        var userAvatarUrl = app.globalData.URL
+        var that = this; //不要漏了这句，很重要
+        var postId = options.postId;
+        var url = app.globalData.URL + '/api/posts/' + postId;
+        var userAvatarUrl = app.globalData.URL;
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -84,7 +85,7 @@ Page({
     onUnload: function() {
         let spinShows = this.data.spinShows;
         let that = this;
-        clearInterval(spinShows)
+        clearInterval(spinShows);
     },
 
     /**
@@ -97,7 +98,12 @@ Page({
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function() {},
+    onReachBottom: function() {
+        $Message({
+            content: '请听博主下回分解( • ̀ω•́ )✧',
+            duration: 2
+        });
+    },
 
     /**
      * 用户点击右上角分享

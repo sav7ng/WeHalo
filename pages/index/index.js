@@ -1,7 +1,9 @@
 //index.js
 //获取应用实例
-const app = getApp()
-const jinrishici = require('../../utils/jinrishici.js')
+const app = getApp();
+const jinrishici = require('../../utils/jinrishici.js');
+const { $Message } = require('../../dist/base/index');
+
 
 Page({
     data: {
@@ -17,9 +19,9 @@ Page({
     onPullDownRefresh() {
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
-        var that = this //不要漏了这句，很重要
-        var url = app.globalData.URL + '/api/archives/year'
-        var userAvatarUrl = app.globalData.URL
+        var that = this; //不要漏了这句，很重要
+        var url = app.globalData.URL + '/api/archives/year';
+        var userAvatarUrl = app.globalData.URL;
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -32,7 +34,7 @@ Page({
                 'Content-Type': 'application/json'
             },
             success: function(res) {
-                console.log(res.data.result[0].posts[0])
+                console.log(res.data.result[0].posts[0]);
                 var posts_list = [];
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(res.data.result[0].posts[i]);
@@ -54,18 +56,18 @@ Page({
 
                 })
                 //取消Loading效果
-                // wx.hideLoading()
+                // wx.hideLoading();
             }
         })
         jinrishici.load(result => {
             // 下面是处理逻辑示例
-            console.log(result)
+            console.log(result);
             this.setData({
                 "jinrishici": result.data.content,
                 shici: result.data.origin.content,
             })
             //关闭下拉刷新
-            wx.stopPullDownRefresh()
+            wx.stopPullDownRefresh();
         })
 
     },
@@ -76,9 +78,9 @@ Page({
         })
     },
     onLoad: function() {
-        var that = this //不要漏了这句，很重要
-        var url = app.globalData.URL + '/api/archives/year'
-        var userAvatarUrl = app.globalData.URL
+        var that = this; //不要漏了这句，很重要
+        var url = app.globalData.URL + '/api/archives/year';
+        var userAvatarUrl = app.globalData.URL;
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -92,7 +94,7 @@ Page({
             },
             success: function(res) {
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
-                console.log(res.data.result[0].posts)
+                console.log(res.data.result[0].posts);
                 var posts_list = [];
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(res.data.result[0].posts[i]);
@@ -112,7 +114,7 @@ Page({
                     total: res.data.result[0].count,
                 })
                 //取消Loading效果
-                // wx.hideLoading()
+                // wx.hideLoading();
             },
             fail: function() {
                 console.log('接口调用失败');
@@ -120,7 +122,7 @@ Page({
         })
         jinrishici.load(result => {
             // 下面是处理逻辑示例
-            console.log(result)
+            console.log(result);
             this.setData({
                 "jinrishici": result.data.content,
                 shici: result.data.origin.content,
@@ -157,7 +159,7 @@ Page({
         if(flag == 0) {
             if (that.data.pageNum < b-1) {
 
-                console.log(that.data.pageNum)
+                console.log(that.data.pageNum);
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
@@ -187,6 +189,10 @@ Page({
             that.setData({
                 loadMore: false,
                 loadMores: false,
+            });
+            $Message({
+                content: '博主已经努力了，会坚持每周一更。',
+                duration: 2
             });
         }
         
