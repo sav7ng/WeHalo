@@ -11,10 +11,18 @@
             <i-tag wx:for="{{post.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
                 {{item.tagName}}
             </i-tag>
+            <!-- bindtap="createPoster" -->
+            <view class="createPoster">
+                <i-icon type="share" size="22" color="#000" bindtap="handleOpen"/>
+            </view>
+            <i-modal title="朋友圈海报" visible="{{visible}}"  actions="{{actions}}"  bind:click="handleClick">
+                <painter customStyle='margin-left:40rpx' palette="{{createPoster}}" bind:imgOK="onImgOK"/>
+            </i-modal>
             <view class="titleData">
                 <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
                 <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
             </view>
+            
         </view>
     </view>
     <view slot="content" style="margin-top:10px;">

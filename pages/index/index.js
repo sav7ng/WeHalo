@@ -8,12 +8,13 @@ const { $Message } = require('../../dist/base/index');
 Page({
     data: {
         spinShow: true,
-        Author: "Aquan · Halo",
+        Author: "WeHalo",
         Num: 5,
         pageNum: 0,
         Flag: 0,
         loadMore: false,
         loadMores: true,
+        blogName: app.globalData.blogName,
     },
     //下拉刷新
     onPullDownRefresh() {
@@ -100,7 +101,6 @@ Page({
                     posts_list.push(res.data.result[0].posts[i]);
                 }
                 that.setData({
-
                     spinShow: false,
                     //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
                     userName: res.data.result[0].posts[0].user.userDisplayName,
@@ -138,8 +138,8 @@ Page({
      */
     onShareAppMessage: function () {
         return{
-            title: "AquanBlog",
-            imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
+            title: app.globalData.blogName,
+            // imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
         }
     },
     //加载更多

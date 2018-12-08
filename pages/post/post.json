@@ -5,6 +5,8 @@
         "i-tag": "../../dist/tag/index",
         "i-icon": "../../dist/icon/index",
         "i-divider": "../../dist/divider/index",
-        "i-message": "../../dist/message/index"
+        "i-message": "../../dist/message/index",
+        "i-modal": "../../dist/modal/index",
+        "painter": "../../dist/painter/painter"
     }
 }

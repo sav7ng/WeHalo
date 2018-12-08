@@ -34,7 +34,7 @@ App({
         })
     },
     globalData: { //全局变量
-        userInfo: null,
-        URL: 'https://blog.eunji.cn'
+        URL: "https://blog.eunji.cn",
+        blogName: "AquanBlog"
     }
 })

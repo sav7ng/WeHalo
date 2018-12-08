@@ -29,3 +29,15 @@
     padding: 5px;
     text-align: center;
 }
+
+.createPoster {
+    float: right;
+}
+
+.hide {
+  display: none;
+}
+ 
+.show {
+  display: block;
+}
