@@ -1,0 +1,10 @@
+{
+    "navigationBarBackgroundColor": "#242424",
+    "navigationBarTitleText": "分享海报",
+    "backgroundColor": "#fff",
+    "navigationBarTextStyle": "white",
+    "backgroundTextStyle": "light",
+    "usingComponents": {
+        "painter": "../../dist/painter/painter"
+    }
+}

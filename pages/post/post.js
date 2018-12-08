@@ -2,19 +2,6 @@
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
 
-function _textDecoration(decoration, index, color) {
-    return ({
-        type: 'text',
-        text: decoration,
-        css: [{
-            top: `${startTop + index * gapSize}rpx`,
-            color: color,
-            textDecoration: decoration,
-        }, common],
-    });
-}
-
-
 Page({
 
     /**
@@ -26,34 +13,13 @@ Page({
         spinShow: true,
         Author: "WeHalo",
         spinShows: '',
-        visible: false,
-        actions: [
-            {
-                name: '保存图片',
-                color: '#2d8cf0',
-            },
-            {
-                name: '取消'
-            }
-        ],
-        createPoster: {}
-    },
-
-    onImgOK(e) {
-        this.imagePath = e.detail.path;
-        console.log(e);
-    },
-
-    saveImage() {
-        wx.saveImageToPhotosAlbum({
-            filePath: this.imagePath,
-        });
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+        
 
         this.setData({
             postId: options.postId,
@@ -154,82 +120,5 @@ Page({
 
     },
     
-    handleOpen() {
-        var that = this;
-        that.setData({
-            visible: true,
-            createPoster: {
-                width: '600rpx',
-                height: '600rpx',
-                background: '#fff',
-                borderRadius: '7px',
-                views: [
-
-                    {
-                        type: 'image',
-                        url: that.data.imageUrl,
-                        css: {
-                            width: '600rpx',
-                            height: '450rpx',
-                        }
-                    },
-                    {
-                        type: 'image',
-                        url: 'https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png',
-                        css: {
-                            width: '600rpx',
-                            height: '167rpx',
-                            mode: 'scaleToFill',
-                            top: '433rpx',
-                        }
-                    },
-                    {
-                        type: 'text',
-                        text: that.data.postTitle,
-                        css: {
-                            top: `50rpx`,
-                            fontSize: '45rpx',
-                            color: '#fff',
-                            fontWeight: 'bold',
-                            align: 'center',
-                            width: '600rpx',
-                            left: '300rpx'
-                        }
-                    },
-                    {
-                        type: 'text',
-                        text: that.data.postAuthor + " · " + that.data.postDate + " · " + "WeHalo",
-                        css: {
-                            left: '300rpx',
-                            top: '380rpx',
-                            fontSize: '20rpx',
-                            color: '#fff',
-                            width: '600rpx',
-                            align: 'center',
-                        }
-                    },
-                ]
-            },
-        });
-
-    },
-
-    handleClick({ detail }) {
-        const index = detail.index;
-
-        if (index === 0) {
-            $Message({
-                content: '保存图片'
-            });
-            wx.saveImageToPhotosAlbum({
-                filePath: this.imagePath,
-                createPoster: {},
-            });
-        }
-
-        this.setData({
-            visible: false,
-            createPoster: {},
-        });
-    },
+    
 })
