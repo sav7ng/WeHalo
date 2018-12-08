@@ -31,9 +31,9 @@
 
 配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-<img src="https://blog.eunji.cn/upload/2018/11/12018120900303582.jpg" width="30%" height="30%">
-<img src="https://blog.eunji.cn/upload/2018/11/220181209003036364.jpg" width="30%" height="30%">
-<img src="https://blog.eunji.cn/upload/2018/11/3201812090030354.jpg" width="30%" height="30%">
+<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/1.jpg" width="200px">
+<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/2.jpg" width="200px">
+<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/3.jpg" width="200px">
 
 > QQ交流群: 162747721，Telegram交流群：[https://t.me/HaloBlog](https://t.me/HaloBlog)
 
@@ -45,7 +45,7 @@
 git clone https://github.com/aquanlerou/WeHalo.git
 ```
 
-代码下载后，用小程序 IDE 打开后即可使用。
+代码下载后，把 **image** 文件夹删除（放的是README中的图片与项目无关），用小程序 IDE 打开后即可使用。
 
 **注：请选择小程序项目，非小游戏，例子中无 appid，所以无法在手机上运行，如果需要真机调试，请在打开例子时，填上自己的小程序 id**
 
@@ -103,7 +103,7 @@ globalData: { //全局变量
 
 ## 演示
 
-![](https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png)
+![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wx.png)
 
 
 ## 许可证
@@ -131,6 +131,6 @@ WeHalo的诞生离不开下面这些项目：
 
 | 支付宝  | 微信  |
 | :------------: | :------------: |
-| <img src="https://blog.eunji.cn/upload/2018/11/alipay20181208235545431.png" width="150"/>  | <img src="https://blog.eunji.cn/upload/2018/11/wechat20181208235544504.png" width="150" />  |
+| <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/alipay.png" width="150"/>  | <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wechat.png" width="150" />  |
 
 
