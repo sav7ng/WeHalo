@@ -38,8 +38,9 @@ Page({
         wx.request({
             url: url,
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+            header: {
+                'Content-Type': 'application/json',
+                'token': '#'
             },
             success: function(res) {
                 console.log(res.data.result)

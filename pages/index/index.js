@@ -31,8 +31,9 @@ Page({
         wx.request({
             url: url,
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+            header: {
+                'Content-Type': 'application/json',
+                'token': '#'
             },
             success: function(res) {
                 console.log(res.data.result[0].posts[0]);
@@ -90,8 +91,9 @@ Page({
         wx.request({
             url: url,
             method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
+            header: {
+                'Content-Type': 'application/json',
+                'token': '#'
             },
             success: function(res) {
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
