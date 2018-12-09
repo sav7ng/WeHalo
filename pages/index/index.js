@@ -23,7 +23,9 @@ Page({
         var that = this; //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year';
         var userAvatarUrl = app.globalData.URL;
+        var token = app.globalData.TOKEN;
 
+        console.log(token);
         //微信自带Loading效果
         // wx.showLoading({
         //   title: '加载中',
@@ -33,7 +35,7 @@ Page({
             method: 'GET',
             header: {
                 'Content-Type': 'application/json',
-                'token': '#'
+                'token': token
             },
             success: function(res) {
                 console.log(res.data.result[0].posts[0]);
@@ -83,6 +85,7 @@ Page({
         var that = this; //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year';
         var userAvatarUrl = app.globalData.URL;
+        var token = app.globalData.TOKEN;
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -93,7 +96,7 @@ Page({
             method: 'GET',
             header: {
                 'Content-Type': 'application/json',
-                'token': '#'
+                'token': token
             },
             success: function(res) {
                 //将获取到的json数据，存在名字叫zhihu的这个数组中

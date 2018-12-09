@@ -30,6 +30,7 @@ Page({
         var postId = options.postId;
         var url = app.globalData.URL + '/api/posts/' + postId;
         var userAvatarUrl = app.globalData.URL;
+        var token = app.globalData.TOKEN;
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -40,7 +41,7 @@ Page({
             method: 'GET',
             header: {
                 'Content-Type': 'application/json',
-                'token': '#'
+                'token': token
             },
             success: function(res) {
                 console.log(res.data.result)

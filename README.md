@@ -31,9 +31,7 @@
 
 配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/1.jpg" width="200px">
-<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/2.jpg" width="200px">
-<img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/3.jpg" width="200px">
+![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.jpg)
 
 > QQ交流群: 162747721，Telegram交流群：[https://t.me/HaloBlog](https://t.me/HaloBlog)
 
@@ -54,12 +52,13 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址 
 
-**注：必须是HTTPS的因为，微信官方规定**
+**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``添加到微信公众平台的 ``request 合法域名``中**
 
 ```
 globalData: { //全局变量
     URL: "https://blog.eunji.cn",   //你的地址
-    blogName: "AquanBlog"   //博客名字
+    blogName: "AquanBlog",   //博客名字
+    TOKEN: "YouToken"   //Halo后台的Token
 }
 ```
 
@@ -123,7 +122,7 @@ WeHalo的诞生离不开下面这些项目：
 
 - **[Halo](https://github.com/ruibaby/halo)：轻快，简洁，功能强大，使用Java开发的博客系统**
 - **[iView Weapp](https://github.com/TalkingData/iview-weapp)：一套高质量的微信小程序 UI 组件库**
-- **[Painter](https://github.com/TalkingData/iview-weapp)：微信小程序生成图片库，绘制一张可以发到朋友圈的图片**
+- **[Painter](https://github.com/Kujiale-Mobile/Painter)：微信小程序生成图片库，绘制一张可以发到朋友圈的图片**
 
 ## 捐赠
 
