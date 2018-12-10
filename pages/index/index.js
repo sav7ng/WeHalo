@@ -102,6 +102,7 @@ Page({
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result[0].posts);
                 var posts_list = [];
+
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(res.data.result[0].posts[i]);
                 }
@@ -158,18 +159,21 @@ Page({
         var a = total % 5;
         // var b = (total / 5).toFixed(0);
         var b = Math.floor(total / 5);
-        console.log(a + "|" + b);
+        var c = parseInt(total / 5);
+        console.log(a + "|" + b + "|" + c);
         var Num = 5;
         var flag = 0;
         if(flag == 0) {
-            if (that.data.pageNum < b-1) {
-
-                console.log(that.data.pageNum);
+            if (that.data.pageNum < (b-1) || a == 0 ) {
+                if (a == 0 && pageNums == (c-1)) {
+                    flag = 1;
+                }
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
+                
             } else{
-                for (var i = 0; i < b; i++) {
+                for (var i = 0; i <= b; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
                 flag = 1;
