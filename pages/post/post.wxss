@@ -5,7 +5,7 @@
 }
 
 .top {
-    padding-bottom: 10px;
+    /* padding-bottom: 10px; */
     border-bottom: 1px solid #ddd;
 }
 
@@ -16,10 +16,11 @@
 }
 
 .titleData {
-    float: right;
+    /* float: right; */
     font-size: 12px;
     color: #ccc;
-    line-height: 37px;
+    line-height: 26px;
+    text-align: right;
 }
 
 .stickyTitle {

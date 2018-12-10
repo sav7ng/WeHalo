@@ -52,7 +52,8 @@ Page({
                     userDesc: res.data.result.user.userDesc,
                     postDate: res.data.result.postDate,
                     postTitle: res.data.result.postTitle,
-                    postSummary: res.data.result.postSummary
+                    postSummary: res.data.result.postSummary,
+                    url: userAvatarUrl,
                 })
                 //取消Loading效果
                 // wx.hideLoading()
