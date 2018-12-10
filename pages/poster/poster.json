@@ -5,6 +5,7 @@
     "navigationBarTextStyle": "white",
     "backgroundTextStyle": "light",
     "usingComponents": {
-        "painter": "../../dist/painter/painter"
+        "painter": "../../dist/painter/painter",
+        "i-message": "../../dist/message/index"
     }
 }

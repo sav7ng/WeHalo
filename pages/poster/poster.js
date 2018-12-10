@@ -10,6 +10,8 @@ function _textDecoration(decoration, index, color) {
     });
 }
 const app = getApp();
+const { $Message } = require('../../dist/base/index');
+
 // pages/poster/poster.js
 Page({
 
@@ -28,6 +30,10 @@ Page({
     saveImage() {
         wx.saveImageToPhotosAlbum({
             filePath: this.imagePath,
+        });
+        $Message({
+            content: '海报保存成功( • ̀ω•́ )✧',
+            duration: 2
         });
     },
 
@@ -71,6 +77,7 @@ Page({
                     postSummary: res.data.result.postSummary
                 })
 
+                // console.log(that.data.imageUrl);
                 //动态设置当前页面的标题
                 // wx.setNavigationBarTitle({
                 //     title: res.data.result.postTitle,
