@@ -52,7 +52,7 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址 
 
-**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``添加到微信公众平台的 ``request 合法域名``中**
+**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``添和``https://v2.jinrishici.com``加到微信公众平台的 ``request 合法域名``中**
 
 ```
 globalData: { //全局变量
@@ -81,7 +81,6 @@ globalData: { //全局变量
 
 修改``poster.js``文件更改 **生成海报** 功能附带你小程序宣传图片（图片可以在微信公众平台下载宣传物料获取放到你的服务器获取图片链接）
 
-
 ```
 {
     type: 'image',
@@ -95,6 +94,16 @@ globalData: { //全局变量
     }
 },
 ```
+
+
+html2wxml插件版本准备
+
+> 1. 添加插件
+![添加小程序插件](https://www.qwqoffice.com/html2wxml/images/plugin-1.png "添加小程序插件")
+> 2. 搜索 `html2wxml` ，选中并添加
+![添加小程序插件](https://www.qwqoffice.com/html2wxml/images/plugin-2.png "添加小程序插件")
+> 3. 添加成功
+![添加小程序插件](https://www.qwqoffice.com/html2wxml/images/plugin-3.png "添加小程序插件")
 
 
 > 文档正在不断完善中，遇到问题请加群提问或者 [**Issues**](https://github.com/aquanlerou/WeHalo/issues) 等你吐槽...
@@ -123,6 +132,7 @@ WeHalo的诞生离不开下面这些项目：
 - **[Halo](https://github.com/ruibaby/halo)：轻快，简洁，功能强大，使用Java开发的博客系统**
 - **[iView Weapp](https://github.com/TalkingData/iview-weapp)：一套高质量的微信小程序 UI 组件库**
 - **[Painter](https://github.com/Kujiale-Mobile/Painter)：微信小程序生成图片库，绘制一张可以发到朋友圈的图片**
+- **[html2wxml](https://github.com/qwqoffice/html2wxml)：用于微信小程序的HTML和Markdown格式的富文本渲染组件，支持代码高亮**
 
 ## 捐赠
 
