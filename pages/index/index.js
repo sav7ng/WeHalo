@@ -180,13 +180,10 @@ Page({
         var Num = 5;
         var flag = 0;
         var flag1 = 0;
-
-
         var count = that.data.total;
         if (count < 5) {
             flag1 = 1;
         }
-        console.log(flag1);
         if (that.data.Flag == 0) {
             if (that.data.pageNum < (b-1) || a == 0 ) {
                 if (a == 0 && pageNums == (c-1)) {
@@ -197,7 +194,7 @@ Page({
                 }
                 
             } else{
-                for (var i = 0; i <= b; i++) {
+                for (var i = 0; i < a; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
                 flag = 1;
