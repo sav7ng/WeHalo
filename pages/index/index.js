@@ -40,8 +40,16 @@ Page({
             success: function(res) {
                 console.log(res.data.result[0].posts[0]);
                 var posts_list = [];
-                for (var i = 0; i < 5; i++) {
-                    posts_list.push(res.data.result[0].posts[i]);
+                var count = res.data.result[0].count;
+                console.log(count);
+                if (count < 5) {
+                    for (var i = 0; i < count; i++) {
+                        posts_list.push(res.data.result[0].posts[i]);
+                    }
+                } else {
+                    for (var i = 0; i < 5; i++) {
+                        posts_list.push(res.data.result[0].posts[i]);
+                    }
                 }
                 that.setData({
 
@@ -91,6 +99,7 @@ Page({
         // wx.showLoading({
         //   title: '加载中',
         // })
+
         wx.request({
             url: url,
             method: 'GET',
@@ -102,9 +111,16 @@ Page({
                 //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result[0].posts);
                 var posts_list = [];
-
-                for (var i = 0; i < 5; i++) {
-                    posts_list.push(res.data.result[0].posts[i]);
+                var count = res.data.result[0].count;
+                console.log(count);
+                if (count < 5) {
+                    for (var i = 0; i < count; i++) {
+                        posts_list.push(res.data.result[0].posts[i]);
+                    }
+                } else {
+                    for (var i = 0; i < 5; i++) {
+                        posts_list.push(res.data.result[0].posts[i]);
+                    }
                 }
                 that.setData({
                     spinShow: false,
@@ -163,7 +179,15 @@ Page({
         console.log(a + "|" + b + "|" + c);
         var Num = 5;
         var flag = 0;
-        if(flag == 0) {
+        var flag1 = 0;
+
+
+        var count = that.data.total;
+        if (count < 5) {
+            flag1 = 1;
+        }
+        console.log(flag1);
+        if (that.data.Flag == 0) {
             if (that.data.pageNum < (b-1) || a == 0 ) {
                 if (a == 0 && pageNums == (c-1)) {
                     flag = 1;
@@ -185,24 +209,40 @@ Page({
             loadMore: true,
         });
 
+        console.log(that.data.Flag);
         if (that.data.Flag == 0) {
+            if (flag1 == 1) {
+                setTimeout(function () {
+                    that.setData({
+                        loadMore: false,
+                        loadMores: false,
+                    });
+                    $Message({
+                        content: '博主已经努力了，会坚持每周一更。',
+                        duration: 2
+                    });
+                }, 200);
+            } else {
+                setTimeout(function () {
+                    that.setData({
+                        pageNum: pageNums,
+                        posts: that.data.posts.concat(posts_list),
+                        Flag: flag,
+                        loadMore: false,
+                    });
+                }, 200);
+            }
+        } else {
             setTimeout(function () {
                 that.setData({
-                    pageNum: pageNums,
-                    posts: that.data.posts.concat(posts_list),
-                    Flag: flag,
                     loadMore: false,
+                    loadMores: false,
                 });
-            }, 500)
-        } else {
-            that.setData({
-                loadMore: false,
-                loadMores: false,
-            });
-            $Message({
-                content: '博主已经努力了，会坚持每周一更。',
-                duration: 2
-            });
+                $Message({
+                    content: '博主已经努力了，会坚持每周一更。',
+                    duration: 2
+                });
+            }, 200);
         }
         
     },
