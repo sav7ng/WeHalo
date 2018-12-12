@@ -6,7 +6,6 @@
     <view class='buttons'>
         <button size="mini" class="button" bind:tap='saveImage'>保存图片</button>
         <view class='text'>
-            保存后可分享至朋友圈
         </view>
     </view>
 </view>
