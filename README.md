@@ -37,7 +37,7 @@
 
 ## 快速开始
 
-**注：开源不易请留 WeHlo 底部署名不要删除**
+**注：开源不易请留 WeHalo 底部署名不要删除**
 
 ```bash
 git clone https://github.com/aquanlerou/WeHalo.git
