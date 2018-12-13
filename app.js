@@ -35,7 +35,7 @@ App({
     },
     globalData: { //全局变量
         URL: "https://blog.eunji.cn",
-        blogName: "AquanBlog",
+        blogName: "Aquan",
         TOKEN: "YouToken"
     }
 })

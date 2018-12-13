@@ -7,7 +7,7 @@
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "AquanBlog",
+        "navigationBarTitleText": "爱敲代码的猫",
         "navigationBarTextStyle": "black"
     },
     "plugins": {
