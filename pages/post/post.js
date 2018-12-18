@@ -13,6 +13,7 @@ Page({
         spinShow: true,
         Author: "WeHalo",
         spinShows: '',
+        style: app.globalData.highlightStyle,
     },
 
     /**
