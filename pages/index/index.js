@@ -15,6 +15,7 @@ Page({
         loadMore: false,
         loadMores: true,
         blogName: app.globalData.blogName,
+        aflag: true,
     },
     //下拉刷新
     onPullDownRefresh() {
@@ -90,6 +91,7 @@ Page({
         })
     },
     onLoad: function() {
+        this.app = getApp();
         var that = this; //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year';
         var userAvatarUrl = app.globalData.URL;
@@ -242,5 +244,51 @@ Page({
             }, 200);
         }
         
+    },
+
+    handleQrcode() {
+        wx.previewImage({
+            urls: ['https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png']
+        })
+    },
+
+    // 防止冒泡
+    prevent() {
+        console.log("防止冒泡");
+    },
+
+    showMask() {
+        this.setData({
+            aflag: false,
+        });
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(1).translate(wx.getSystemInfoSync().windowWidth, 0).step()
+        this.setData({
+            ani: animation.export()
+        })
+    },
+
+    closeMask() {
+
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(0).translate(-wx.getSystemInfoSync().windowWidth, 0).step()
+        that.setData({
+            ani: animation.export()
+        });
+        
+        setTimeout(function () {
+            that.setData({
+                aflag: true,
+            });
+        }, 600);
     },
 })

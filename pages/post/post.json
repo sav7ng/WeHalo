@@ -6,5 +6,6 @@
         "i-icon": "../../dist/icon/index",
         "i-divider": "../../dist/divider/index",
         "i-message": "../../dist/message/index"
-    }
+    },
+    "navigationStyle": "default"
 }
