@@ -3,6 +3,7 @@
 const app = getApp();
 const jinrishici = require('../../utils/jinrishici.js');
 const { $Message } = require('../../dist/base/index');
+const request = require('../../utils/request.js');
 
 
 Page({
@@ -17,6 +18,22 @@ Page({
         blogName: app.globalData.blogName,
         aflag: true,
     },
+
+    /**
+   * 接口调用成功处理
+   */
+    successFun: function (res, selfObj) {
+        selfObj.setData({
+            resultData: res.result[0].posts,
+        })
+    },
+    /**
+     * 接口调用失败处理
+     */
+    failFun: function (res, selfObj) {
+        console.log('failFun', res)
+    },
+
     //下拉刷新
     onPullDownRefresh() {
 
@@ -97,6 +114,16 @@ Page({
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
 
+
+
+
+        var params = {};
+
+        console.log("11");
+        //@todo 网络请求API数据
+        request.requestGetApi(url, token, params, this, this.successFun, this.failFun);
+        console.log("22");
+
         //微信自带Loading效果
         // wx.showLoading({
         //   title: '加载中',
@@ -110,7 +137,6 @@ Page({
                 'token': token
             },
             success: function(res) {
-                //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result[0].posts);
                 var posts_list = [];
                 var count = res.data.result[0].count;
