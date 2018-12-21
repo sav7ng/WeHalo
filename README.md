@@ -1,6 +1,4 @@
-<h1>
-    <a href="#" target="_blank">WeHalo</a>
-</h1>
+[![](https://blog.eunji.cn/upload/2018/11/120181221232712415.png)](https://github.com/aquanlerou/WeHalo)
 
 > WeHalo **简约风** 的微信小程序版博客
 
