@@ -36,7 +36,7 @@ App({
     globalData: { //全局变量
         URL: "https://blog.eunji.cn",
         blogName: "Aquan",
-        TOKEN: "YouToken",
+        TOKEN: "ecfb9ef674250cf600d3a8d3e7baa9a7",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
     }
 })
