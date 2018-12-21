@@ -8,7 +8,8 @@
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#fff",
         "navigationBarTitleText": "爱敲代码的猫",
-        "navigationBarTextStyle": "black"
+        "navigationBarTextStyle": "white",
+        "navigationStyle": "custom"
     },
     "plugins": {
         "htmltowxml": {

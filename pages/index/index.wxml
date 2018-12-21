@@ -1,4 +1,15 @@
 <!--index.wxml-->
+<!-- 蒙版效果 -->
+<view class="mask" hidden="{{aflag}}" catchtap="closeMask">
+    <view class="masks" catchtap="prevent" animation="{{ani}}">
+        <image catchtap="handleQrcode" class="maskImg" src="https://blog.eunji.cn/upload/2018/11/wxBlog2018120314543093.jpg" mode="widthFix"></image>
+        <!-- <text>asdadasdad</text> -->
+        <view class="left">
+            科技 | 技术
+        </view>
+    </view>
+</view>
+
 <view class="container">
 
     <!-- loading...加载 -->
@@ -12,8 +23,8 @@
             <view class="aquanblogs">{{jinrishici}}</view>
         </view>
         <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
+        <view bindtap="showMask" class='qrcode'></view>
     </view>
-
 
     <!-- Posts -->
     <view class="post-card" wx:for="{{posts}}" wx:key="postId">

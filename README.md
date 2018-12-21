@@ -56,7 +56,8 @@ git clone https://github.com/aquanlerou/WeHalo.git
 globalData: { //全局变量
     URL: "https://blog.eunji.cn",   //你的地址
     blogName: "AquanBlog",   //博客名字
-    TOKEN: "YouToken"   //Halo后台的Token
+    TOKEN: "YouToken",   //Halo后台的Token
+    highlightStyle: "dracula",  //代码高亮样式，可用值default,darcula,dracula,tomorrow
 }
 ```
 

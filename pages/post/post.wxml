@@ -26,7 +26,7 @@
         </view>
     </view>
     <view slot="content" style="margin-top:10px;">
-        <htmltowxml text="{{post.postContent}}" highlightStyle="dracula" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap"></htmltowxml>
+        <htmltowxml text="{{post.postContent}}" highlightStyle="{{style}}" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap"></htmltowxml>
     </view>
 
 
