@@ -278,7 +278,7 @@ Page({
                         that.setData({
                             showMessage: false,
                         });
-                    }, 2000);
+                    }, 1800);
                 }, 200);
             } else {
                 setTimeout(function () {
@@ -305,7 +305,7 @@ Page({
                     that.setData({
                         showMessage: false,
                     });
-                }, 2000);
+                }, 1800);
             }, 200);
         }
         
@@ -415,8 +415,6 @@ Page({
      */
     onPageScroll: function (event) {
         var _this = this;
-        console.log("a");
-        console.log(event.scrollTop);
         // if (event.scrollTop > this.data.scrollTop || event.scrollTop == wx.getSystemInfoSync().windowHeight) {
         //     //向下滚动
         //     console.log("向下滚动");
