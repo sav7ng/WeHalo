@@ -414,7 +414,7 @@ Page({
      * 监听屏幕滚动 判断上下滚动
      */
     onPageScroll: function (event) {
-        var _this = this;
+        var that = this;
         // if (event.scrollTop > this.data.scrollTop || event.scrollTop == wx.getSystemInfoSync().windowHeight) {
         //     //向下滚动
         //     console.log("向下滚动");
@@ -423,17 +423,13 @@ Page({
         //     console.log("向上滚动");
         // }
         if (event.scrollTop >= 130) {
-            setTimeout(function () {
-                _this.setData({
-                    nav: true
-                })
-            }, 0);
+            that.setData({
+                nav: true
+            })
         } else {
-            setTimeout(function () {
-                _this.setData({
-                    nav: false
-                })
-            }, 0);
+            that.setData({
+                nav: false
+            })
         }
 
         //给scrollTop重新赋值
