@@ -2,11 +2,11 @@
 
 > WeHalo **简约风** 的微信小程序版博客
 
-[![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg)](https://github.com/aquanlerou)
-[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg)](https://github.com/aquanlerou/WeHalo/releases)
-![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg)
-[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
-![](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)
+[![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
+[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
+[![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](#)
+[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
+[![](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](#)
 
 ------------------------------
 
