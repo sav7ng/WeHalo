@@ -3,6 +3,13 @@
 <!-- loading...加载 -->
 <i-spin fix wx:if="{{spinShow}}"></i-spin>
 
+
+<view class="nav">
+    <view class="nav-text">{{postTitle}}</view>
+    <view bindtap="returnPage" class='return nav-return'></view>
+    <!-- <i-icon type="returnPage" size="28" color="#000" bindtap="return" class='return nav-return'/> -->
+</view>
+
 <view class="content">
 
     <view slot="title" class="top">
@@ -36,4 +43,4 @@
 
 </view>
 
-<i-message id="message"/>
+<i-message id="message" wx:if="{{showMessage}}"/>

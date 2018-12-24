@@ -14,6 +14,7 @@ Page({
         Author: "WeHalo",
         spinShows: '',
         style: app.globalData.highlightStyle,
+        showMessage: false,
     },
 
     /**
@@ -111,10 +112,20 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
+        var that = this;
+        that.setData({
+            showMessage: !that.data.spinShow,
+        });
         $Message({
             content: '请听博主下回分解( • ̀ω•́ )✧',
             duration: 2
         });
+
+        setTimeout(function () {
+            that.setData({
+                showMessage: false,
+            });
+        }, 2000);
     },
 
     /**
@@ -124,5 +135,15 @@ Page({
 
     },
     
-    
+
+    /**
+     * return返回上一页
+     */
+    returnPage() {
+        console.log("return返回上一页");
+        wx.navigateBack({
+            delta: 1, // 回退前 delta(默认为1) 页面
+        })
+    }
+
 })
