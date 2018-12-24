@@ -22,6 +22,7 @@ Page({
         aflag: true,
         scrollTop: 0,
         nav: false,
+        showMessage: false,
     },
 
     /**
@@ -267,11 +268,17 @@ Page({
                     that.setData({
                         loadMore: false,
                         loadMores: false,
+                        showMessage: !that.data.spinShow,
                     });
                     $Message({
                         content: '博主已经努力了，会坚持每周一更。',
                         duration: 2
                     });
+                    setTimeout(function () {
+                        that.setData({
+                            showMessage: false,
+                        });
+                    }, 2000);
                 }, 200);
             } else {
                 setTimeout(function () {
@@ -288,11 +295,17 @@ Page({
                 that.setData({
                     loadMore: false,
                     loadMores: false,
+                    showMessage: !that.data.spinShow,
                 });
                 $Message({
                     content: '博主已经努力了，会坚持每周一更。',
                     duration: 2
                 });
+                setTimeout(function () {
+                    that.setData({
+                        showMessage: false,
+                    });
+                }, 2000);
             }, 200);
         }
         
