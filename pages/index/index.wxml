@@ -10,7 +10,8 @@
     </view>
 </view>
 
-<view class="container">
+
+<view class="container" >
 
     <!-- loading...加载 -->
     <i-spin fix wx:if="{{spinShow}}"></i-spin>
@@ -26,8 +27,13 @@
         <view bindtap="showMask" class='qrcode'></view>
     </view>
 
+    <view class="nav" wx:if="{{nav}}">
+        <view class="nav-text">Aquan</view>
+        <view bindtap="showMask" class='qrcode nav-qrcode'></view>
+    </view>
+
     <!-- Posts -->
-    <view class="post-card" wx:for="{{posts}}" wx:key="postId">
+    <view class="post-card" wx:for="{{posts}}" wx:key="postId" animation="{{anp}}" id="{{index}}">
         <!-- Navigator页面跳转 -->
         <navigator url="../post/post?postId={{item.postId}}">
             <view class="post-card-image-link">

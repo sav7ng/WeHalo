@@ -94,6 +94,7 @@
     box-shadow: 8px 14px 38px rgba(39, 44, 49, 0.06), 1px 3px 8px rgba(39, 44, 49, 0.03);
     transition: all 0.5s ease;
     width: 90%;
+    opacity: 0;
 }
 
 .post-card-image-link {
@@ -187,6 +188,32 @@
     float: left;
 }
 
-.left {
-    /* text-align: center; */
+
+/**自定义导航栏**/
+.nav {
+    position: fixed;
+    top: 0;
+    background: url("https://blog.eunji.cn/upload/2018/11/code120181219113843975.png") no-repeat;
+    background-size: cover;
+    color: #fff;
+    width: 100%;
+    height: 150rpx;
+    z-index: 100;
+}
+
+.nav-text {
+    position: absolute;
+    /* bottom: 0;
+    left: 20rpx; */
+    top: 50%;
+    left: 42%;
+    font-weight: 800;
+    font-size: 20px;
+    color: #fff;
+}
+
+.nav-qrcode {
+    position: absolute;
+    top: 50%;
+    left: 20rpx;
 }

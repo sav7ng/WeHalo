@@ -7,6 +7,9 @@ const request = require('../../utils/request.js');
 
 
 Page({
+    /**
+     * 页面的初始数据
+     */
     data: {
         spinShow: true,
         Author: "WeHalo",
@@ -17,16 +20,19 @@ Page({
         loadMores: true,
         blogName: app.globalData.blogName,
         aflag: true,
+        scrollTop: 0,
+        nav: false,
     },
 
     /**
-   * 接口调用成功处理
-   */
+     * 接口调用成功处理
+     */
     successFun: function (res, selfObj) {
         selfObj.setData({
             resultData: res.result[0].posts,
         })
     },
+
     /**
      * 接口调用失败处理
      */
@@ -34,7 +40,9 @@ Page({
         console.log('failFun', res)
     },
 
-    //下拉刷新
+    /**
+     * 下拉刷新
+     */
     onPullDownRefresh() {
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -101,12 +109,19 @@ Page({
         })
 
     },
-    //事件处理函数
+
+    /**
+     * 事件处理函数
+     */
     bindViewTap: function() {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad: function() {
         this.app = getApp();
         var that = this; //不要漏了这句，很重要
@@ -165,11 +180,16 @@ Page({
                 })
                 //取消Loading效果
                 // wx.hideLoading();
+
+                //淡入动画效果
+                that.showPost();
             },
             fail: function() {
                 console.log('接口调用失败');
             }
-        })
+        });
+
+
         jinrishici.load(result => {
             // 下面是处理逻辑示例
             console.log(result);
@@ -177,12 +197,15 @@ Page({
                 "jinrishici": result.data.content,
                 shici: result.data.origin.content,
             })
-        })
+        });
+
     },
+
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {},
+
     /**
      * 用户点击右上角分享
      */
@@ -192,7 +215,10 @@ Page({
             // imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
         }
     },
-    //加载更多
+
+    /**
+     * 加载更多
+     */
     onReachBottom: function () {
         
         var that = this;
@@ -272,13 +298,29 @@ Page({
         
     },
 
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () { 
+        // this.showPost();
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+        // this.closePost();
+    },
+
     handleQrcode() {
         wx.previewImage({
             urls: ['https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png']
         })
     },
 
-    // 防止冒泡
+    /**
+     * 防止冒泡
+     */
     prevent() {
         console.log("防止冒泡");
     },
@@ -317,4 +359,78 @@ Page({
             });
         }, 600);
     },
+
+    /**
+     * Post淡入效果
+     */
+    showPost() {
+        console.log("showPost");
+        var animation = wx.createAnimation({
+            duration: 2000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(1).step();
+        this.setData({
+            anp: animation.export()
+        })
+    },
+
+    /**
+     * Post淡出效果
+     */
+    closePost() {
+        console.log("closePost");
+        var animation = wx.createAnimation({
+            duration: 2000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(0).step();
+        this.setData({
+            anp: animation.export()
+        })
+    },
+
+    clickAnimation(event) {
+        consloe.log("滴滴~");
+    },
+
+
+    /**
+     * 监听屏幕滚动 判断上下滚动
+     */
+    onPageScroll: function (event) {
+        var _this = this;
+        console.log("a");
+        console.log(event.scrollTop);
+        // if (event.scrollTop > this.data.scrollTop || event.scrollTop == wx.getSystemInfoSync().windowHeight) {
+        //     //向下滚动
+        //     console.log("向下滚动");
+        // } else {
+        //     //向上滚动
+        //     console.log("向上滚动");
+        // }
+        if (event.scrollTop >= 130) {
+            setTimeout(function () {
+                _this.setData({
+                    nav: true
+                })
+            }, 0);
+        } else {
+            setTimeout(function () {
+                _this.setData({
+                    nav: false
+                })
+            }, 0);
+        }
+
+        //给scrollTop重新赋值
+        // setTimeout(function () {
+        //     _this.setData({
+        //         scrollTop: event.scrollTop
+        //     })
+        // }, 0);
+    }
+
 })
