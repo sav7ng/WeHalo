@@ -17,12 +17,11 @@ Page({
         pageNum: 0,
         Flag: 0,
         loadMore: false,
-        loadMores: true,
+        loadMores: false,
         blogName: app.globalData.blogName,
         aflag: true,
         scrollTop: 0,
-        nav: false,
-        showMessage: false,
+        nav: true,
     },
 
     /**
@@ -91,7 +90,7 @@ Page({
                     //加载更多数据归零
                     pageNum: 0,
                     Flag: 0,
-                    loadMores: true,
+                    loadMores: false,
 
                 })
                 //取消Loading效果
@@ -267,18 +266,12 @@ Page({
                 setTimeout(function () {
                     that.setData({
                         loadMore: false,
-                        loadMores: false,
-                        showMessage: !that.data.spinShow,
+                        loadMores: true,
                     });
                     $Message({
                         content: '博主已经努力了，会坚持每周一更。',
                         duration: 2
                     });
-                    setTimeout(function () {
-                        that.setData({
-                            showMessage: false,
-                        });
-                    }, 1800);
                 }, 200);
             } else {
                 setTimeout(function () {
@@ -294,18 +287,12 @@ Page({
             setTimeout(function () {
                 that.setData({
                     loadMore: false,
-                    loadMores: false,
-                    showMessage: !that.data.spinShow,
+                    loadMores: true,
                 });
                 $Message({
                     content: '博主已经努力了，会坚持每周一更。',
                     duration: 2
                 });
-                setTimeout(function () {
-                    that.setData({
-                        showMessage: false,
-                    });
-                }, 1800);
             }, 200);
         }
         
@@ -336,6 +323,11 @@ Page({
      */
     prevent() {
         console.log("防止冒泡");
+        var self = this;
+        wx.setClipboardData({
+            data: "https://github.com/aquanlerou"
+        });
+
     },
 
     showMask() {
@@ -415,29 +407,15 @@ Page({
      */
     onPageScroll: function (event) {
         var that = this;
-        // if (event.scrollTop > this.data.scrollTop || event.scrollTop == wx.getSystemInfoSync().windowHeight) {
-        //     //向下滚动
-        //     console.log("向下滚动");
-        // } else {
-        //     //向上滚动
-        //     console.log("向上滚动");
-        // }
-        if (event.scrollTop >= 130) {
-            that.setData({
-                nav: true
-            })
-        } else {
+        if (event.scrollTop > 100) {
             that.setData({
                 nav: false
-            })
+            });
+        }else {
+            that.setData({
+                nav: true
+            });
         }
-
-        //给scrollTop重新赋值
-        // setTimeout(function () {
-        //     _this.setData({
-        //         scrollTop: event.scrollTop
-        //     })
-        // }, 0);
     }
 
 })
