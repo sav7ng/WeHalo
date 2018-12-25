@@ -1,4 +1,10 @@
 <!--pages/poster/poster.wxml-->
+
+<view class="nav">
+    <view class="nav-text">生成海报</view>
+    <view bindtap="returnPage" class='return nav-return'></view>
+</view>
+
 <view class='container'>
     <view class='painter'>
         <painter customStyle='margin-left:40rpx' palette="{{createPoster}}" bind:imgOK="onImgOK"/>
