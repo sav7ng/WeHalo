@@ -43,4 +43,4 @@
 
 </view>
 
-<i-message id="message" wx:if="{{showMessage}}"/>
+<i-message id="message"/>

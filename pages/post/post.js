@@ -14,7 +14,6 @@ Page({
         Author: "WeHalo",
         spinShows: '',
         style: app.globalData.highlightStyle,
-        showMessage: false,
     },
 
     /**
@@ -113,19 +112,10 @@ Page({
      */
     onReachBottom: function() {
         var that = this;
-        that.setData({
-            showMessage: !that.data.spinShow,
-        });
         $Message({
             content: '请听博主下回分解( • ̀ω•́ )✧',
             duration: 2
         });
-
-        setTimeout(function () {
-            that.setData({
-                showMessage: false,
-            });
-        }, 2000);
     },
 
     /**
