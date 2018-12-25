@@ -134,10 +134,10 @@ Page({
 
         var params = {};
 
-        console.log("11");
-        //@todo 网络请求API数据
-        request.requestGetApi(url, token, params, this, this.successFun, this.failFun);
-        console.log("22");
+        // console.log("11");
+        // //@todo 网络请求API数据
+        // request.requestGetApi(url, token, params, this, this.successFun, this.failFun);
+        // console.log("22");
 
         //微信自带Loading效果
         // wx.showLoading({
