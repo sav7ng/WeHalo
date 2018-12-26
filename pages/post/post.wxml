@@ -10,6 +10,13 @@
     <!-- <i-icon type="returnPage" size="28" color="#000" bindtap="return" class='return nav-return'/> -->
 </view>
 
+<!-- 分享按钮v3.0 -->
+<view class="sharePoster">
+    <navigator url="../poster/poster?postId={{post.postId}}">
+        <i-icon type="share" size="28" color="#fff"/>
+    </navigator>
+</view>
+
 <view class="content">
 
     <view slot="title" class="top">
@@ -22,11 +29,12 @@
             <!-- bindtap="createPoster" -->
             
             <view class="titleData">
-                <view class="createPoster">
+                <!-- 分享按钮v2.0 -->
+                <!-- <view class="createPoster">
                     <navigator url="../poster/poster?postId={{post.postId}}">
                         <i-icon type="share" size="22" color="#000"/>
                     </navigator>
-                </view>
+                </view> -->
                 <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
                 <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
             </view>

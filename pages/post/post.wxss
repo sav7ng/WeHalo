@@ -36,6 +36,20 @@
     float: right;
 }
 
+.sharePoster {
+    position: fixed;
+    bottom: 6%;
+    right: 6%;
+    opacity: 0.6;
+    background-color:#000000;
+    border-radius:35px;
+    width:32px;
+    height:32px;
+    text-align:center;
+    padding-top:2px;
+    padding-right:2px;
+}
+
 .hide {
   display: none;
 }
