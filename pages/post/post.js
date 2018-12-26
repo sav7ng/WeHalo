@@ -13,6 +13,7 @@ Page({
         spinShow: true,
         Author: "WeHalo",
         spinShows: '',
+        style: app.globalData.highlightStyle,
     },
 
     /**
@@ -110,6 +111,7 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function() {
+        var that = this;
         $Message({
             content: '请听博主下回分解( • ̀ω•́ )✧',
             duration: 2
@@ -123,5 +125,15 @@ Page({
 
     },
     
-    
+
+    /**
+     * return返回上一页
+     */
+    returnPage() {
+        console.log("return返回上一页");
+        wx.navigateBack({
+            delta: 1, // 回退前 delta(默认为1) 页面
+        })
+    }
+
 })

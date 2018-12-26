@@ -1,14 +1,12 @@
-<h1>
-    <a href="#" target="_blank">WeHalo</a>
-</h1>
+[![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
 
 > WeHalo **简约风** 的微信小程序版博客
 
-[![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg)](https://github.com/aquanlerou)
-[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg)](https://github.com/aquanlerou/WeHalo/releases)
-![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg)
-[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
-![](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)
+[![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
+[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
+[![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](#)
+[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
+[![](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](#)
 
 ------------------------------
 
@@ -58,7 +56,8 @@ git clone https://github.com/aquanlerou/WeHalo.git
 globalData: { //全局变量
     URL: "https://blog.eunji.cn",   //你的地址
     blogName: "AquanBlog",   //博客名字
-    TOKEN: "YouToken"   //Halo后台的Token
+    TOKEN: "YouToken",   //Halo后台的Token
+    highlightStyle: "dracula",  //代码高亮样式，可用值default,darcula,dracula,tomorrow
 }
 ```
 
@@ -123,6 +122,8 @@ html2wxml插件版本准备
 ## 后续功能
 
 - [x] 生成海报（微信朋友圈装X）
+- [x] 自定义导航栏（个人觉得好看可自定义）
+- [x] 个人名片（可宣传自己）
 - [ ] 想到就写...
 
 ## 感谢

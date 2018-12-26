@@ -1,5 +1,31 @@
 <!--index.wxml-->
-<view class="container">
+<!-- 蒙版效果 -->
+<view class="mask" hidden="{{aflag}}" catchtap="closeMask">
+    <view class="masks" catchtap="prevent" animation="{{ani}}">
+        <view class="box">
+            <!-- <view class="left">
+            </view> -->
+            <!-- <view class="left"> -->
+                <image class="leftImage" mode="widthFix" src="https://blog.eunji.cn/upload/2018/11/微信图片_2018122511545020181225115902899.png"></image>
+            <!-- </view> -->
+            <view class="right">
+                <view class="title">
+                    <text class="name">Aquan</text>
+                </view>
+                <view class="info">
+                    <view class="field">Email</view>
+                    <view class="value">Aquanlerou@eunji.cn</view>
+                    <view class="field">Github</view>
+                    <view class="value">https://github.com/aquanlerou</view>
+                </view>
+            </view>
+        </view>
+
+    </view>
+</view>
+
+
+<view class="container" >
 
     <!-- loading...加载 -->
     <i-spin fix wx:if="{{spinShow}}"></i-spin>
@@ -12,11 +38,16 @@
             <view class="aquanblogs">{{jinrishici}}</view>
         </view>
         <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
+        <view bindtap="showMask" class='qrcode'></view>
     </view>
 
+    <view class="nav" hidden="{{nav}}">
+        <view class="nav-text">爱敲代码的猫</view>
+        <view bindtap="showMask" class='qrcode nav-qrcode'></view>
+    </view>
 
     <!-- Posts -->
-    <view class="post-card" wx:for="{{posts}}" wx:key="postId">
+    <view class="post-card" wx:for="{{posts}}" wx:key="postId" animation="{{anp}}">
         <!-- Navigator页面跳转 -->
         <navigator url="../post/post?postId={{item.postId}}">
             <view class="post-card-image-link">
@@ -39,11 +70,12 @@
         </navigator>
     </view>
 
-    <view class="i-divider-mart">
+    <!-- <view class="i-divider-mart">
         <i-divider>{{Author}}</i-divider>
-    </view>
-
+    </view> -->
+    
+    <i-message id="message" />
 </view>
 
-<i-load-more loading="{{loadMore}}" wx:if="{{loadMores}}"/>
-<i-message id="message"/>
+
+<i-load-more tip="{{Author}}" loading="{{loadMore}}" hidden="{{loadMores}}"/>

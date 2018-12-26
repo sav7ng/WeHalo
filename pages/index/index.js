@@ -3,9 +3,13 @@
 const app = getApp();
 const jinrishici = require('../../utils/jinrishici.js');
 const { $Message } = require('../../dist/base/index');
+const request = require('../../utils/request.js');
 
 
 Page({
+    /**
+     * 页面的初始数据
+     */
     data: {
         spinShow: true,
         Author: "WeHalo",
@@ -13,10 +17,32 @@ Page({
         pageNum: 0,
         Flag: 0,
         loadMore: false,
-        loadMores: true,
+        loadMores: false,
         blogName: app.globalData.blogName,
+        aflag: true,
+        scrollTop: 0,
+        nav: true,
     },
-    //下拉刷新
+
+    /**
+     * 接口调用成功处理
+     */
+    successFun: function (res, selfObj) {
+        selfObj.setData({
+            resultData: res.result[0].posts,
+        })
+    },
+
+    /**
+     * 接口调用失败处理
+     */
+    failFun: function (res, selfObj) {
+        console.log('failFun', res)
+    },
+
+    /**
+     * 下拉刷新
+     */
     onPullDownRefresh() {
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
@@ -64,7 +90,7 @@ Page({
                     //加载更多数据归零
                     pageNum: 0,
                     Flag: 0,
-                    loadMores: true,
+                    loadMores: false,
 
                 })
                 //取消Loading效果
@@ -83,17 +109,35 @@ Page({
         })
 
     },
-    //事件处理函数
+
+    /**
+     * 事件处理函数
+     */
     bindViewTap: function() {
         wx.navigateTo({
             url: '../logs/logs'
         })
     },
+
+    /**
+     * 生命周期函数--监听页面加载
+     */
     onLoad: function() {
+        this.app = getApp();
         var that = this; //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/year';
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
+
+
+
+
+        var params = {};
+
+        // console.log("11");
+        // //@todo 网络请求API数据
+        // request.requestGetApi(url, token, params, this, this.successFun, this.failFun);
+        // console.log("22");
 
         //微信自带Loading效果
         // wx.showLoading({
@@ -108,7 +152,6 @@ Page({
                 'token': token
             },
             success: function(res) {
-                //将获取到的json数据，存在名字叫zhihu的这个数组中
                 console.log(res.data.result[0].posts);
                 var posts_list = [];
                 var count = res.data.result[0].count;
@@ -137,11 +180,16 @@ Page({
                 })
                 //取消Loading效果
                 // wx.hideLoading();
+
+                //淡入动画效果
+                that.showPost();
             },
             fail: function() {
                 console.log('接口调用失败');
             }
-        })
+        });
+
+
         jinrishici.load(result => {
             // 下面是处理逻辑示例
             console.log(result);
@@ -149,12 +197,15 @@ Page({
                 "jinrishici": result.data.content,
                 shici: result.data.origin.content,
             })
-        })
+        });
+
     },
+
     /**
      * 生命周期函数--监听页面隐藏
      */
     onHide: function() {},
+
     /**
      * 用户点击右上角分享
      */
@@ -164,7 +215,10 @@ Page({
             // imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
         }
     },
-    //加载更多
+
+    /**
+     * 加载更多
+     */
     onReachBottom: function () {
         
         var that = this;
@@ -212,7 +266,7 @@ Page({
                 setTimeout(function () {
                     that.setData({
                         loadMore: false,
-                        loadMores: false,
+                        loadMores: true,
                     });
                     $Message({
                         content: '博主已经努力了，会坚持每周一更。',
@@ -233,7 +287,7 @@ Page({
             setTimeout(function () {
                 that.setData({
                     loadMore: false,
-                    loadMores: false,
+                    loadMores: true,
                 });
                 $Message({
                     content: '博主已经努力了，会坚持每周一更。',
@@ -243,4 +297,125 @@ Page({
         }
         
     },
+
+    /**
+     * 生命周期函数--监听页面显示
+     */
+    onShow: function () { 
+        // this.showPost();
+    },
+
+    /**
+     * 生命周期函数--监听页面隐藏
+     */
+    onHide: function () {
+        // this.closePost();
+    },
+
+    handleQrcode() {
+        wx.previewImage({
+            urls: ['https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png']
+        })
+    },
+
+    /**
+     * 防止冒泡
+     */
+    prevent() {
+        console.log("防止冒泡");
+        var self = this;
+        wx.setClipboardData({
+            data: "https://github.com/aquanlerou"
+        });
+
+    },
+
+    showMask() {
+        this.setData({
+            aflag: false,
+        });
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(1).translate(wx.getSystemInfoSync().windowWidth, 0).step()
+        this.setData({
+            ani: animation.export()
+        })
+    },
+
+    closeMask() {
+
+        var that = this;
+        var animation = wx.createAnimation({
+            duration: 1000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(0).translate(-wx.getSystemInfoSync().windowWidth, 0).step()
+        that.setData({
+            ani: animation.export()
+        });
+        
+        setTimeout(function () {
+            that.setData({
+                aflag: true,
+            });
+        }, 600);
+    },
+
+    /**
+     * Post淡入效果
+     */
+    showPost() {
+        console.log("showPost");
+        var animation = wx.createAnimation({
+            duration: 2000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(1).step();
+        this.setData({
+            anp: animation.export()
+        })
+    },
+
+    /**
+     * Post淡出效果
+     */
+    closePost() {
+        console.log("closePost");
+        var animation = wx.createAnimation({
+            duration: 2000,
+            timingFunction: 'ease',
+            delay: 0
+        });
+        animation.opacity(0).step();
+        this.setData({
+            anp: animation.export()
+        })
+    },
+
+    clickAnimation(event) {
+        consloe.log("滴滴~");
+    },
+
+
+    /**
+     * 监听屏幕滚动 判断上下滚动
+     */
+    onPageScroll: function (event) {
+        var that = this;
+        if (event.scrollTop > 100) {
+            that.setData({
+                nav: false
+            });
+        }else {
+            that.setData({
+                nav: true
+            });
+        }
+    }
+
 })
