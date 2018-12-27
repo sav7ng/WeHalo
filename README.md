@@ -29,7 +29,7 @@
 
 配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.jpg)
+![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.png)
 
 > QQ交流群: 260050047
 
