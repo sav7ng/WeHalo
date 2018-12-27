@@ -3,7 +3,7 @@
 > WeHalo **简约风** 的微信小程序版博客
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
-[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
+[![GitHub release](https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
 [![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo)
 [![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
 [![star](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](https://github.com/aquanlerou/WeHalo)
@@ -116,7 +116,7 @@ html2wxml插件版本准备
 
 ## 许可证
 
-[![license](https://img.shields.io/github/license/ruibaby/halo.svg)](https://github.com/ruibaby/halo/blob/master/LICENSE)
+[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
 
 > WeHalo使用GPL-v3.0协议开源，请尽量遵守开源协议，即便是在中国。
 
