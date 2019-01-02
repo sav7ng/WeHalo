@@ -1,4 +1,5 @@
 {
+    "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#242424",
     "navigationBarTitleText": "分享海报",
     "backgroundColor": "#fff",
