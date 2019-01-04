@@ -7,10 +7,8 @@
 <view class="nav">
     <view class="nav-text">{{postTitle}}</view>
     <view bindtap="returnPage" class='return nav-return'></view>
-    <!-- <i-icon type="returnPage" size="28" color="#000" bindtap="return" class='return nav-return'/> -->
 </view>
 
-<!-- 分享按钮v3.0 -->
 <view class="sharePoster">
     <navigator url="../poster/poster?postId={{post.postId}}">
         <i-icon type="share" size="28" color="#fff"/>
@@ -25,16 +23,7 @@
             <i-tag wx:for="{{post.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
                 {{item.tagName}}
             </i-tag>
-
-            <!-- bindtap="createPoster" -->
-            
             <view class="titleData">
-                <!-- 分享按钮v2.0 -->
-                <!-- <view class="createPoster">
-                    <navigator url="../poster/poster?postId={{post.postId}}">
-                        <i-icon type="share" size="22" color="#000"/>
-                    </navigator>
-                </view> -->
                 <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
                 <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
             </view>
