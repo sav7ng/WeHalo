@@ -47,7 +47,7 @@ Page({
 
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this; //不要漏了这句，很重要
-        var url = app.globalData.URL + '/api/archives/year';
+        var url = app.globalData.URL + '/api/archives/all';
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
 
@@ -125,7 +125,7 @@ Page({
     onLoad: function() {
         this.app = getApp();
         var that = this; //不要漏了这句，很重要
-        var url = app.globalData.URL + '/api/archives/year';
+        var url = app.globalData.URL + '/api/archives/all';
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
 
