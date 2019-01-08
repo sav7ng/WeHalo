@@ -59,9 +59,6 @@ function requestApi(url, token, params, method, sourceObj, successFun, failFun, 
             'token': token
         },
         success: function (res) {
-            // console.log("**********************");
-            // console.log(res.data.result[0].posts);
-            // console.log("**********************");
             typeof successFun == 'function' && successFun(res.data, sourceObj);
         },
         fail: function (res) {
