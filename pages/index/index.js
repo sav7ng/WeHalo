@@ -301,7 +301,7 @@ Page({
     },
 
     /**
-     * 首頁文章请求--接口调用成功处理
+     * 首頁文章列表请求--接口调用成功处理
      */
     successFunPosts: function (res, selfObj) {
         var that = this;
@@ -320,10 +320,7 @@ Page({
         that.setData({
             spinShow: false,
             userName: res.result[0].posts[0].user.userDisplayName,
-            userDesc: res.result[0].posts[0].user.userDesc,
             userAvatar: userAvatarUrl + res.result[0].posts[0].user.userAvatar,
-            title: res.result[0].posts[0].postTitle,
-            content: res.result[0].posts[0].postContent,
             posts: posts_list,
             posts_list: res.result[0].posts,
             imageUrl: app.globalData.URL,
@@ -340,14 +337,14 @@ Page({
     },
 
     /**
-     * 首頁文章请求--接口调用失败处理
+     * 首頁文章列表请求--接口调用失败处理
      */
     failFunPosts: function (res, selfObj) {
         console.log('failFunPosts', res)
     },
 
     /**
-     * 首頁文章下拉刷新请求--接口调用成功处理
+     * 首頁文章列表下拉刷新请求--接口调用成功处理
      */
     successFunRefreshPosts: function (res, selfObj) {
         var that = this;
@@ -367,10 +364,7 @@ Page({
             spinShow: false,
             //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
             userName: res.result[0].posts[0].user.userDisplayName,
-            userDesc: res.result[0].posts[0].user.userDesc,
             userAvatar: userAvatarUrl + res.result[0].posts[0].user.userAvatar,
-            title: res.result[0].posts[0].postTitle,
-            content: res.result[0].posts[0].postContent,
             posts: posts_list,
             //加载更多数据归零
             pageNum: 0,
