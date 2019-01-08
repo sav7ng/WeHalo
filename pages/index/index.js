@@ -256,7 +256,6 @@ Page({
      * Post淡入效果
      */
     showPost() {
-        console.log("showPost");
         var animation = wx.createAnimation({
             duration: 2000,
             timingFunction: 'ease',
