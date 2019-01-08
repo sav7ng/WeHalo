@@ -1,6 +1,7 @@
 // pages/post/post.js
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
+const request = require('../../utils/request.js');
 
 Page({
 
@@ -20,51 +21,18 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
-        
-
         this.setData({
             postId: options.postId,
         })
-
         // wx.showNavigationBarLoading() //在标题栏中显示加载
         var that = this; //不要漏了这句，很重要
         var postId = options.postId;
         var url = app.globalData.URL + '/api/posts/' + postId;
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
-
-        //微信自带Loading效果
-        // wx.showLoading({
-        //   title: '加载中',
-        // })
-        wx.request({
-            url: url,
-            method: 'GET',
-            header: {
-                'Content-Type': 'application/json',
-                'token': token
-            },
-            success: function(res) {
-                console.log(res.data.result)
-                that.setData({
-                    post: res.data.result,
-                    imageUrl: app.globalData.URL + res.data.result.postThumbnail,
-                    postAuthor: res.data.result.user.userDisplayName,
-                    userDesc: res.data.result.user.userDesc,
-                    postDate: res.data.result.postDate,
-                    postTitle: res.data.result.postTitle,
-                    postSummary: res.data.result.postSummary,
-                    url: userAvatarUrl,
-                })
-                //取消Loading效果
-                // wx.hideLoading()
-
-                //动态设置当前页面的标题
-                wx.setNavigationBarTitle({
-                    title: res.data.result.postTitle,
-                })
-            }
-        })
+        var params = {};
+        //@todo 网络请求API数据
+        request.requestGetApi(url, token, params, this, this.successFunPost, this.failFunPost);
 
         spinShows: setTimeout(function() {
             that.setData({
@@ -134,6 +102,30 @@ Page({
         wx.navigateBack({
             delta: 1, // 回退前 delta(默认为1) 页面
         })
-    }
+    },
+
+    /**
+     * 文章详情请求--接口调用成功处理
+     */
+    successFunPost: function (res, selfObj) {
+        var that = this;
+
+        that.setData({
+            post: res.result,
+            postDate: res.result.postDate,
+            postTitle: res.result.postTitle,
+        })
+        //动态设置当前页面的标题
+        wx.setNavigationBarTitle({
+            title: res.result.postTitle,
+        })
+    },
+
+    /**
+     * 文章详情请求--接口调用失败处理
+     */
+    failFunPost: function (res, selfObj) {
+        console.log('failFunPosts', res)
+    },
 
 })
