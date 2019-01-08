@@ -25,22 +25,6 @@ Page({
     },
 
     /**
-     * 接口调用成功处理
-     */
-    successFun: function (res, selfObj) {
-        selfObj.setData({
-            resultData: res.result[0].posts,
-        })
-    },
-
-    /**
-     * 接口调用失败处理
-     */
-    failFun: function (res, selfObj) {
-        console.log('failFun', res)
-    },
-
-    /**
      * 下拉刷新
      */
     onPullDownRefresh() {
@@ -50,53 +34,10 @@ Page({
         var url = app.globalData.URL + '/api/archives/all';
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
+        var params = {};
+        //@todo 网络请求API数据
+        request.requestGetApi(url, token, params, this, this.successFunRefreshPosts, this.failFunRefreshPosts);
 
-        console.log(token);
-        //微信自带Loading效果
-        // wx.showLoading({
-        //   title: '加载中',
-        // })
-        wx.request({
-            url: url,
-            method: 'GET',
-            header: {
-                'Content-Type': 'application/json',
-                'token': token
-            },
-            success: function(res) {
-                console.log(res.data.result[0].posts[0]);
-                var posts_list = [];
-                var count = res.data.result[0].count;
-                console.log(count);
-                if (count < 5) {
-                    for (var i = 0; i < count; i++) {
-                        posts_list.push(res.data.result[0].posts[i]);
-                    }
-                } else {
-                    for (var i = 0; i < 5; i++) {
-                        posts_list.push(res.data.result[0].posts[i]);
-                    }
-                }
-                that.setData({
-
-                    spinShow: false,
-                    //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-                    userName: res.data.result[0].posts[0].user.userDisplayName,
-                    userDesc: res.data.result[0].posts[0].user.userDesc,
-                    userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
-                    title: res.data.result[0].posts[0].postTitle,
-                    content: res.data.result[0].posts[0].postContent,
-                    posts: posts_list,
-                    //加载更多数据归零
-                    pageNum: 0,
-                    Flag: 0,
-                    loadMores: false,
-
-                })
-                //取消Loading效果
-                // wx.hideLoading();
-            }
-        })
         jinrishici.load(result => {
             // 下面是处理逻辑示例
             console.log(result);
@@ -128,67 +69,14 @@ Page({
         var url = app.globalData.URL + '/api/archives/all';
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
-
-
-
-
         var params = {};
-
-        // console.log("11");
-        // //@todo 网络请求API数据
-        // request.requestGetApi(url, token, params, this, this.successFun, this.failFun);
-        // console.log("22");
+        //@todo 网络请求API数据
+        request.requestGetApi(url, token, params, this, this.successFunPosts, this.failFunPosts);
 
         //微信自带Loading效果
         // wx.showLoading({
         //   title: '加载中',
         // })
-
-        wx.request({
-            url: url,
-            method: 'GET',
-            header: {
-                'Content-Type': 'application/json',
-                'token': token
-            },
-            success: function(res) {
-                console.log(res.data.result[0].posts);
-                var posts_list = [];
-                var count = res.data.result[0].count;
-                console.log(count);
-                if (count < 5) {
-                    for (var i = 0; i < count; i++) {
-                        posts_list.push(res.data.result[0].posts[i]);
-                    }
-                } else {
-                    for (var i = 0; i < 5; i++) {
-                        posts_list.push(res.data.result[0].posts[i]);
-                    }
-                }
-                that.setData({
-                    spinShow: false,
-                    //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
-                    userName: res.data.result[0].posts[0].user.userDisplayName,
-                    userDesc: res.data.result[0].posts[0].user.userDesc,
-                    userAvatar: userAvatarUrl + res.data.result[0].posts[0].user.userAvatar,
-                    title: res.data.result[0].posts[0].postTitle,
-                    content: res.data.result[0].posts[0].postContent,
-                    posts: posts_list,
-                    posts_list: res.data.result[0].posts,
-                    imageUrl: app.globalData.URL,
-                    total: res.data.result[0].count,
-                })
-                //取消Loading效果
-                // wx.hideLoading();
-
-                //淡入动画效果
-                that.showPost();
-            },
-            fail: function() {
-                console.log('接口调用失败');
-            }
-        });
-
 
         jinrishici.load(result => {
             // 下面是处理逻辑示例
@@ -211,8 +99,7 @@ Page({
      */
     onShareAppMessage: function () {
         return{
-            title: app.globalData.blogName,
-            // imageUrl: "https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg"
+            title: app.globalData.blogName
         }
     },
 
@@ -397,11 +284,6 @@ Page({
         })
     },
 
-    clickAnimation(event) {
-        consloe.log("滴滴~");
-    },
-
-
     /**
      * 监听屏幕滚动 判断上下滚动
      */
@@ -416,6 +298,93 @@ Page({
                 nav: true
             });
         }
-    }
+    },
+
+    /**
+     * 首頁文章请求--接口调用成功处理
+     */
+    successFunPosts: function (res, selfObj) {
+        var that = this;
+        var posts_list = [];
+        var count = res.result[0].count;
+        var userAvatarUrl = app.globalData.URL;
+        if (count < 5) {
+            for (var i = 0; i < count; i++) {
+                posts_list.push(res.result[0].posts[i]);
+            }
+        } else {
+            for (var i = 0; i < 5; i++) {
+                posts_list.push(res.result[0].posts[i]);
+            }
+        }
+        that.setData({
+            spinShow: false,
+            userName: res.result[0].posts[0].user.userDisplayName,
+            userDesc: res.result[0].posts[0].user.userDesc,
+            userAvatar: userAvatarUrl + res.result[0].posts[0].user.userAvatar,
+            title: res.result[0].posts[0].postTitle,
+            content: res.result[0].posts[0].postContent,
+            posts: posts_list,
+            posts_list: res.result[0].posts,
+            imageUrl: app.globalData.URL,
+            total: res.result[0].count,
+        })
+        //取消Loading效果
+        // wx.hideLoading();
+
+        //淡入动画效果
+        that.showPost();
+        selfObj.setData({
+            resultData: res.result[0].posts,
+        })
+    },
+
+    /**
+     * 首頁文章请求--接口调用失败处理
+     */
+    failFunPosts: function (res, selfObj) {
+        console.log('failFunPosts', res)
+    },
+
+    /**
+     * 首頁文章下拉刷新请求--接口调用成功处理
+     */
+    successFunRefreshPosts: function (res, selfObj) {
+        var that = this;
+        var posts_list = [];
+        var count = res.result[0].count;
+        var userAvatarUrl = app.globalData.URL;
+        if (count < 5) {
+            for (var i = 0; i < count; i++) {
+                posts_list.push(res.result[0].posts[i]);
+            }
+        } else {
+            for (var i = 0; i < 5; i++) {
+                posts_list.push(res.result[0].posts[i]);
+            }
+        };
+        that.setData({
+            spinShow: false,
+            //res代表success函数的事件对，data是固定的，stories是是上面json数据中stories
+            userName: res.result[0].posts[0].user.userDisplayName,
+            userDesc: res.result[0].posts[0].user.userDesc,
+            userAvatar: userAvatarUrl + res.result[0].posts[0].user.userAvatar,
+            title: res.result[0].posts[0].postTitle,
+            content: res.result[0].posts[0].postContent,
+            posts: posts_list,
+            //加载更多数据归零
+            pageNum: 0,
+            Flag: 0,
+            loadMores: false,
+        });
+    },
+
+    /**
+     * 首頁文章下拉刷新请求--接口调用失败处理
+     */
+    failFunRefreshPosts: function (res, selfObj) {
+        console.log('failFunRefreshPosts', res)
+    },
+
 
 })

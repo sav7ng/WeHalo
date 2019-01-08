@@ -44,7 +44,7 @@ function requestGetApi(url, token, params, sourceObj, successFun, failFun, compl
  * @param  {Function} completeFun 接口调用结束的回调函数(调用成功、失败都会执行)
  */
 function requestApi(url, token, params, method, sourceObj, successFun, failFun, completeFun) {
-    console.log(token);
+    // console.log(token);
     if (method == 'POST') {
         var contentType = 'application/x-www-form-urlencoded'
     } else {
@@ -59,9 +59,9 @@ function requestApi(url, token, params, method, sourceObj, successFun, failFun, 
             'token': token
         },
         success: function (res) {
-            console.log("**********************");
-            console.log(res.data.result[0].posts);
-            console.log("**********************");
+            // console.log("**********************");
+            // console.log(res.data.result[0].posts);
+            // console.log("**********************");
             typeof successFun == 'function' && successFun(res.data, sourceObj);
         },
         fail: function (res) {
