@@ -70,12 +70,17 @@ globalData: { //全局变量
 ```
 
 
-修改``index.wxss``文件更改首页封面背景图片,找到``.aquanblog``
+修改``index.wxss``文件更改首页封面背景图片,找到``.aquanblog``和``.nav``
 
 ```
 .aquanblog {
     //填上你想要的封面图片链接
-    background-image: url("https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg");
+    background-image: url("xxxxx");
+}
+自定义导航栏背景图片
+.nav {
+    //填上你想要的封面图片链接
+    background: url("xxxxx") no-repeat;
 }
 ```
 
@@ -125,6 +130,7 @@ html2wxml插件版本准备
 - [x] 生成海报（微信朋友圈装X）
 - [x] 自定义导航栏（个人觉得好看可自定义）
 - [x] 个人名片（可宣传自己）
+- [ ] 文字评论点赞功能
 - [ ] 想到就写...
 
 ## 感谢
