@@ -49,7 +49,7 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 ## 文档
 
-修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址 
+修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址，请更新最新的 **Halo** 配合使用
 
 **注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
 
