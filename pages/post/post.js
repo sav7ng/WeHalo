@@ -2,6 +2,7 @@
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
 const request = require('../../utils/request.js');
+var page = undefined;
 
 Page({
 
@@ -15,12 +16,15 @@ Page({
         Author: "WeHalo",
         spinShows: '',
         style: app.globalData.highlightStyle,
+        doommData: [],
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+
+        page = this;
         this.setData({
             postId: options.postId,
         })
@@ -41,6 +45,11 @@ Page({
             // console.log("spinShow");
         }, 2000)
 
+        setInterval(function () {
+            setTimeout(function () {
+                that.bindbt();
+            }, 200);
+        }, 2000);
     },
 
 
@@ -109,12 +118,29 @@ Page({
      */
     successFunPost: function (res, selfObj) {
         var that = this;
+        var barrages = [];
 
         that.setData({
             post: res.result,
             postDate: res.result.postDate,
             postTitle: res.result.postTitle,
+            comments: res.result.comments,
+            commentsCount: res.result.comments.length,
+            barrages: barrages,
         })
+
+        for (i = 0; i < that.data.comments.length; i++) {
+            var temp = that.data.comments[i].commentContent;
+            //js正则过滤HTML标签
+            let reg = new RegExp(/<[^<>]+>/g);
+            let temps = temp.replace(reg, '');
+            barrages[i] = that.data.comments[i].commentAuthor + "：" + temps;
+        };
+
+
+        console.log(that.data.commentsCount);
+
+        console.log(that.data.barrages);
         //动态设置当前页面的标题
         wx.setNavigationBarTitle({
             title: res.result.postTitle,
@@ -128,4 +154,47 @@ Page({
         console.log('failFunPosts', res)
     },
 
+    /**
+     * 弹幕评论
+     */
+    bindbt: function () {
+        var that = this;
+        doommList.push(new Doomm(that.data.barrages, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
+        that.setData({
+            doommData: doommList
+        })
+    },
 })
+
+/**
+ * 弹幕评论
+ */
+var doommList = [];
+var i = 0;
+class Doomm {
+    constructor(text, top, time, color) {
+        var index = Math.floor((Math.random() * text.length)); 
+        this.text = text[index];
+        this.top = top;
+        this.time = time;
+        this.color = color;
+        this.display = true;
+        let that = this;
+        this.id = i++;
+        setTimeout(function () {
+            doommList.splice(doommList.indexOf(that), 1);
+            page.setData({
+                doommData: doommList
+            })
+        }, this.time * 1000)
+    }
+}
+function getRandomColor() {
+    let rgb = []
+    for (let i = 0; i < 3; ++i) {
+        let color = Math.floor(Math.random() * 256).toString(16)
+        color = color.length == 1 ? '0' + color : color
+        rgb.push(color)
+    }
+    return '#' + rgb.join('')
+}

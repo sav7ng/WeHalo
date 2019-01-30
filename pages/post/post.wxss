@@ -100,3 +100,37 @@
     position: absolute;
     top: 150rpx;
 }
+
+/** 弹幕评论样式 **/
+.aon{
+    position: absolute;
+    white-space:nowrap;/* 防止向下换行*/
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    background-color: rgb(112, 112, 112);
+    font-family: 微软雅黑;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 16px;
+    opacity: 0.8;
+    border-radius: 100px;
+}
+
+.doommview{
+    position: fixed;
+    z-index: 1030;
+    height: 90%;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes first{
+    from{left: 100%;}
+    to{left: -100%;}
+}

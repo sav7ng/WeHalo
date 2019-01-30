@@ -3,6 +3,13 @@
 <!-- loading...加载 -->
 <i-spin fix wx:if="{{spinShow}}"></i-spin>
 
+<view class="doommview">
+    <block wx:for="{{doommData}}" wx:key="id">
+        <view wx:if="{{item.display}}" class="aon" style="animation: first {{item.time}}s linear forwards;top:{{item.top}}%;color:{{item.color}};">
+            {{item.text}}
+        </view>
+    </block>
+</view>
 
 <view class="nav">
     <view class="nav-text">{{postTitle}}</view>
