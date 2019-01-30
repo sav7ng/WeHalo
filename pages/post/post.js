@@ -16,7 +16,6 @@ Page({
         Author: "WeHalo",
         spinShows: '',
         style: app.globalData.highlightStyle,
-        doommData: [],
     },
 
     /**
@@ -43,20 +42,23 @@ Page({
                 spinShow: !that.data.spinShow,
             });
             // console.log("spinShow");
+
+            that.bindbt();
         }, 2000)
 
-        setInterval(function () {
-            setTimeout(function () {
-                that.bindbt();
-            }, 200);
-        }, 2000);
+        // intervalBarrage: setInterval(function () {
+        //     setTimeout(function () {
+        //         that.bindbt();
+        //     }, 200);
+        // }, 2000);
     },
 
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function() {},
+    onReady: function () {
+    },
 
     /**
      * 生命周期函数--监听页面显示
@@ -66,15 +68,19 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {},
+    onHide: function() {
+    },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload: function() {
         let spinShows = this.data.spinShows;
-        let that = this;
+        var that = this;
         clearInterval(spinShows);
+        that.setData({
+            barrages: [],
+        });
     },
 
     /**
@@ -126,7 +132,6 @@ Page({
             postTitle: res.result.postTitle,
             comments: res.result.comments,
             commentsCount: res.result.comments.length,
-            barrages: barrages,
         })
 
         for (i = 0; i < that.data.comments.length; i++) {
@@ -136,6 +141,10 @@ Page({
             let temps = temp.replace(reg, '');
             barrages[i] = that.data.comments[i].commentAuthor + "：" + temps;
         };
+
+        that.setData({
+            barrages: barrages,
+        })
 
 
         console.log(that.data.commentsCount);
@@ -159,10 +168,13 @@ Page({
      */
     bindbt: function () {
         var that = this;
-        doommList.push(new Doomm(that.data.barrages, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
-        that.setData({
-            doommData: doommList
-        })
+        var i = 0;
+        for (i; i < that.data.commentsCount; i++) {
+            doommList.push(new Doomm(that.data.barrages[i], Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
+            that.setData({
+                doommData: doommList
+            })
+        }
     },
 })
 
@@ -173,8 +185,9 @@ var doommList = [];
 var i = 0;
 class Doomm {
     constructor(text, top, time, color) {
-        var index = Math.floor((Math.random() * text.length)); 
-        this.text = text[index];
+        // var index = Math.floor((Math.random() * text.length)); 
+        // this.text = text[index];
+        this.text = text;
         this.top = top;
         this.time = time;
         this.color = color;
