@@ -48,6 +48,7 @@
     text-align:center;
     padding-top:2px;
     padding-right:2px;
+    z-index: 1050;
 }
 
 .hide {
