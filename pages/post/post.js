@@ -15,6 +15,7 @@ Page({
         spinShow: true,
         Author: "WeHalo",
         spinShows: '',
+        commentsFlag: false,
         style: app.globalData.highlightStyle,
     },
 
@@ -31,10 +32,14 @@ Page({
         var that = this; //不要漏了这句，很重要
         var postId = options.postId;
         var url = app.globalData.URL + '/api/posts/' + postId;
-        var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
         var params = {};
-        //@todo 网络请求API数据
+
+        //@todo commentFlag网络请求API数据
+        var commentUrl = app.globalData.URL + '/api/options/one?optionName=comment_api_switch';
+        request.requestGetApi(commentUrl, token, params, this, this.successComment, this.failComment);
+
+        //@todo 文章内容网络请求API数据
         request.requestGetApi(url, token, params, this, this.successFunPost, this.failFunPost);
 
         spinShows: setTimeout(function() {
@@ -164,6 +169,25 @@ Page({
     },
 
     /**
+     * 评论开启请求--接口调用成功处理
+     */
+    successComment: function (res, selfObj) {
+        var that = this;
+        if (res.result == 'true') {
+            that.setData({
+                commentsFlag: true,
+            });
+        }
+    },
+
+    /**
+     * 评论开启请求--接口调用失败处理
+     */
+    failComment: function (res, selfObj) {
+        console.log('failFunComment', res)
+    },
+
+    /**
      * 弹幕评论
      */
     bindbt: function () {
@@ -191,6 +215,22 @@ Page({
      */
     sendComment() {
         var that = this;
+        var postId = that.data.postId;
+        var url = app.globalData.URL + '/api/comments/save';
+        var token = app.globalData.TOKEN;
+        var params = {
+            postId: postId,
+            commentContent: that.data.inputValue,
+            commentAuthor: 'Aquan',
+            commentAuthorEmail: 'aquanlerou@eunji.cn',
+            commentAuthorUrl: 'https://blog.eunji.cn',
+            commentAgent: '1018',
+            commentParent: '0',
+        };
+        //@todo 文章内容网络请求API数据
+        request.requestPostApi(url, token, params, this, this.successSend, this.failSend);
+
+
         if (that.data.inputValue != null && that.data.inputValue != '') {
             doommList.push(new Doomm(that.data.inputValue, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
             that.setData({
@@ -202,6 +242,21 @@ Page({
                 duration: 2
             });
         }
+    },
+
+    /**
+     * 发送评论请求--接口调用成功处理
+     */
+    successSend: function (res, selfObj) {
+        var that = this;
+        console.log(res.msg);
+    },
+    
+    /**
+     * 发送评论请求--接口调用失败处理
+     */
+    failSend: function (res, selfObj) {
+        console.log('failSend', res)
     },
 })
 

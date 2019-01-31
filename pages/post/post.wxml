@@ -47,9 +47,11 @@
 
 </view>
 
-<i-message id="message"/>
 
-<view class="comment">
+<view class="comment" wx:if="{{commentsFlag}}">
     <view class='commentInput'><input bindinput="bindKeyInput" class='input' type="text" placeholder="尽管吐槽吧....." confirm-type="send" bindconfirm='sendComment' cursor-spacing="10"></input></view>
     <view class='commentBtn' bindtap='sendComment'>发送</view>
 </view>
+
+
+<i-message id="message"/>
