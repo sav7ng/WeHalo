@@ -191,10 +191,17 @@ Page({
      */
     sendComment() {
         var that = this;
-        doommList.push(new Doomm(that.data.inputValue, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
-        that.setData({
-            doommData: doommList
-        })
+        if (that.data.inputValue != null && that.data.inputValue != '') {
+            doommList.push(new Doomm(that.data.inputValue, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
+            that.setData({
+                doommData: doommList
+            });
+        } else {
+            $Message({
+                content: '请输入吐槽内容',
+                duration: 2
+            });
+        }
     },
 })
 
