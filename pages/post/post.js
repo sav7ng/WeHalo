@@ -176,6 +176,26 @@ Page({
             })
         }
     },
+
+    /**
+     * 评论文本框获取值
+     */
+    bindKeyInput(e) {
+        this.setData({
+            inputValue: e.detail.value
+        })
+    },
+
+    /**
+     * 发送评论
+     */
+    sendComment() {
+        var that = this;
+        doommList.push(new Doomm(that.data.inputValue, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
+        that.setData({
+            doommData: doommList
+        })
+    },
 })
 
 /**
