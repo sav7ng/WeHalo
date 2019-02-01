@@ -255,7 +255,7 @@ Page({
      */
     bindKeyInput(e) {
         this.setData({
-            inputValue: e.detail.value
+            inputValue: e.detail.value,
         })
     },
 
@@ -281,7 +281,8 @@ Page({
         if (that.data.inputValue != null && that.data.inputValue != '') {
             doommList.push(new Doomm(that.data.inputValue, Math.ceil(Math.random() * 100), 2 + Math.ceil(Math.random() * 10), getRandomColor()));
             that.setData({
-                doommData: doommList
+                doommData: doommList,
+                inputValue: '',
             });
 
             //@todo 文章内容网络请求API数据
