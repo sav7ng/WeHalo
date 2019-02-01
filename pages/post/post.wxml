@@ -47,10 +47,12 @@
 
 </view>
 
-
 <view class="comment" wx:if="{{commentsFlag}}">
-    <view class='commentInput'><input bindinput="bindKeyInput" class='input' type="text" placeholder="尽管吐槽吧....." confirm-type="send" bindconfirm='sendComment' cursor-spacing="10"></input></view>
-    <view class='commentBtn' bindtap='sendComment'>发送</view>
+    <button  wx:if="{{!hasUserInfo && canIUse}}" class='userinfoBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"><view>授权后可评论😎</view></button>
+    <block wx:else>
+        <view class='commentInput'><input bindinput="bindKeyInput" class='input' type="text" placeholder="尽管吐槽吧....." confirm-type="send" bindconfirm='sendComment' cursor-spacing="10"></input></view>
+        <view class='commentBtn' bindtap='sendComment'>发送</view>
+    </block>
 </view>
 
 

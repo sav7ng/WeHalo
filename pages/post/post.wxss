@@ -185,3 +185,25 @@
     line-height:60rpx;
     font-size:14px;
 }
+
+.userinfo {
+    z-index: 1090;
+}
+
+.userinfoBtn {
+    width: 94%;
+    background-color: #f5f7f6;
+    color: #929292;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    line-height:60rpx;
+    font-size:14px;
+    margin-top: 15rpx;
+}
+
+button::after {
+  border: none;
+}
