@@ -35,8 +35,6 @@ App({
     },
     globalData: { //全局变量
         userInfo: null,
-        nickName: null,
-        avatarUrl: null,
         URL: "https://blog.eunji.cn",
         blogName: "Aquan",
         TOKEN: "token",
