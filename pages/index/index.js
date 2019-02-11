@@ -54,7 +54,7 @@ Page({
     /**
      * 事件处理函数
      */
-    bindViewTap: function() {
+    bindViewTap: function () {
         wx.navigateTo({
             url: '../logs/logs'
         })
@@ -63,7 +63,7 @@ Page({
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function() {
+    onLoad: function () {
         this.app = getApp();
         var that = this; //不要漏了这句，很重要
         var url = app.globalData.URL + '/api/archives/all';
@@ -92,13 +92,13 @@ Page({
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function() {},
+    onHide: function () { },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-        return{
+        return {
             title: app.globalData.blogName
         }
     },
@@ -107,7 +107,7 @@ Page({
      * 加载更多
      */
     onReachBottom: function () {
-        
+
         var that = this;
         var pageNums = that.data.pageNum + 1;
         console.log('加载更多' + pageNums);
@@ -126,15 +126,15 @@ Page({
             flag1 = 1;
         }
         if (that.data.Flag == 0) {
-            if (that.data.pageNum < (b-1) || a == 0 ) {
-                if (a == 0 && pageNums == (c-1)) {
+            if (that.data.pageNum < (b - 1) || a == 0) {
+                if (a == 0 && pageNums == (c - 1)) {
                     flag = 1;
                 }
                 for (var i = 0; i < 5; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
-                
-            } else{
+
+            } else {
                 for (var i = 0; i < a; i++) {
                     posts_list.push(that.data.posts_list[i + (Num * pageNums)]);
                 }
@@ -182,13 +182,13 @@ Page({
                 });
             }, 200);
         }
-        
+
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () { 
+    onShow: function () {
         // this.showPost();
     },
 
@@ -244,7 +244,7 @@ Page({
         that.setData({
             ani: animation.export()
         });
-        
+
         setTimeout(function () {
             that.setData({
                 aflag: true,
@@ -292,7 +292,7 @@ Page({
             that.setData({
                 nav: false
             });
-        }else {
+        } else {
             that.setData({
                 nav: true
             });

@@ -100,8 +100,8 @@ Page({
     getUserInfo: function (e) {
         console.log(e)
         app.globalData.userInfo = e.detail.userInfo;
-        app.globalData.nickName = e.detail.userInfo.nickName;
-        app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
+        // app.globalData.nickName = e.detail.userInfo.nickName;
+        // app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
         this.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
@@ -270,9 +270,9 @@ Page({
         var params = {
             postId: postId,
             commentContent: that.data.inputValue,
-            commentAuthor: app.globalData.nickName,
+            commentAuthor: app.globalData.userInfo.nickName,
             commentAuthorEmail: '',
-            commentAuthorUrl: app.globalData.avatarUrl,
+            commentAuthorUrl: app.globalData.userInfo.avatarUrl,
             commentAgent: '1018',
             commentParent: '0',
         };
