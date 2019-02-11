@@ -121,7 +121,7 @@
 
 .doommview{
     position: fixed;
-    z-index: 1030;
+    /* z-index: 1030; */
     height: 80%;
     width: 100%;
     bottom: 10%;
