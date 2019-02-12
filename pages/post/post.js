@@ -20,6 +20,7 @@ Page({
         userInfo: {},
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        userAgent: '',
     },
 
     /**
@@ -95,6 +96,15 @@ Page({
         //     }, 200);
         // }, 2000);
 
+        wx.getSystemInfo({
+            success(res) {
+                var agentInfo = res.platform + '|' + res.brand + '|' + res.model + '|' + res.system + '|' + res.language;
+                that.setData({
+                    userAgent: agentInfo,
+                })
+            }
+        });
+
     },
 
     getUserInfo: function (e) {
@@ -105,7 +115,7 @@ Page({
         this.setData({
             userInfo: e.detail.userInfo,
             hasUserInfo: true
-        })
+        });
     },
 
     /**
@@ -273,7 +283,7 @@ Page({
             commentAuthor: app.globalData.userInfo.nickName,
             commentAuthorEmail: '',
             commentAuthorUrl: app.globalData.userInfo.avatarUrl,
-            commentAgent: '1018',
+            commentAgent: that.data.userAgent,
             commentParent: '0',
         };
 
