@@ -60,9 +60,6 @@ Page({
         }
 
 
-
-
-
         page = this;
         this.setData({
             postId: options.postId,
@@ -177,7 +174,6 @@ Page({
      * return返回上一页
      */
     returnPage() {
-        console.log("return返回上一页");
         wx.navigateBack({
             delta: 1, // 回退前 delta(默认为1) 页面
         })
@@ -319,6 +315,19 @@ Page({
     failSend: function (res, selfObj) {
         console.log('failSend', res)
     },
+
+    /**
+     * 生成海报跳转
+     */
+    createPoster() {
+        console.log("createPoster生成海报");
+        wx.navigateTo({
+            url: '../poster/poster?postId=' + this.data.postId,
+        })
+    },
+
+
+
 })
 
 /**

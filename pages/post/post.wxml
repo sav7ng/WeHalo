@@ -16,11 +16,12 @@
     <view bindtap="returnPage" class='return nav-return'></view>
 </view>
 
-<view class="sharePoster">
+<!-- 悬浮生存海报按钮 -->
+<!-- <view class="sharePoster">
     <navigator url="../poster/poster?postId={{post.postId}}">
         <i-icon type="share" size="28" color="#fff"/>
     </navigator>
-</view>
+</view> -->
 
 <view class="content">
 
@@ -33,6 +34,7 @@
             <view class="titleData">
                 <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
                 <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
+                <view bindtap='createPoster' class='poster'></view>
             </view>
         </view>
     </view>
@@ -44,6 +46,8 @@
     <view class="i-divider-mart">
         <i-divider>{{Author}}</i-divider>
     </view>
+
+    <ad class='ad' unit-id=""></ad>
 
 </view>
 

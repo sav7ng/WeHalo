@@ -67,3 +67,8 @@
 
 
 <i-load-more tip="{{Author}}" loading="{{loadMore}}" hidden="{{loadMores}}"/>
+
+
+<view class="ad" >
+    <ad unit-id=""></ad>
+</view>
