@@ -147,10 +147,17 @@ WeHalo的诞生离不开下面这些项目：
 
 ## 捐赠
 
-> 如果 **WeHalo** 帮到你在微信装 **X** ，可以众筹作者买秋裤冬天来了。
+> 如果 **WeHalo** 帮到你在微信装 **X** ，可以众筹作者买哇哈哈
 
 | 支付宝  | 微信  |
 | :------------: | :------------: |
 | <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/alipay.png" width="150"/>  | <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wechat.png" width="150" />  |
 
+## 感谢以下捐赠者
+
+> 作者会努力喝着你的哇哈哈敲代码的  ღ( ´･ᴗ･` )比心
+
+| 名称 | 方式 | 金额 | 留言 |
+| :------------: | :------------: | :------------: | :------------: |
+| 。花 泽 类 、 | 微信 | 10.00 | 哇哈哈 |
 
