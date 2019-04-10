@@ -21,13 +21,24 @@ Page({
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userAgent: '',
+        scene: 0,
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function(options) {
+    onLoad: function (options) {
 
+        //获取场景
+        var sceneNum = wx.getLaunchOptionsSync().scene;
+        if (sceneNum == 1007 || sceneNum == 1008) {
+            // 通过单人聊天会话分享进入 或者是  通过群聊会话分享进入
+            // scene记录是否通过这些场景进来的1是，0否
+            this.setData({
+                scene: 1
+            });
+        }
+        console.log(sceneNum);
 
         /**
          * 获取用户信息
@@ -165,8 +176,18 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function() {
+    onShareAppMessage: function (res) {
+        var that = this;
 
+        if (res.from === 'button') {
+            // 来自页面内转发按钮
+            console.log(res.target)
+        }
+        return {
+            title: this.data.postTitle,
+            path: '/pages/post/post?postId=' +  this.data.postId,
+            imageUrl: app.globalData.URL + this.data.postThumbnail,
+        }
     },
     
 
@@ -174,9 +195,18 @@ Page({
      * return返回上一页
      */
     returnPage() {
-        wx.navigateBack({
-            delta: 1, // 回退前 delta(默认为1) 页面
-        })
+        var sceneFlag = this.data.scene;
+        console.log(sceneFlag);
+        if (sceneFlag == 1) {
+            wx.reLaunch({
+                url: '/pages/index/index',
+            })
+        } else {
+            wx.navigateBack({
+                delta: 1,
+            })
+        }
+
     },
 
     /**
@@ -192,6 +222,7 @@ Page({
             postTitle: res.result.postTitle,
             comments: res.result.comments,
             commentsCount: res.result.comments.length,
+            postThumbnail: res.result.postThumbnail,
         })
 
         for (i = 0; i < that.data.comments.length; i++) {
