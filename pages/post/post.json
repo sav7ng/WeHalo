@@ -7,6 +7,6 @@
         "i-divider": "../../dist/divider/index",
         "i-message": "../../dist/message/index"
     },
-    "navigationStyle": "default",
+    "navigationStyle": "custom",
     "navigationBarTextStyle": "black"
 }

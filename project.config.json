@@ -13,7 +13,7 @@
 		"uglifyFileName": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
+	"libVersion": "2.4.3",
 	"appid": "wxe0face0d131e0bd2",
 	"projectname": "WeHalo",
 	"debugOptions": {

@@ -267,3 +267,10 @@
 .value {
     font-size: 14px;
 }
+
+/** 广告位样式 **/
+.ad {
+    width: 90%;
+    margin-bottom: 20px;
+    padding: 5%;
+}

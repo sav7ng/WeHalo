@@ -3,11 +3,7 @@
 <view class="mask" hidden="{{aflag}}" catchtap="closeMask">
     <view class="masks" catchtap="prevent" animation="{{ani}}">
         <view class="box">
-            <!-- <view class="left">
-            </view> -->
-            <!-- <view class="left"> -->
-                <image class="leftImage" mode="widthFix" src="https://blog.eunji.cn/upload/2018/11/微信图片_2018122511545020181225115902899.png"></image>
-            <!-- </view> -->
+            <image class="leftImage" mode="widthFix" src="https://blog.eunji.cn/upload/2018/11/微信图片_2018122511545020181225115902899.png"></image>
             <view class="right">
                 <view class="title">
                     <text class="name">Aquan</text>
@@ -32,12 +28,10 @@
 
     <!-- 首页图片 -->
     <view class="top">
-        <!-- <cover-image class="img" mode="widthFix" src="{{imgUrl}}"></cover-image> -->
         <view class="aquanblog">
             {{blogName}}
             <view class="aquanblogs">{{jinrishici}}</view>
         </view>
-        <!-- <image class="imgs" src="{{imgUrl}}" mode="widthFix"></image> -->
         <view bindtap="showMask" class='qrcode'></view>
     </view>
 
@@ -63,19 +57,18 @@
                 <view class="summary">{{item.postSummary}}</view>
                 <view class="footer">
                     <i-avatar src="{{userAvatar}}" size="small"></i-avatar>
-                    <!-- <image mode="widthFix" class='userAvatar' src="{{userAvatar}}"></image> -->
                     <view class="postDate">{{item.postDate}}</view>
                 </view>
             </view>
         </navigator>
     </view>
-
-    <!-- <view class="i-divider-mart">
-        <i-divider>{{Author}}</i-divider>
-    </view> -->
-    
     <i-message id="message" />
 </view>
 
 
 <i-load-more tip="{{Author}}" loading="{{loadMore}}" hidden="{{loadMores}}"/>
+
+
+<view class="ad" >
+    <ad unit-id=""></ad>
+</view>

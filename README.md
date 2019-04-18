@@ -3,10 +3,11 @@
 > WeHalo **简约风** 的微信小程序版博客
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
-[![GitHub release](	https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
-[![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](#)
+[![GitHub release](https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
+[![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo)
 [![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
-[![](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](#)
+[![star](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](https://github.com/aquanlerou/WeHalo)
+[![star](https://gitee.com/Aquan_LeRou/WeHalo/badge/star.svg?theme=white)](https://gitee.com/Aquan_LeRou/WeHalo/stargazers)
 
 ------------------------------
 
@@ -29,7 +30,7 @@
 
 配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.jpg)
+![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.png)
 
 > QQ交流群: 260050047
 
@@ -48,7 +49,7 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 ## 文档
 
-修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址 
+修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址，请更新最新的 **Halo** 配合使用
 
 **注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
 
@@ -69,12 +70,17 @@ globalData: { //全局变量
 ```
 
 
-修改``index.wxss``文件更改首页封面背景图片,找到``.aquanblog``
+修改``index.wxss``文件更改首页封面背景图片,找到``.aquanblog``和``.nav``
 
 ```
 .aquanblog {
     //填上你想要的封面图片链接
-    background-image: url("https://blog.eunji.cn/upload/2018/10/maximilian-weisbecker-544039-unsplash20181109154144125.jpg");
+    background-image: url("xxxxx");
+}
+自定义导航栏背景图片
+.nav {
+    //填上你想要的封面图片链接
+    background: url("xxxxx") no-repeat;
 }
 ```
 
@@ -92,6 +98,19 @@ globalData: { //全局变量
         top: '433rpx',
     }
 },
+```
+
+删除广告单元（不删掉的话发布是通过不了审核的）
+
+```
+//index.wxml底部的
+<view class="ad" >
+    <ad unit-id=""></ad>
+</view>
+
+//post.wxml
+<ad class='ad' unit-id=""></ad>
+
 ```
 
 
@@ -115,7 +134,7 @@ html2wxml插件版本准备
 
 ## 许可证
 
-[![license](https://img.shields.io/github/license/ruibaby/halo.svg)](https://github.com/ruibaby/halo/blob/master/LICENSE)
+[![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
 
 > WeHalo使用GPL-v3.0协议开源，请尽量遵守开源协议，即便是在中国。
 
@@ -124,6 +143,9 @@ html2wxml插件版本准备
 - [x] 生成海报（微信朋友圈装X）
 - [x] 自定义导航栏（个人觉得好看可自定义）
 - [x] 个人名片（可宣传自己）
+- [x] 文章弹幕式评论展示
+- [x] 文字评论功能
+- [ ] 用户回复评论追评功能
 - [ ] 想到就写...
 
 ## 感谢
@@ -138,10 +160,24 @@ WeHalo的诞生离不开下面这些项目：
 
 ## 捐赠
 
-> 如果 **WeHalo** 帮到你在微信装 **X** ，可以众筹作者买秋裤冬天来了。
+> 如果 **WeHalo** 帮到你在微信装 **X** ，可以众筹作者买哇哈哈（注：捐赠请备注WeHalo捐赠和名称哦）
 
 | 支付宝  | 微信  |
 | :------------: | :------------: |
 | <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/alipay.png" width="150"/>  | <img src="https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wechat.png" width="150" />  |
+
+## 感谢以下捐赠者
+
+> 作者会努力喝着你的哇哈哈敲代码的  ღ( ´･ᴗ･` )比心
+
+| 日期 | 名称 | 方式 | 金额 | 留言 |
+| :------------: | :------------: | :------------: | :------------: | :------------: |
+| 2019-02-11 | 。花 泽 类 、 | 微信 | 10.00 | 哇哈哈 |
+| 2019-02-27 | 黄 * i | 微信 | 1.00 | 无留言 |
+| 2019-03-08 |  * 桂 林 | 微信 | 1.00 | 无留言 |
+| 2019-03-18 |  * 金 | 微信 | 30.00 | 开源交流 |
+| 2019-03-31 |  * 操 | 微信 | 20.48 | 感谢开源分享 |
+| 2019-04-08 |  * 呱 | 微信 | 10.24 | 感谢开源 |
+| 2019-04-14 |  J * D | 微信 | 10.24 | WeHalo捐赠 |
 
 

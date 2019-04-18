@@ -36,6 +36,33 @@
     float: right;
 }
 
+.sharePoster {
+    position: fixed;
+    bottom: 10%;
+    right: 6%;
+    opacity: 0.6;
+    background-color:#000000;
+    border-radius:35px;
+    width:32px;
+    height:32px;
+    text-align:center;
+    padding-top:2px;
+    padding-right:2px;
+    z-index: 1050;
+}
+
+.poster {
+    display:inline-block;
+    z-index: 1020;
+    width: 18px;
+    height: 22px;
+    vertical-align:middle;
+    line-height: 1;
+    background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTUwMDM3ODc3NTE1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjUzMzQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNjQ4LjYgMTYwLjZjLTIuNC0wLjQtNC44LTAuNi03LjItMC42djAuOC0wLjZoLTAuOGMtNDQgMC04NS44IDUxLjgtOTUuNiAxMjAuNi0xMC42IDczLjIgMTguOCAxMzggNjUuNCAxNDQuOCAyLjYgMC40IDUuNCAwLjYgOCAwLjYgNDQgMCA4NS44LTUxLjggOTUuNi0xMjAuNiAxMC42LTczLjQtMTguOC0xMzguMi02NS40LTE0NXogbS03LjQtMC42eiBtMjQzLjQgMTc4LjhjLTctMi44LTE0LjItNC4yLTIxLjgtNC4yaC0wLjhjLTM5LjQgMC42LTgzLjYgMzguNC0xMDYuOCA5NS42LTI3LjggNjguNC0xNSAxMzguNCAyOC44IDE1Ni40IDcgMi44IDE0LjIgNC4yIDIxLjggNC4yIDM5LjYgMCA4NC40LTM4IDEwNy44LTk1LjYgMjcuNi02OC40IDE0LjYtMTM4LjQtMjktMTU2LjR6IG0tMjI5LjQgMjUyYy01NS42LTg3LjItNzkuNi0xMjAtMTQzLjItMTIwcy04Ny44IDMzLTE0My40IDEyMGMtNDcuNiA3NC40LTE0My44IDgwLjYtMTY3LjggMTQzLjgtNC44IDExLjItNy4yIDIzLjQtNy4yIDM2LjQgMCA1MS40IDQxLjYgOTMgOTIuOCA5MyA2My42IDAgMTUwLjItNDggMjI1LjgtNDhzMTYxLjggNDggMjI1LjQgNDhjNTEuMiAwIDkyLjYtNDEuNiA5Mi42LTkzIDAtMTMtMi42LTI1LjItNy40LTM2LjQtMjQtNjMuNC0xMjAtNjkuNC0xNjcuNi0xNDMuOHpNNDA1LjYgNDI2YzIuNiAwIDUuNC0wLjIgOC0wLjYgNDYuOC02LjggNzYtNzEuNiA2NS40LTE0NC44LTEwLTY5LTUxLjgtMTIwLjYtOTUuNi0xMjAuNi0yLjYgMC01LjQgMC4yLTggMC42LTQ2LjggNi44LTc2IDcxLjYtNjUuNCAxNDQuOCAxMCA2OC44IDUxLjggMTIwLjYgOTUuNiAxMjAuNnogbS0xNjUuNCAxNjAuNmM0My44LTE4IDU2LjYtODggMjguOC0xNTYuNC0yMy40LTU3LjYtNjguMi05NS42LTEwNy44LTk1LjYtNy42IDAtMTQuOCAxLjQtMjEuOCA0LjItNDMuOCAxOC01Ni42IDg4LTI4LjggMTU2LjQgMjMuNCA1Ny42IDY4LjIgOTUuNiAxMDcuOCA5NS42IDcuNiAwIDE0LjgtMS40IDIxLjgtNC4yeiIgcC1pZD0iNTMzNSI+PC9wYXRoPjwvc3ZnPg==');
+    background-repeat:no-repeat; /** 不重复*/
+    background-size:contain; /**等比例缩放*/
+}
+
 .hide {
   display: none;
 }
@@ -85,4 +112,115 @@
 .message {
     position: absolute;
     top: 150rpx;
+}
+
+/** 弹幕评论样式 **/
+.aon{
+    position: absolute;
+    white-space:nowrap;/* 防止向下换行*/
+    animation-timing-function: linear;
+    animation-fill-mode: none;
+    background-color: rgb(112, 112, 112);
+    font-family: 微软雅黑;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 16px;
+    opacity: 0.8;
+    border-radius: 100px;
+}
+
+.doommview{
+    position: fixed;
+    /* z-index: 1030; */
+    height: 80%;
+    width: 100%;
+    bottom: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@keyframes first{
+    from{left: 100%;}
+    to{left: -100%;}
+}
+
+/** 评论栏样式 **/
+.comment {
+    position: fixed;
+    bottom: 0;
+    /* background: url("https://blog.eunji.cn/upload/2018/11/code120181219113843975.png") no-repeat; */
+    /* background-size: cover; */
+    color: #000;
+    width: 100%;
+    height: 90rpx;
+    z-index: 1050;
+    background-color: #ffffff;
+    box-shadow:0px 5px 22px 5px rgb(180, 180, 180);
+}
+
+.commentInput {
+    background-color: #f5f7f6;
+    width:72%;
+    margin: auto;
+    float: left;
+    height: 60rpx;
+    margin-top: 15rpx;
+    margin-left:20rpx;
+    border-radius: 5px;
+    line-height:60rpx;
+}
+
+.input {
+    font-size:14px;
+    margin-left:15rpx;
+    margin-right:15rpx;
+    height: 60rpx;
+    line-height:60rpx;
+    color: #929292;
+}
+
+.commentBtn {
+    background-color: #f5f7f6;
+    width:20%;
+    margin: auto;
+    float: right;
+    text-align: center;
+    color: #929292;
+    height: 60rpx;
+    margin-top: 15rpx;
+    margin-right:20rpx;
+    border-radius: 5px;
+    line-height:60rpx;
+    font-size:14px;
+}
+
+.userinfo {
+    z-index: 1090;
+}
+
+.userinfoBtn {
+    width: 94%;
+    background-color: #f5f7f6;
+    color: #929292;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    line-height:60rpx;
+    font-size:14px;
+    margin-top: 15rpx;
+}
+
+button::after {
+  border: none;
+}
+
+/** 广告位样式 **/
+.ad {
+    padding-bottom: 55px;
 }

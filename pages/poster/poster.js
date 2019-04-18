@@ -11,6 +11,7 @@ function _textDecoration(decoration, index, color) {
 }
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
+const request = require('../../utils/request.js');
 
 // pages/poster/poster.js
 Page({
@@ -52,98 +53,15 @@ Page({
         var url = app.globalData.URL + '/api/posts/' + postId;
         var userAvatarUrl = app.globalData.URL;
         var token = app.globalData.TOKEN;
+        var params = {};
+        //@todo 网络请求API数据
+        request.requestGetApi(url, token, params, this, this.successFunPoster, this.failFunPoster);
 
         //微信自带Loading效果
         wx.showLoading({
           title: '正在生成',
         });
 
-        wx.request({
-            url: url,
-            method: 'GET',
-            header: {
-                'Content-Type': 'application/json',
-                'token': token
-            },
-            success: function (res) {
-                console.log(res.data.result)
-                that.setData({
-                    post: res.data.result,
-                    imageUrl: app.globalData.URL + res.data.result.postThumbnail,
-                    postAuthor: res.data.result.user.userDisplayName,
-                    userDesc: res.data.result.user.userDesc,
-                    postDate: res.data.result.postDate,
-                    postTitle: res.data.result.postTitle,
-                    postSummary: res.data.result.postSummary
-                })
-
-                // console.log(that.data.imageUrl);
-                //动态设置当前页面的标题
-                // wx.setNavigationBarTitle({
-                //     title: res.data.result.postTitle,
-                // });
-
-                that.setData({
-                    visible: true,
-                    createPoster: {
-                        width: '600rpx',
-                        height: '600rpx',
-                        background: '#fff',
-                        borderRadius: '7px',
-                        views: [
-
-                            {
-                                type: 'image',
-                                url: that.data.imageUrl,
-                                css: {
-                                    width: '600rpx',
-                                    height: '450rpx',
-                                }
-                            },
-                            {
-                                type: 'image',
-                                url: 'https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png',
-                                css: {
-                                    width: '600rpx',
-                                    height: '167rpx',
-                                    mode: 'scaleToFill',
-                                    top: '433rpx',
-                                }
-                            },
-                            {
-                                type: 'text',
-                                text: that.data.postTitle,
-                                css: {
-                                    top: `50rpx`,
-                                    fontSize: '45rpx',
-                                    color: '#fff',
-                                    fontWeight: 'bold',
-                                    align: 'center',
-                                    width: '600rpx',
-                                    left: '300rpx'
-                                }
-                            },
-                            {
-                                type: 'text',
-                                text: that.data.postAuthor + " · " + that.data.postDate + " · " + "WeHalo",
-                                css: {
-                                    left: '300rpx',
-                                    top: '380rpx',
-                                    fontSize: '20rpx',
-                                    color: '#fff',
-                                    width: '600rpx',
-                                    align: 'center',
-                                }
-                            },
-                        ]
-                    },
-                });
-
-
-                //取消Loading效果
-                wx.hideLoading();
-            }
-        })
     },
 
     /**
@@ -279,11 +197,88 @@ Page({
     * return返回上一页
     */
     returnPage() {
-        console.log("return返回上一页");
         wx.navigateBack({
             delta: 1, // 回退前 delta(默认为1) 页面
         })
     },
 
+    /**
+     * 生成海报请求--接口调用成功处理
+     */
+    successFunPoster: function (res, selfObj) {
+        var that = this;
+        that.setData({
+            imageUrl: app.globalData.URL + res.result.postThumbnail,
+            postAuthor: res.result.user.userDisplayName,
+            postDate: res.result.postDate,
+            postTitle: res.result.postTitle
+        });
+        that.setData({
+            visible: true,
+            createPoster: {
+                width: '600rpx',
+                height: '600rpx',
+                background: '#fff',
+                borderRadius: '7px',
+                views: [
+
+                    {
+                        type: 'image',
+                        url: that.data.imageUrl,
+                        css: {
+                            width: '600rpx',
+                            height: '450rpx',
+                        }
+                    },
+                    {
+                        type: 'image',
+                        url: 'https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png',
+                        css: {
+                            width: '600rpx',
+                            height: '167rpx',
+                            mode: 'scaleToFill',
+                            top: '433rpx',
+                        }
+                    },
+                    {
+                        type: 'text',
+                        text: that.data.postTitle,
+                        css: {
+                            top: `50rpx`,
+                            fontSize: '45rpx',
+                            color: '#fff',
+                            fontWeight: 'bold',
+                            align: 'center',
+                            width: '600rpx',
+                            left: '300rpx'
+                        }
+                    },
+                    {
+                        type: 'text',
+                        text: that.data.postAuthor + " · " + that.data.postDate + " · " + "WeHalo",
+                        css: {
+                            left: '300rpx',
+                            top: '380rpx',
+                            fontSize: '20rpx',
+                            color: '#fff',
+                            width: '600rpx',
+                            align: 'center',
+                        }
+                    },
+                ]
+            },
+        });
+
+
+        //取消Loading效果
+        wx.hideLoading();
+    },
+
+    /**
+     * 生成海报请求--接口调用失败处理
+     */
+    failFunPoster: function (res, selfObj) {
+        console.log('failFunPoster', res)
+    },
     
 })
