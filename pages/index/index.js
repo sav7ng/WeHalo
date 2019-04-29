@@ -87,6 +87,30 @@ Page({
             })
         });
 
+        
+
+        wx.cloud.callFunction({
+            // 云函数名称
+            name: 'upsert_posts_statistics',
+            // 传给云函数的参数
+            data: {
+                post_id: 1,
+                view_count: 100,
+                like_count: 100,
+                comment_count: 100,
+            },
+            success(res) {
+                console.log("cloudResult:",res.result) // 3
+            },
+            fail: console.error
+        })
+        
+        wx.cloud.init({
+            traceUser: true
+        })
+
+
+
     },
 
     /**
@@ -379,5 +403,65 @@ Page({
         console.log('failFunRefreshPosts', res)
     },
 
+    
 
 })
+
+
+// const db = wx.cloud.database()
+// const _ = db.command
+
+// function wxPromisify(fn) {
+//     return function (obj = {}) {
+//         return new Promise((resolve, reject) => {
+//             obj.success = function (res) {
+//                 //成功
+//                 resolve(res)
+//             }
+//             obj.fail = function (res) {
+//                 //失败
+//                 reject(res)
+//             }
+//             fn(obj)
+//         })
+//     }
+// }
+
+// //无论promise对象最后状态如何都会执行
+// Promise.prototype.finally = function (callback) {
+//     let P = this.constructor;
+//     return this.then(
+//         value => P.resolve(callback()).then(() => value),
+//         reason => P.resolve(callback()).then(() => { throw reason })
+//     );
+// };
+
+
+// /**
+//  * 获取文章统计数据
+//  */
+// function getPostStatistics(post_ids) {
+//     var callcloudFunction = this.wxPromisify(wx.cloud.callFunction)
+//     return callcloudFunction({
+//         name: 'get_posts_statistics',
+//         data: {
+//             post_ids: post_ids
+//         }
+//     })
+// }
+
+// /**
+//  * 修改统计数量
+//  */
+// function upsertPostsStatistics(data) {
+//     var callcloudFunction = this.wxPromisify(wx.cloud.callFunction)
+//     return callcloudFunction({
+//         name: 'upsert_posts_statistics',
+//         data: {
+//             post_id: data[0],
+//             view_count: data[1],
+//             comment_count: data[2],
+//             like_count: data[3]
+//         }
+//     })
+// }
