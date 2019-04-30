@@ -363,7 +363,7 @@ Page({
      * 首頁文章列表请求--接口调用失败处理
      */
     failFunPosts: function (res, selfObj) {
-        console.log('failFunPosts', res)
+        console.error('failFunPosts', res)
     },
 
     /**
@@ -400,7 +400,7 @@ Page({
      * 首頁文章下拉刷新请求--接口调用失败处理
      */
     failFunRefreshPosts: function (res, selfObj) {
-        console.log('failFunRefreshPosts', res)
+        console.error('failFunRefreshPosts', res)
     },
 
     

@@ -285,7 +285,7 @@ Page({
      * 文章详情请求--接口调用失败处理
      */
     failFunPost: function (res, selfObj) {
-        console.log('failFunPosts', res)
+        console.error('failFunPosts', res)
     },
 
     /**
@@ -304,7 +304,7 @@ Page({
      * 评论开启请求--接口调用失败处理
      */
     failComment: function (res, selfObj) {
-        console.log('failFunComment', res)
+        console.error('failFunComment', res)
     },
 
     /**
@@ -378,7 +378,7 @@ Page({
      * 发送评论请求--接口调用失败处理
      */
     failSend: function (res, selfObj) {
-        console.log('failSend', res)
+        console.error('failSend', res)
     },
 
     /**
