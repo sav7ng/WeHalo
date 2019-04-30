@@ -26,9 +26,9 @@ exports.main = async (event, context) => {
             await db.collection('count').add({
                 data: {
                     post_id: event.post_id,//文章id
-                    view_count: 100 + Math.floor(Math.random() * 40),//浏览量
+                    view_count: 1,//浏览量
                     comment_count: 0,//评论数
-                    like_count: 10 + Math.floor(Math.random() * 40)//点赞数
+                    like_count: 0 //点赞数
                 }
             }).then(res => {
                 // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id

@@ -54,10 +54,20 @@
 <view class="comment" wx:if="{{commentsFlag}}">
     <button  wx:if="{{!hasUserInfo && canIUse}}" class='userinfoBtn' open-type="getUserInfo" bindgetuserinfo="getUserInfo"><view>授权后可评论😎</view></button>
     <block wx:else>
+        <!-- bindconfirm键盘触发事件 -->
         <view class='commentInput'><input bindinput="bindKeyInput" value='{{inputValue}}' class='input' type="text" placeholder="尽管吐槽吧....." confirm-type="send" bindconfirm='sendComment' cursor-spacing="10"></input></view>
+        <view style="float: right;padding: 7px; " catchtap='likeButton'>
+            <block wx:if="{{!likeButton}}">
+                <i-icon type="like" size="32" color="#929292"/>
+            </block>
+            <block wx:else>
+                <i-icon type="like_fill" size="32" color="#d0021b"/>
+            </block>
+        </view>
         <view class='commentBtn' bindtap='sendComment'>发送</view>
     </block>
 </view>
 
 
+<i-toast id="toast" />
 <i-message id="message"/>

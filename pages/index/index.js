@@ -89,25 +89,25 @@ Page({
 
         
 
-        wx.cloud.callFunction({
-            // 云函数名称
-            name: 'upsert_posts_statistics',
-            // 传给云函数的参数
-            data: {
-                post_id: 1,
-                view_count: 100,
-                like_count: 100,
-                comment_count: 100,
-            },
-            success(res) {
-                console.log("cloudResult:",res.result) // 3
-            },
-            fail: console.error
-        })
+        // wx.cloud.callFunction({
+        //     // 云函数名称
+        //     name: 'upsert_posts_statistics',
+        //     // 传给云函数的参数
+        //     data: {
+        //         post_id: 3,
+        //         view_count: 1,
+        //         like_count: 1,
+        //         comment_count: 1,
+        //     },
+        //     success(res) {
+        //         console.log("cloudResult:",res.result) // 3
+        //     },
+        //     fail: console.error
+        // })
         
-        wx.cloud.init({
-            traceUser: true
-        })
+        // wx.cloud.init({
+        //     traceUser: true
+        // })
 
 
 
