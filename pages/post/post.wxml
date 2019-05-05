@@ -32,8 +32,9 @@
                 {{item.tagName}}
             </i-tag>
             <view class="titleData">
-                <i-icon type="time" size="12" color="#cccccc" />{{post.postDate}}
-                <i-icon type="browse" size="12" color="#cccccc" />{{post.postViews}}
+                <i-icon type="time" size="12" color="#cccccc"/>{{post.postDate}}
+                <i-icon type="browse" size="12" color="#cccccc"/>{{view_count}}
+                <i-icon type="like_fill" size="12" color="#d0021b"/>{{like_count}}
                 <view bindtap='createPoster' class='poster'></view>
             </view>
         </view>

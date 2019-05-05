@@ -134,18 +134,61 @@ Page({
             fail: console.error
         })
 
+
+
         wx.cloud.callFunction({
             // 云函数名称
             name: 'get_posts_statistics',
             // 传给云函数的参数
             data: {
-                post_id: postId
+                post_id: postId + ""
             },
             success(res) {
-                console.log("POSTcloudResult:", res.result)
+                console.log("POSTcloudResult:", res)
+                console.warn("like_count:", res.result.data[0].like_count)
+                if (res.result.data[0] != null) {
+                    that.setData({
+                        like_count: res.result.data[0].like_count,
+                        view_count: res.result.data[0].view_count,
+                    });
+                } else {
+                    that.setData({
+                        like_count: "1",
+                        view_count: "0",
+                    });
+                }
             },
             fail: console.error
         })
+
+        //获取本地缓存的点赞flag
+        try {
+            const value = wx.getStorageSync('likeButton' + that.data.postId)
+            if (value != null) {
+                if(value == "1") {
+                    that.setData({
+                        likeButton: true
+                    });
+                }else if(value == "0") {
+                    that.setData({
+                        likeButton: false
+                    });
+                }
+            }
+        } catch (e) {
+            console.error("获取本地点赞flag缓存失败：",e);
+        }
+
+        //获取本地所有缓存数据
+        try {
+            const res = wx.getStorageInfoSync()
+            console.warn("获取本地所有缓存数据",res.keys)
+            console.warn("获取本地所有缓存数据",res.currentSize)
+            console.warn("获取本地所有缓存数据",res.limitSize)
+        } catch (e) {
+            // Do something when catch error
+            console.error("获取本地缓存失败：", e);
+        }
 
     },
 
@@ -420,6 +463,13 @@ Page({
                         content: '点赞成功',
                         icon: 'like_fill'
                     });
+                    //暂时添加缓存进本地，用于判断该用户是否点赞过
+                    try {
+                        wx.removeStorageSync('likeButton' + that.data.postId)
+                        wx.setStorageSync('likeButton' + that.data.postId, "1")
+                    } catch (e) { 
+                        console.error("点赞缓存出错：",e);
+                    }
                 },
                 fail: console.error
             })
@@ -441,6 +491,13 @@ Page({
                         content: '取消点赞',
                         icon: 'like'
                     });
+                    //暂时添加缓存进本地，用于判断该用户是否点赞过
+                    try {
+                        wx.removeStorageSync('likeButton' + that.data.postId)
+                        wx.setStorageSync('likeButton' + that.data.postId, "0")
+                    } catch (e) {
+                        console.error("取消点赞缓存出错：", e);
+                    }
                 },
                 fail: console.error
             })
