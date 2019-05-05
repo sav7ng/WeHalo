@@ -278,7 +278,7 @@ Page({
      * 生成海报请求--接口调用失败处理
      */
     failFunPoster: function (res, selfObj) {
-        console.log('failFunPoster', res)
+        console.error('failFunPoster', res)
     },
     
 })

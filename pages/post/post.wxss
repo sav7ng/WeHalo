@@ -164,7 +164,7 @@
 
 .commentInput {
     background-color: #f5f7f6;
-    width:72%;
+    width:64%;
     margin: auto;
     float: left;
     height: 60rpx;
@@ -192,7 +192,7 @@
     color: #929292;
     height: 60rpx;
     margin-top: 15rpx;
-    margin-right:20rpx;
+    /* margin-right:80rpx; */
     border-radius: 5px;
     line-height:60rpx;
     font-size:14px;

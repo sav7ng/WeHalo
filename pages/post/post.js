@@ -2,6 +2,7 @@
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
 const request = require('../../utils/request.js');
+const { $Toast } = require('../../dist/base/index');
 var page = undefined;
 
 Page({
@@ -22,6 +23,7 @@ Page({
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userAgent: '',
         scene: 0,
+        likeButton: false,
     },
 
     /**
@@ -38,7 +40,7 @@ Page({
                 scene: 1
             });
         }
-        console.log(sceneNum);
+        // console.log(sceneNum);
 
         /**
          * 获取用户信息
@@ -112,6 +114,81 @@ Page({
                 })
             }
         });
+
+        wx.cloud.init({
+            traceUser: true
+        })
+        wx.cloud.callFunction({
+            // 云函数名称
+            name: 'upsert_posts_statistics',
+            // 传给云函数的参数
+            data: {
+                post_id: postId,
+                view_count: 1,
+                like_count: 0,
+                comment_count: 0
+            },
+            success(res) {
+                console.log("cloudResult:", res.result)
+            },
+            fail: console.error
+        })
+
+
+
+        wx.cloud.callFunction({
+            // 云函数名称
+            name: 'get_posts_statistics',
+            // 传给云函数的参数
+            data: {
+                post_id: postId + ""
+            },
+            success(res) {
+                console.log("POSTcloudResult:", res)
+                console.warn("like_count:", res.result.data[0].like_count)
+                if (res.result.data[0] != null) {
+                    that.setData({
+                        like_count: res.result.data[0].like_count,
+                        view_count: res.result.data[0].view_count,
+                    });
+                } else {
+                    that.setData({
+                        like_count: "1",
+                        view_count: "0",
+                    });
+                }
+            },
+            fail: console.error
+        })
+
+        //获取本地缓存的点赞flag
+        try {
+            const value = wx.getStorageSync('likeButton' + that.data.postId)
+            if (value != null) {
+                if(value == "1") {
+                    that.setData({
+                        likeButton: true
+                    });
+                }else if(value == "0") {
+                    that.setData({
+                        likeButton: false
+                    });
+                }
+            }
+        } catch (e) {
+            console.error("获取本地点赞flag缓存失败：",e);
+        }
+
+        //获取本地所有缓存数据
+        try {
+            const res = wx.getStorageInfoSync()
+            console.warn("获取本地所有缓存数据",res.keys)
+            console.warn("获取本地所有缓存数据",res.currentSize)
+            console.warn("获取本地所有缓存数据",res.limitSize)
+        } catch (e) {
+            // Do something when catch error
+            console.error("获取本地缓存失败：", e);
+        }
 
     },
 
@@ -196,7 +273,7 @@ Page({
      */
     returnPage() {
         var sceneFlag = this.data.scene;
-        console.log(sceneFlag);
+        // console.log(sceneFlag);
         if (sceneFlag == 1) {
             wx.reLaunch({
                 url: '/pages/index/index',
@@ -238,9 +315,9 @@ Page({
         })
 
 
-        console.log(that.data.commentsCount);
+        // console.log(that.data.commentsCount);
 
-        console.log(that.data.barrages);
+        // console.log(that.data.barrages);
         //动态设置当前页面的标题
         wx.setNavigationBarTitle({
             title: res.result.postTitle,
@@ -251,7 +328,7 @@ Page({
      * 文章详情请求--接口调用失败处理
      */
     failFunPost: function (res, selfObj) {
-        console.log('failFunPosts', res)
+        console.error('failFunPosts', res)
     },
 
     /**
@@ -270,7 +347,7 @@ Page({
      * 评论开启请求--接口调用失败处理
      */
     failComment: function (res, selfObj) {
-        console.log('failFunComment', res)
+        console.error('failFunComment', res)
     },
 
     /**
@@ -344,7 +421,7 @@ Page({
      * 发送评论请求--接口调用失败处理
      */
     failSend: function (res, selfObj) {
-        console.log('failSend', res)
+        console.error('failSend', res)
     },
 
     /**
@@ -357,7 +434,76 @@ Page({
         })
     },
 
+    /**
+     * 点赞
+     */
+    likeButton: function() {
+        var that = this;
+        that.setData({
+            likeButton: !that.data.likeButton
+        })
+        var flag = that.data.likeButton;
+        console.info("点赞" + flag + "|postId:" + that.data.postId);
 
+        if (flag) {
+            wx.cloud.callFunction({
+                // 云函数名称
+                name: 'upsert_posts_statistics',
+                // 传给云函数的参数
+                data: {
+                    post_id: that.data.postId,
+                    view_count: 0,
+                    like_count: 1,
+                    comment_count: 0
+                },
+                success(res) {
+                    console.log("cloudResult:", res.result)
+                    //轻提示点赞成功
+                    $Toast({
+                        content: '点赞成功',
+                        icon: 'like_fill'
+                    });
+                    //暂时添加缓存进本地，用于判断该用户是否点赞过
+                    try {
+                        wx.removeStorageSync('likeButton' + that.data.postId)
+                        wx.setStorageSync('likeButton' + that.data.postId, "1")
+                    } catch (e) { 
+                        console.error("点赞缓存出错：",e);
+                    }
+                },
+                fail: console.error
+            })
+        }else {
+            wx.cloud.callFunction({
+                // 云函数名称
+                name: 'upsert_posts_statistics',
+                // 传给云函数的参数
+                data: {
+                    post_id: that.data.postId,
+                    view_count: 0,
+                    like_count: -1,
+                    comment_count: 0
+                },
+                success(res) {
+                    console.log("cloudResult:", res.result)
+                    //轻提示点赞成功
+                    $Toast({
+                        content: '取消点赞',
+                        icon: 'like'
+                    });
+                    //暂时添加缓存进本地，用于判断该用户是否点赞过
+                    try {
+                        wx.removeStorageSync('likeButton' + that.data.postId)
+                        wx.setStorageSync('likeButton' + that.data.postId, "0")
+                    } catch (e) {
+                        console.error("取消点赞缓存出错：", e);
+                    }
+                },
+                fail: console.error
+            })
+        }
+        
+    },
 
 })
 
