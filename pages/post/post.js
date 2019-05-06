@@ -129,7 +129,7 @@ Page({
                 comment_count: 0
             },
             success(res) {
-                console.log("cloudResult:", res.result)
+                console.log("cloudResult:", res.result);
             },
             fail: console.error
         })
@@ -145,7 +145,6 @@ Page({
             },
             success(res) {
                 console.log("POSTcloudResult:", res)
-                console.warn("like_count:", res.result.data[0].like_count)
                 if (res.result.data[0] != null) {
                     that.setData({
                         like_count: res.result.data[0].like_count,
@@ -153,8 +152,8 @@ Page({
                     });
                 } else {
                     that.setData({
-                        like_count: "1",
-                        view_count: "0",
+                        like_count: "0",
+                        view_count: "1",
                     });
                 }
             },
