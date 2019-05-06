@@ -23,22 +23,26 @@
     </navigator>
 </view> -->
 
-<view class="content">
 
     <view slot="title" class="top">
-        <view class="stickyTitle">{{post.postTitle}}</view>
-        <view class="titleTags">
-            <i-tag wx:for="{{post.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
-                {{item.tagName}}
-            </i-tag>
-            <view class="titleData">
-                <i-icon type="time" size="12" color="#cccccc"/>{{post.postDate}}
-                <i-icon type="browse" size="12" color="#cccccc"/>{{view_count}}
-                <i-icon type="like_fill" size="12" color="#d0021b"/>{{like_count}}
-                <view bindtap='createPoster' class='poster'></view>
+        <view style="padding: 10px; padding-top:88px;">
+            <view class="stickyTitle">{{post.postTitle}}</view>
+            <view class="titleTags">
+                <i-tag wx:for="{{post.tags}}" wx:key="tagId" type="border" style="margin-right: 5px;">
+                    {{item.tagName}}
+                </i-tag>
+                <view class="titleData">
+                    <i-icon type="time" size="12" color="#cccccc"/>{{post.postDate}}
+                    <i-icon type="browse" size="12" color="#cccccc"/>{{view_count}}
+                    <i-icon type="like_fill" size="12" color="#d0021b"/>{{like_count}}
+                    <view bindtap='createPoster' class='poster'></view>
+                </view>
             </view>
         </view>
     </view>
+
+<view class="content">
+
     <view slot="content" style="margin-top:10px;">
         <htmltowxml text="{{post.postContent}}" highlightStyle="{{style}}" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap"></htmltowxml>
     </view>

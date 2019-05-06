@@ -2,12 +2,10 @@
 
 .content {
     padding: 10px;
-    padding-top:140rpx;
 }
 
 .top {
-    /* padding-bottom: 10px; */
-    border-bottom: 1px solid #ddd;
+    box-shadow:0px 5px 22px #ddd;
 }
 
 .titleTags {

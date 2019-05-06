@@ -312,7 +312,7 @@ Page({
      */
     onPageScroll: function (event) {
         var that = this;
-        if (event.scrollTop > 100) {
+        if (event.scrollTop > 120) {
             that.setData({
                 nav: false
             });
