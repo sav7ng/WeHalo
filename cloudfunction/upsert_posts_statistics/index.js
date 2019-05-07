@@ -1,7 +1,10 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
-cloud.init()
+cloud.init({
+    // env: 'xlr-0053be'
+    env: 'release-aquan'
+})
 
 const db = cloud.database()
 
