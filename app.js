@@ -6,6 +6,7 @@ App({
         }
         else {
             wx.cloud.init({
+                env: 'release-aquan',
                 traceUser: true,
             })
         }

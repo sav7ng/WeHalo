@@ -115,9 +115,6 @@ Page({
             }
         });
 
-        wx.cloud.init({
-            traceUser: true
-        })
         wx.cloud.callFunction({
             // 云函数名称
             name: 'upsert_posts_statistics',
