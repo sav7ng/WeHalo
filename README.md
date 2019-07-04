@@ -1,5 +1,9 @@
 [![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
 
+## WeHalo正在脱胎换骨中，敬请期待...
+
+大家的支持，鼓励，认可，是我坚持开源的动力
+
 > WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.0.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)

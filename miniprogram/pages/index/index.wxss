@@ -1,0 +1,159 @@
+.carousel-img {
+    height: 380rpx;
+    width: 95%;
+    /* margin: 20rpx; */
+}
+
+/* =========== */
+/*   Home键   */
+/* =========== */
+
+@keyframes scaleDraw {
+  0% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.3);
+  }
+  50% {
+    transform: scale(1);
+  }
+  75% {
+    transform: scale(1.3);
+  }
+}
+
+.home {
+    -webkit-animation: scaleDraw 5s ease-in-out infinite;
+    position: fixed;
+    left: 5%;
+    top: 4%;
+    z-index: 1020;
+}
+
+.home-btn {
+    width: 66rpx !important;
+    height: 66rpx !important;
+}
+
+.home-img{
+    padding: 24rpx;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image:url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTYyMTQzNDc2MzcwIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjIxODUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNDAyLjI4NTcxNCA2OTQuODU3MTQzcTAgMjIuODU3MTQzLTcuMTQyODU3IDQ2Ljg1NzE0M3QtMjQuNTcxNDI4IDQzLjQyODU3MS00MS40Mjg1NzIgMTkuNDI4NTcyLTQxLjQyODU3MS0xOS40Mjg1NzItMjQuNTcxNDI5LTQzLjQyODU3MS03LjE0Mjg1Ny00Ni44NTcxNDMgNy4xNDI4NTctNDYuODU3MTQzIDI0LjU3MTQyOS00My40Mjg1NzEgNDEuNDI4NTcxLTE5LjQyODU3MiA0MS40Mjg1NzIgMTkuNDI4NTcyIDI0LjU3MTQyOCA0My40Mjg1NzEgNy4xNDI4NTcgNDYuODU3MTQzeiBtMzY1LjcxNDI4NiAwcTAgMjIuODU3MTQzLTcuMTQyODU3IDQ2Ljg1NzE0M3QtMjQuNTcxNDI5IDQzLjQyODU3MS00MS40Mjg1NzEgMTkuNDI4NTcyLTQxLjQyODU3Mi0xOS40Mjg1NzItMjQuNTcxNDI4LTQzLjQyODU3MS03LjE0Mjg1Ny00Ni44NTcxNDMgNy4xNDI4NTctNDYuODU3MTQzIDI0LjU3MTQyOC00My40Mjg1NzEgNDEuNDI4NTcyLTE5LjQyODU3MiA0MS40Mjg1NzEgMTkuNDI4NTcyIDI0LjU3MTQyOSA0My40Mjg1NzEgNy4xNDI4NTcgNDYuODU3MTQzeiBtOTEuNDI4NTcxIDBxMC02OC41NzE0MjktMzkuNDI4NTcxLTExNi41NzE0Mjl0LTEwNi44NTcxNDMtNDhxLTIzLjQyODU3MSAwLTExMS40Mjg1NzEgMTItNDAuNTcxNDI5IDYuMjg1NzE0LTg5LjcxNDI4NiA2LjI4NTcxNXQtODkuNzE0Mjg2LTYuMjg1NzE1cS04Ni44NTcxNDMtMTItMTExLjQyODU3MS0xMi02Ny40Mjg1NzEgMC0xMDYuODU3MTQzIDQ4dC0zOS40Mjg1NzEgMTE2LjU3MTQyOXEwIDUwLjI4NTcxNCAxOC4yODU3MTQgODcuNzE0Mjg2dDQ2LjI4NTcxNCA1OC44NTcxNDIgNjkuNzE0Mjg2IDM0LjI4NTcxNSA4MCAxNi44NTcxNDMgODUuMTQyODU3IDRoOTZxNDYuODU3MTQzIDAgODUuMTQyODU3LTR0ODAtMTYuODU3MTQzIDY5LjcxNDI4Ni0zNC4yODU3MTUgNDYuMjg1NzE0LTU4Ljg1NzE0MiAxOC4yODU3MTQtODcuNzE0Mjg2eiBtMTI4LTEwMC41NzE0MjlxMCAxMTguMjg1NzE0LTM0Ljg1NzE0MiAxODkuMTQyODU3LTIxLjcxNDI4NiA0NC02MC4yODU3MTUgNzZ0LTgwLjU3MTQyOCA0OS4xNDI4NTgtOTcuMTQyODU3IDI3LjE0Mjg1Ny05OCAxMi41NzE0MjgtOTUuNDI4NTcyIDIuNTcxNDI5cS00NC41NzE0MjkgMC04MS4xNDI4NTctMS43MTQyODZ0LTg0LjI4NTcxNC03LjE0Mjg1Ny04Ny4xNDI4NTctMTcuMTQyODU3LTc4LjI4NTcxNS0yOS40Mjg1NzItNjkuMTQyODU3LTQ2LjI4NTcxNC00OS4xNDI4NTctNjUuNzE0Mjg2cS0zNS40Mjg1NzEtNzAuMjg1NzE0LTM1LjQyODU3MS0xODkuMTQyODU3IDAtMTM1LjQyODU3MSA3Ny43MTQyODUtMjI2LjI4NTcxNC0xNS40Mjg1NzEtNDYuODU3MTQzLTE1LjQyODU3MS05Ny4xNDI4NTcgMC02Ni4yODU3MTQgMjkuMTQyODU3LTEyNC41NzE0MjkgNjEuNzE0Mjg2IDAgMTA4LjU3MTQyOSAyMi41NzE0MjlUMzQ0LjU3MTQyOSAyMzkuNDI4NTcxcTg0LTIwIDE3Ni41NzE0MjgtMjAgODQuNTcxNDI5IDAgMTYwIDE4LjI4NTcxNSA2MC00Ni44NTcxNDMgMTA2Ljg1NzE0My02OS4xNDI4NTd0MTA4LTIyLjI4NTcxNXEyOS4xNDI4NTcgNTguMjg1NzE0IDI5LjE0Mjg1NyAxMjQuNTcxNDI5IDAgNDkuNzE0Mjg2LTE1LjQyODU3MSA5NiA3Ny43MTQyODYgOTEuNDI4NTcxIDc3LjcxNDI4NSAyMjcuNDI4NTcxeiIgcC1pZD0iMjE4NiIgZmlsbD0iIzJjMmMyYyI+PC9wYXRoPjwvc3ZnPg==');
+}
+
+/* =========== */
+/*   全屏抽屉   */
+/* =========== */
+
+page {
+  background-image: var(--gradualBlack);
+  width: 100vw;
+  overflow: hidden;
+}
+
+.DrawerPage {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  left: 0vw;
+  background-color: #f1f1f1;
+  transition: all 0.4s;
+}
+
+.DrawerPage.show {
+  transform: scale(0.9, 0.9);
+  left: 85vw;
+  box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+  transform-origin: 0;
+}
+
+.DrawerWindow {
+  position: absolute;
+  width: 85vw;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  transform: scale(0.9, 0.9) translateX(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerWindow.show {
+  transform: scale(1, 1) translateX(0%);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.DrawerClose {
+  position: absolute;
+  width: 40vw;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  color: transparent;
+  padding-bottom: 30rpx;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+  letter-spacing: 5px;
+  font-size: 50rpx;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s;
+}
+
+.DrawerClose.show {
+  opacity: 1;
+  pointer-events: all;
+  width: 15vw;
+  color: #fff;
+}
+
+.DrawerPage .cu-bar.tabbar .action button.icon {
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  margin: 0;
+  display: inline-block;
+}
+
+.DrawerPage .cu-bar.tabbar .action .cu-avatar {
+  margin: 0;
+}
+
+.DrawerPage .nav {
+  flex: 1;
+}
+
+.DrawerPage .nav .cu-item.cur {
+  border-bottom: 0;
+  position: relative;
+}
+
+.DrawerPage .nav .cu-item.cur::after {
+  content: "";
+  width: 10rpx;
+  height: 10rpx;
+  background-color: currentColor;
+  position: absolute;
+  bottom: 10rpx;
+  border-radius: 10rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.DrawerPage .cu-bar.tabbar .action {
+  flex: initial;
+}
+
+.menu-img {
+    display:inline-block;
+    margin-right:10rpx;
+    width:1.6em;
+    text-align:center;
+}

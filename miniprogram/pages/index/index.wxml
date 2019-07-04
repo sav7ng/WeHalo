@@ -1,0 +1,128 @@
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
+    <!-- <cu-custom bgColor="bg-gradual-blue">
+    <view slot="content">ColorUI 空白模板</view>
+    </cu-custom> -->
+    <view style='padding-top: 20%;'>
+        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+        <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+            <view class="swiper-item">
+                <view class="carousel-img radius shadow-blur bg-red bg-img" style="background-image:url({{item.url}});"></view>
+            </view>
+        </swiper-item>
+        </swiper>
+    </view>
+
+
+    <view class="carousel-img radius shadow-blur bg-red margin-top bg-img" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg); margin: 20rpx;">
+    </view>
+
+    <view class="padding-xl radius shadow-blur bg-red margin-top bg-img" style="background-image:url(https://blog.eunji.cn/upload/2018/11/code120181219113843975.png); margin: 20rpx;">
+        <view>根据背景图而改变的阴影</view>
+    </view>
+
+    <view class="margin-xl padding-xl bg-white radius shadow-lg">
+        <view class="flex justify-center">
+            <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
+            <block wx:else>
+            <view class='text-center'>
+                <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+                <view class="padding">{{userInfo.nickName}}</view>
+            </view>
+            </block>
+        </view>
+    </view>
+
+    <view class='home' bindtap="showModal" data-target="viewModal">
+        <view class='home-btn home-img shadow-blur'></view>
+    </view>
+
+</scroll-view>
+
+<view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
+    <text class="cuIcon-pullright"></text>
+</view>
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl">
+        <!-- <view class="cu-item arrow" wx:for="{{20}}" wx:key="index">
+            <view class="content">
+                <text class="cuIcon-github text-grey"></text>
+                <text class="text-grey">{{index +1}}</text>
+            </view>
+        </view> -->
+        
+        <view class="cu-list menu sm-border card-menu margin-top">
+            <view class="cu-item" style='min-height: 200rpx;'>
+                <view class="content">
+                    <!-- <text class="cuIcon-circlefill text-grey menu-img"></text> -->
+                    <view class="cu-avatar xl round menu-img" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
+                    <text class="text-grey">图标 + 标题</text>
+                </view>
+            </view>
+            <view class="cu-item arrow">
+                <view class="content">
+                    <text class="cuIcon-circlefill text-grey menu-img"></text>
+                    <text class="text-grey">图标 + 标题</text>
+                </view>
+            </view>
+            <view class="cu-item arrow">
+                <button class="cu-btn content" open-type="contact">
+                    <text class="cuIcon-btn text-olive menu-img"></text>
+                    <text class="text-grey">Open-type 按钮</text>
+                </button>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hover-class="none" url="../index/index" open-type="redirect">
+                    <text class="cuIcon-discoverfill text-orange menu-img"></text>
+                    <text class="text-grey">Navigator 跳转</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <view class="content">
+                    <text class="cuIcon-emojiflashfill text-pink menu-img"></text>
+                    <text class="text-grey">头像组</text>
+                </view>
+                <view class="action">
+                    <view class="cu-avatar-group">
+                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg);"></view>
+                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10003.jpg);"></view>
+                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10002.jpg);"></view>
+                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
+                    </view>
+                    <text class="text-grey text-sm">4 人</text>
+                </view>
+            </view>
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-btn text-green menu-img"></text>
+                    <text class="text-grey">按钮</text>
+                </view>
+                <view class="action">
+                    <button class="cu-btn round bg-green shadow">
+                    <text class="cuIcon-upload"></text> 上传</button>
+                </view>
+            </view>
+            <view class="cu-item arrow">
+                <view class="content">
+                    <text class="cuIcon-tagfill text-red menu-img"></text>
+                    <text class="text-grey">标签</text>
+                </view>
+                <view class="action">
+                    <view class="cu-tag round bg-orange light">音乐</view>
+                    <view class="cu-tag round bg-olive light">电影</view>
+                    <view class="cu-tag round bg-blue light">旅行</view>
+                </view>
+            </view>
+
+            <view class="cu-item">
+                <view class="content">
+                    <text class="cuIcon-btn text-green menu-img"></text>
+                    <text class="text-grey">开关</text>
+                </view>
+                <view class="action">
+                    <switch class="switch-sex sm" bindchange="switchSex"></switch>
+                </view>
+            </view>
+            
+        </view>
+    </view>
+</scroll-view>
