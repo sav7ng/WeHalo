@@ -1,6 +1,6 @@
 [![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
 
-> WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.0.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
+> WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.4.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
 [![GitHub release](https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
