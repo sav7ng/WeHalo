@@ -1,0 +1,37 @@
+/* components/addTips/wh-addTips.wxss */
+.box {
+  position: fixed;
+  top: 130rpx;
+  /* left: 0; */
+  right: 0;
+  z-index: 999;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 600rpx;
+}
+.arrow {
+  width: 0;
+  height: 0;
+  margin-right: 120rpx;
+  border-width: 20rpx;
+  border-style: solid;
+  border-color:  transparent transparent #59b4ff transparent;
+}
+.body {
+  background-color: #59b4ff;
+  box-shadow: 0 10rpx 20rpx -10rpx #59b4ff;
+  border-radius: 12rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 84rpx;
+  padding: 0 20rpx;
+  margin-right: 40rpx;
+}
+.body > text {
+  color: #FFF;
+  font-size: 28rpx;
+  font-weight: 400;
+}

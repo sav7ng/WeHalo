@@ -2,7 +2,7 @@
 
 ## WeHalo正在脱胎换骨中，敬请期待...
 
-大家的支持，鼓励，认可，是我坚持开源的动力
+大家的支持，鼓励，认可，是我坚持开源的动力（准备上线，开发收尾中）
 
 > WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.0.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
 

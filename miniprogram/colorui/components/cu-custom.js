@@ -27,6 +27,14 @@ Component({
       type: String,
       default: ''
     },
+    isNav: {
+        type: [Boolean, String],
+        default: true
+    },
+    isFixed: {
+        type: String,
+        default: ''
+    },
   },
   /**
    * 组件的初始数据

@@ -1,6 +1,9 @@
 {
     "pages": [
-        "pages/index/index"
+        "pages/index/index",
+        "pages/wehalo/wehalo",
+        "pages/halo/halo",
+        "pages/post/post"
     ],
     "window": {
         "backgroundTextStyle": "light",
@@ -10,7 +13,16 @@
         "navigationBarTextStyle": "white"
     },
     "usingComponents": {
-        "cu-custom": "/colorui/components/cu-custom"
+        "cu-custom": "/colorui/components/cu-custom",
+        "wh-typeWriter": "/components/typeWriter/wh-typeWriter",
+        "wh-authorCard": "/components/authorCard/wh-authorCard",
+        "wh-addTips": "/components/addTips/wh-addTips"
+    },
+    "plugins": {
+        "htmltowxml": {
+            "version": "1.4.0",
+            "provider": "wxa51b9c855ae38f3c"
+        }
     },
     "sitemapLocation": "sitemap.json"
 }

@@ -1,39 +1,126 @@
-<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}">
-    <!-- <cu-custom bgColor="bg-gradual-blue">
-    <view slot="content">ColorUI 空白模板</view>
-    </cu-custom> -->
-    <view style='padding-top: 20%;'>
-        <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-        <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
-            <view class="swiper-item">
-                <view class="carousel-img radius shadow-blur bg-red bg-img" style="background-image:url({{item.url}});"></view>
+<wh-authorCard isHidden="{{aflag}}" id="authorCardId"></wh-authorCard>
+<scroll-view scroll-y class="DrawerPage {{modalName=='viewModal'?'show':''}}" bindscroll="onPageScroll" scroll-with-animation="true" style="background-color: {{skin?'#ffffff':'#ffffff'}};" bindscrolltolower="loadMore">
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{false}}" isNav="{{scrollTop>120?false:true}}" isFixed="fixed">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <text class="text-white text-bold">爱敲代码的猫</text>
+        </view>
+    </cu-custom>
+
+    <wh-addTips text="Meow~ 点击「添加到我的小程序」" duration="2"></wh-addTips>
+
+    <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:460rpx; background-image:url(https://i.loli.net/2019/07/05/5d1eb991a72de80058.png); background-repeat: no-repeat; background-size: 100% 100%;">
+        <view class="grid col-1 margin-bottom text-center">
+            <view class="text-xxxl padding text-shadow-meow"role=""aria-label="">
+                <text class="text-white text-bold">爱敲代码的猫</text>
             </view>
-        </swiper-item>
+            <view class="text-xl padding text-shadow-meow text-white text-bold"role=""aria-label="">
+                <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>
+            </view>
+        </view>
+    </view>
+
+   
+    <view class="home text-shadow-meow" bindtap="showModal" data-target="viewModal">
+        <view class="home-btn home-img shadow-blur">
+        </view>
+    </view>
+
+    <!-- catch:touchstart="maopao" catch:touchend="maopao" -->
+    <view style="margin-top: -100rpx;">
+        <swiper bindchange="cardSwiper" class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" autoplay="true" interval="5000" duration="500">
+            <swiper-item wx:for="{{bannerPost? bannerPost:5}}" wx:for-item="bannerPost" wx:for-index="index" wx:key class="{{cardCur==index?'cur':''}}" wx:if="{{index<5}}">
+                
+                <navigator url="../post/post?postId={{bannerPost.id}}" open-type="navigate">
+                    <view class="swiper-item" style="padding: 20rpx; padding-bottom:26rpx;">
+                        <view class="carousel-img radius shadow-meow bg-lightGrey bg-img" style="background-image:url({{bannerPost.thumbnail}}); width:100%">
+                            <view class="bg-maskCard flex-sub" style="border-radius:6rpx; height:100%; position:relative;">
+                                <view class="padding-lg text-white">
+                                    <view class="padding-xs text-xl text-bold text-shadow">
+                                    {{bannerPost.title}}
+                                    </view>
+                                </view>
+                                <view class="padding-lg text-white" style="position:absolute; bottom:0; right:0;">
+                                    <view class="padding-xs text-df text-bold text-shadow">
+                                    {{bannerPost.createTime}}
+                                    </view>
+                                </view>
+                            </view>
+
+                        </view>
+                    </view>
+                </navigator>
+
+            </swiper-item>
         </swiper>
     </view>
 
-
-    <view class="carousel-img radius shadow-blur bg-red margin-top bg-img" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg); margin: 20rpx;">
+    
+    <view class="cu-bar search bg-white">
+        <view class="search-form round">
+            <text class="cuIcon-search"></text>
+            <input type="text" placeholder="搜索文章、关键词（未开发）" confirm-type="search"></input>
+        </view>
+        <view class="action">
+            <button class="cu-btn bg-lightBlue shadow-blur round">搜索</button>
+        </view>
     </view>
+    
+    <scroll-view scroll-x class="bg-white nav text-center" style="background-color: {{skin?'#ffffff':'#ffffff'}};">
+        <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{pages>6?pages:6}}" wx:key wx:for-index="index" bindtap="tabSelect" data-id="{{index}}" style="line-height:60rpx;">
+            <!-- {{index}} -->
+            {{index==0?'W':''}} {{index==1?'e':''}} {{index==2?'H':''}} {{index==3?'a':''}} {{index==4?'l':''}} {{index!=0 & index!=1 & index!=2 & index!=3 & index!=4 ?'o':''}}
+        </view>
+    </scroll-view>
 
-    <view class="padding-xl radius shadow-blur bg-red margin-top bg-img" style="background-image:url(https://blog.eunji.cn/upload/2018/11/code120181219113843975.png); margin: 20rpx;">
-        <view>根据背景图而改变的阴影</view>
-    </view>
 
-    <view class="margin-xl padding-xl bg-white radius shadow-lg">
-        <view class="flex justify-center">
-            <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-            <block wx:else>
-            <view class='text-center'>
-                <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-                <view class="padding">{{userInfo.nickName}}</view>
-            </view>
+    <!-- 瀑布流 -->
+    <!-- <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if="{{0==TabCur}}"> -->
+    <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <view class="fall-left">
+            <block wx:for="{{postList}}" wx:key wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==0}}">
+                
+                <navigator url="../post/post?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-right:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.1*animationTime}}s;">
+                        <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
+                            <view class="padding-lg text-white">
+                                <view class="padding-xs text-xl text-bold text-shadow">
+                                    {{postList.title}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+
+            </block>
+        </view>
+        <view class="fall-right">
+            <block wx:for="{{postList}}" wx:key wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==1}}">
+
+                <navigator url="../post/post?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-left:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.1*animationTime}}s;">
+                        <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
+                            <view class="padding-lg text-white">
+                                <view class="padding-xs text-xl text-bold text-shadow">
+                                    {{postList.title}}
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+
             </block>
         </view>
     </view>
 
-    <view class='home' bindtap="showModal" data-target="viewModal">
-        <view class='home-btn home-img shadow-blur'></view>
+    <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('https://blog.eunji.cn/upload/2019/6/cat20190730180226831.png');height: 400rpx; width:400rpx;">
+        </view>
+        <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
+            <view class="text-grey">作者会努力更新文章的 . . . </view>
+        </view>
+        <view class="text-xs flex justify-center" style="height:250rpx;">
+        </view>
     </view>
 
 </scroll-view>
@@ -41,88 +128,91 @@
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
     <text class="cuIcon-pullright"></text>
 </view>
-<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
-    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl">
-        <!-- <view class="cu-item arrow" wx:for="{{20}}" wx:key="index">
-            <view class="content">
-                <text class="cuIcon-github text-grey"></text>
-                <text class="text-grey">{{index +1}}</text>
-            </view>
-        </view> -->
-        
-        <view class="cu-list menu sm-border card-menu margin-top">
+
+<scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl padding-bottom" style="margin-top:100rpx;">        
+        <view class="cu-list menu sm-border card-menu margin-top shadow-meow">
             <view class="cu-item" style='min-height: 200rpx;'>
-                <view class="content">
-                    <!-- <text class="cuIcon-circlefill text-grey menu-img"></text> -->
-                    <view class="cu-avatar xl round menu-img" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg);"></view>
-                    <text class="text-grey">图标 + 标题</text>
+                <view wx:if="{{!hasUserInfo && canIUse}}" class="content grid col-1">
+                    <view class="padding-sm text-sm flex justify-center">
+                        <text class="text-grey">允许微信授权后，可体验更多功能</text>
+                    </view>
+                    <view class="padding-sm flex justify-center">
+                        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 微信授权 </button>
+                    </view>
                 </view>
+                <block wx:else>
+                    <view class="content flex justify-center align-center">
+                        <view class="flex-sub">
+                            <view class="cu-avatar xl round menu-img" style="background-image:url({{userInfo.avatarUrl}});"></view>
+                        </view>
+                        <view class="flex-twice grid col-1 ">
+                            <view class="text-lg margin-xs">
+                                <text class="text-black text-bold">{{userInfo.nickName}}</text>
+                            </view>
+                            <view class="margin-xs bg-white">
+                                <view class="cu-tag radius">{{Role}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </block>
             </view>
+
             <view class="cu-item arrow">
-                <view class="content">
-                    <text class="cuIcon-circlefill text-grey menu-img"></text>
-                    <text class="text-grey">图标 + 标题</text>
+                <view class="content" bindtap="showMask">
+                    <text class="cuIcon-github text-gray menu-img"></text>
+                    <text class="text-grey">GitHub</text>
                 </view>
             </view>
             <view class="cu-item arrow">
                 <button class="cu-btn content" open-type="contact">
-                    <text class="cuIcon-btn text-olive menu-img"></text>
-                    <text class="text-grey">Open-type 按钮</text>
+                    <text class="cuIcon-communityfill text-lightBlue menu-img"></text>
+                    <text class="text-grey">联系作者</text>
                 </button>
             </view>
+            
+            <view wx:if="{{!roleFlag}}" class="cu-item arrow">
+                <view class="content">
+                    <text class="cuIcon-discoverfill text-gray menu-img"></text>
+                    <text class="text-grey">您不是管理员，无法访问</text>
+                </view>
+            </view>
+            <block wx:else>
+                <view class="cu-item arrow">
+                    <navigator class="content" hover-class="none" url="../halo/halo" open-type="navigate" bindtap="shutDownDrawer">
+                        <text class="cuIcon-discoverfill text-gray menu-img"></text>
+                        <text class="text-grey">Halo 仪表盘</text>
+                    </navigator>
+                </view>
+            </block>
+
             <view class="cu-item arrow">
-                <navigator class="content" hover-class="none" url="../index/index" open-type="redirect">
-                    <text class="cuIcon-discoverfill text-orange menu-img"></text>
-                    <text class="text-grey">Navigator 跳转</text>
+                <navigator class="content" hover-class="none" url="../wehalo/wehalo" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-formfill text-lightBlue menu-img"></text>
+                    <text class="text-grey">WeHalo</text>
                 </navigator>
             </view>
-            <view class="cu-item arrow">
-                <view class="content">
-                    <text class="cuIcon-emojiflashfill text-pink menu-img"></text>
-                    <text class="text-grey">头像组</text>
-                </view>
-                <view class="action">
-                    <view class="cu-avatar-group">
-                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10004.jpg);"></view>
-                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10003.jpg);"></view>
-                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10002.jpg);"></view>
-                    <view class="cu-avatar round sm" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg);"></view>
-                    </view>
-                    <text class="text-grey text-sm">4 人</text>
-                </view>
-            </view>
             <view class="cu-item">
                 <view class="content">
-                    <text class="cuIcon-btn text-green menu-img"></text>
-                    <text class="text-grey">按钮</text>
+                    <text class="cuIcon-skinfill text-gray menu-img"></text>
+                    <text class="text-grey">炫图模式</text>
                 </view>
                 <view class="action">
-                    <button class="cu-btn round bg-green shadow">
-                    <text class="cuIcon-upload"></text> 上传</button>
+                    <switch class="switch-theme sm" bindchange="switchSex"></switch>
                 </view>
             </view>
             <view class="cu-item arrow">
-                <view class="content">
-                    <text class="cuIcon-tagfill text-red menu-img"></text>
-                    <text class="text-grey">标签</text>
-                </view>
-                <view class="action">
-                    <view class="cu-tag round bg-orange light">音乐</view>
-                    <view class="cu-tag round bg-olive light">电影</view>
-                    <view class="cu-tag round bg-blue light">旅行</view>
-                </view>
+                <button class="cu-btn content" open-type="feedback">
+                    <text class="cuIcon-writefill text-lightBlue"></text>
+                    <text class="text-grey">意见反馈</text>
+                </button>
             </view>
-
-            <view class="cu-item">
-                <view class="content">
-                    <text class="cuIcon-btn text-green menu-img"></text>
-                    <text class="text-grey">开关</text>
-                </view>
-                <view class="action">
-                    <switch class="switch-sex sm" bindchange="switchSex"></switch>
-                </view>
-            </view>
-            
         </view>
     </view>
+    
+    <view class="text-xs flex justify-center" style="position:fixed; bottom:20rpx; width:100%; text-align:center;">
+        <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
+        <view class="text-lightBlue">WeHalo</view>
+    </view>
+    
 </scroll-view>

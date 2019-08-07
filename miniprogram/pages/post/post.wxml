@@ -1,0 +1,114 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <!-- <text class="text-white text-bold">{{postId}}</text> -->
+            <!-- <text class="text-white text-bold">如何写出无法维护的代码</text> -->
+        </view>
+    </cu-custom>
+
+    
+    
+    
+    <view class="flex-sub text-center margin-sm">
+      <view class="text-xxxl">
+        <text class="text-black text-bold">{{postTitle}}</text>
+      </view>
+    </view>
+
+    
+    <!-- <view class="bg-white flex-sub radius shadow-lg">
+        <image src="https://image.weilanwl.com/gif/loading-white.gif" mode="aspectFit" class="gif-white response" style="height:240rpx"></image>
+    </view> -->
+    
+    
+    <view class="margin-lr-sm flex flex-wrap">
+        <view class="padding-xs bg-white">
+            <!-- <view class="cu-tag radius sm">Java</view> -->
+            <view class="cu-tag radius">Java</view>
+            <view class="cu-tag radius">MySql</view>
+        </view>
+    </view>
+
+    <view class="cf">
+        <view class="margin-sm fr">
+            <view class="cu-capsule round">
+                <view class="cu-tag bg-red sm">
+                    <text class="cuIcon-likefill"></text>
+                </view>
+                <view class="cu-tag line-red sm">
+                {{postLikes}}
+                </view>
+            </view>
+            <view class="cu-capsule round">
+                <view class="cu-tag bg-orange sm">
+                    <text class="cuIcon-hotfill"></text>
+                </view>
+                <view class="cu-tag line-orange sm">
+                {{postVisits}}
+                </view>
+            </view>
+            <view class="cu-capsule round">
+                <view class="cu-tag  bg-blue sm">
+                    <text class="cuIcon-timefill"></text>
+                </view>
+                <view class="cu-tag line-blue sm">
+                {{postDate}}
+                </view>
+            </view>
+            <text class="cu-capsule" decode="{{true}}">&nbsp;</text>
+        </view>
+    </view>
+
+    <view class="margin-sm">
+        <htmltowxml text="{{postContent}}" type="md" highlightStyle="{{style}}" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" imghost=""></htmltowxml>
+    </view>
+    
+    <view class="cu-bar bg-white align-center">
+        <view class="action border-title">
+            <text class="text-xxl text-bold text-blue">评论</text>
+            <text class="bg-gradual-blue"></text>
+        </view>
+    </view>
+
+    <view class="cu-bar input">
+        <!-- <view class="action">
+            <text class="cuIcon-sound text-grey"></text>
+        </view> -->
+        <view class="flex justify-center" style="width:100%" wx:if="{{!hasUserInfo && canIUse}}"> 
+            <view>
+                <button class="cu-btn bg-blue shadow-blur round"role="button"aria-disabled="false" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后可评论</button>
+            </view>
+        </view>
+        <block wx:else>
+            <input class="solid-bottom" type="text" focus="{{false}}" maxlength="300" cursor-spacing="10" placeholder="尽管吐槽吧....."></input>
+            <view class="action">
+                <text class="{{false?'cuIcon-likefill text-red':'cuIcon-like text-grey'}}"></text>
+            </view>
+            <button class="cu-btn bg-lightBlue shadow-blur">发送</button>
+        </block>
+    </view>
+    
+    <view class="margin-bottom">
+        <view class="margin-sm flex flex-wrap align-center" wx:for="{{commentList}}"  wx:for-item="commentList" wx:key wx:for-index="index" data-id="{{index}}">
+            <view class="basis-xs">
+                <!-- <view class="cu-avatar lg round margin-left-sm" style="background-image:url({{commentList.email==''?commentList.authorUrl:'https://gravatar.loli.net/avatar/undefined/?s=256&d=mp'}});"></view> -->
+                <view class="cu-avatar lg round margin-left-sm" style="background-image:url({{commentList.email==''?commentList.authorUrl:'https://gravatar.loli.net/avatar/undefined/?s=256&d=mp'}});"></view>
+            </view>
+            <view class="grid col-1 basis-xl {{commentList.falg?'solid-bottom':''}}" style="min-height:120rpx;">
+                <view class="padding-xs">
+                    <text class="text-black text-bold">{{commentList.author}}</text>
+                    <view class="fr text-xs" style="line-height: 32rpx;">
+                        <text class="text-grey">{{commentList.createTime}}</text>
+                    </view>
+                </view>
+                <view class="padding-sm">
+                    <text class="text-sm">{{commentList.content}}</text>
+                </view>
+            </view>
+        </view>
+    </view>
+
+
+</scroll-view>
