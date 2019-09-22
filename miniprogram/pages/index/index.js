@@ -14,6 +14,7 @@ Page({
         StatusBar: app.globalData.StatusBar,
         CustomBar: app.globalData.CustomBar,
         Custom: app.globalData.Custom,
+        BlogName: app.globalData.BlogName,
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userInfo: {},

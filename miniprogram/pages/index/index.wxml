@@ -3,7 +3,7 @@
     <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{false}}" isNav="{{scrollTop>120?false:true}}" isFixed="fixed">
         <view slot="backText">返回</view>
         <view slot="content" class="text-shadow-meows">
-            <text class="text-white text-bold">爱敲代码的猫</text>
+            <text class="text-white text-bold">{{BlogName}}</text>
         </view>
     </cu-custom>
 
@@ -12,7 +12,7 @@
     <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:460rpx; background-image:url(https://i.loli.net/2019/07/05/5d1eb991a72de80058.png); background-repeat: no-repeat; background-size: 100% 100%;">
         <view class="grid col-1 margin-bottom text-center">
             <view class="text-xxxl padding text-shadow-meow"role=""aria-label="">
-                <text class="text-white text-bold">爱敲代码的猫</text>
+                <text class="text-white text-bold">{{BlogName}}</text>
             </view>
             <view class="text-xl padding text-shadow-meow text-white text-bold"role=""aria-label="">
                 <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>

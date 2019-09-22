@@ -1,10 +1,14 @@
 [![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
 
-## WeHalo正在脱胎换骨中，敬请期待.....
+## WeHalo 支持最新版本 Halo
 
-大家的支持，鼓励，认可，是我坚持开源的动力（准备上线，开发收尾中,预计8月完成）
+大家的支持，鼓励，认可，是我坚持开源的动力，虽然后面开发完有点拖拉，请原谅 ~
 
-> WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.0.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
+后续更多功能开发并开发给大家使用，新版本 **WeHalo** 会存在不少问题欢迎大家多给我提 **Issues** 我会尽快处理
+
+新版本使用的问题不懂可以通过小程序联系作者找到我或者添加``QQ交流群: 260050047``
+
+> ✍ Halo 一款现代化的个人独立博客系统 [Halo](https://halo.run)
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
 [![GitHub release](https://img.shields.io/github/release/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/releases)
@@ -34,8 +38,6 @@
 
 配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/demo.png)
-
 > QQ交流群: 260050047
 
 ## 快速开始
@@ -55,66 +57,19 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址，请更新最新的 **Halo** 配合使用
 
-**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://blog.eunji.cn``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
+**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://aquan.run``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
 
 ```
 globalData: { //全局变量
-    URL: "https://blog.eunji.cn",   //你的地址
-    blogName: "AquanBlog",   //博客名字
-    TOKEN: "YouToken",   //Halo后台的Token
-    highlightStyle: "dracula",  //代码高亮样式，可用值default,darcula,dracula,tomorrow
-}
-```
-
-修改``app.json``文件更改小程序导航栏标题，改为你的博客名字
-
-
-```
-"navigationBarTitleText": "AquanBlog",  //你的博客名字
-```
-
-
-修改``index.wxss``文件更改首页封面背景图片,找到``.aquanblog``和``.nav``
-
-```
-.aquanblog {
-    //填上你想要的封面图片链接
-    background-image: url("xxxxx");
-}
-自定义导航栏背景图片
-.nav {
-    //填上你想要的封面图片链接
-    background: url("xxxxx") no-repeat;
-}
-```
-
-修改``poster.js``文件更改 **生成海报** 功能附带你小程序宣传图片（图片可以在微信公众平台下载宣传物料获取放到你的服务器获取图片链接）
-
-```
-{
-    type: 'image',
-    //改为你的小程序宣传图片链接
-    url: 'https://blog.eunji.cn/upload/2018/11/wx20181208174737572.png',
-    css: {
-        width: '600rpx',
-        height: '167rpx',
-        mode: 'scaleToFill',
-        top: '433rpx',
-    }
-},
-```
-
-删除广告单元（不删掉的话发布是通过不了审核的）
-
-```
-//index.wxml底部的
-<view class="ad" >
-    <ad unit-id=""></ad>
-</view>
-
-//post.wxml
-<ad class='ad' unit-id=""></ad>
-
+        userInfo: null,
+        skin: null,
+        roleFlag: false,
+        BlogName: "爱敲代码的猫",//博客名字
+        url: "https://aquan.run",//博客地址（需HTTPS）
+        token: "",//Halo博客后台设置
+        highlightStyle: "dracula",//代码高亮样式，可用值default,darcula,dracula,tomorrow
+        adminOpenid: "ogogn47AhczrMBgcTCPbUwugqLcU",//导入项目后可以在Console中看到  openidCloudResult: xxxxxxx  (xxx就是adminOpenid)
+ }
 ```
 
 
@@ -142,16 +97,18 @@ html2wxml插件版本准备
 
 > WeHalo使用GPL-v3.0协议开源，请尽量遵守开源协议，即便是在中国。
 
-## 后续功能
+## 功能
 
-- [x] 生成海报（微信朋友圈装X）
+- [x] 重新设计**WeHalo**
 - [x] 自定义导航栏（个人觉得好看可自定义）
 - [x] 个人名片（可宣传自己）
-- [x] 文章弹幕式评论展示
-- [x] 文字评论功能
-- [x] 点赞功能（云函数）
-- [x] 文章浏览统计功能（云函数）
+- [ ] 博文展示
+- [ ] 评论展示
+- [ ] 文字评论功能
+- [ ] 点赞功能（云函数）
+- [ ] 文章浏览统计功能（云函数）
 - [ ] 用户回复评论追评功能
+- [ ]  生成海报（微信朋友圈装X）
 - [ ] 想到就写...
 
 ## 感谢
@@ -159,6 +116,7 @@ html2wxml插件版本准备
 WeHalo的诞生离不开下面这些项目：
 
 - **[Halo](https://github.com/ruibaby/halo)：轻快，简洁，功能强大，使用Java开发的博客系统**
+- **[ColorUI](https://github.com/weilanwl/ColorUI)：鲜亮的高饱和色彩，专注视觉的小程序组件库**
 - **[iView Weapp](https://github.com/TalkingData/iview-weapp)：一套高质量的微信小程序 UI 组件库**
 - **[Painter](https://github.com/Kujiale-Mobile/Painter)：微信小程序生成图片库，绘制一张可以发到朋友圈的图片**
 - **[html2wxml](https://github.com/qwqoffice/html2wxml)：用于微信小程序的HTML和Markdown格式的富文本渲染组件，支持代码高亮**
@@ -195,5 +153,7 @@ WeHalo的诞生离不开下面这些项目：
 | 2019-06-08 |  * x | 微信 | 10.01 | 感谢开源 |
 | 2019-06-21 | W * e | 微信 | 20.00 | 好东西，感谢 |
 | 2019-06-21 | * 杰 | 支付宝 | 6.66 | 无留言 |
+| 2019-08-04 | * 杰 | 支付宝 | 6.66 | 无留言 |
+| 2019-08-04 | * 海强 | 支付宝 | 8.88 | 开源辛苦 |
 
 
