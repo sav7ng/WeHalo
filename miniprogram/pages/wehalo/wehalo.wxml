@@ -23,20 +23,26 @@
     
     <view class="padding bg-white" style="padding-top：0;">
         <view class="cu-progress radius striped active">
-            <view class="bg-olive" style="width:{{loading?'70%':''}};">70%</view>
-            <view class="bg-grey" style="width:{{loading?'30%':''}};">30%</view>
+            <view class="bg-olive" style="width:{{loading?'90%':''}};">90%</view>
+            <view class="bg-grey" style="width:{{loading?'10%':''}};">10%</view>
         </view>
     </view>
 
     <view class="cu-timeline">
-        
-        <view class="cu-item text-red cuIcon-favorfill">
-            <view class="bg-red content shadow-blur">
-                <wh-typeWriter whContent="敬请期待 WeHalo 脱胎换骨 ~"></wh-typeWriter>
+
+        <view class="cu-item text-blue cuIcon-favorfill">
+            <view class="bg-blue content shadow-blur">
+                <wh-typeWriter whContent="2019.09.23 WeHalo支持最新版本Halo"></wh-typeWriter>
                 <text decode="{{true}}" space="{{true}}">&nbsp;</text>
             </view>
         </view>
-        <view class="cu-time">开发中...</view>
+        
+        <view class="cu-item text-red">
+            <view class="bg-red content shadow-blur">
+                敬请期待 WeHalo 脱胎换骨 ~
+            </view>
+        </view>
+        <view class="cu-time">WeHalo_Meow...</view>
 
         <view class="cu-item text-pink">
             <view class="bg-pink content shadow-blur">
@@ -77,8 +83,8 @@
                 自定义导航栏，动画效果
             </view>
         </view>
-        <view class="cu-item text-yellow">
-            <view class="bg-yellow content shadow-blur">
+        <view class="cu-item text-pink">
+            <view class="bg-pink content shadow-blur">
                 生成海报功能
             </view>
         </view>
