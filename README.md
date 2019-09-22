@@ -88,7 +88,7 @@ html2wxml插件版本准备
 
 ## 演示
 
-![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wx.png)
+![扫码_搜索联合传播样式-微信标准绿版.png](http://yanxuan.nosdn.127.net/5bd29aeb522286959c52362bb7f264a9.png)
 
 
 ## 许可证
