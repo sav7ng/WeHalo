@@ -1,0 +1,19 @@
+<!-- 蒙版效果 -->
+<view class="mask" hidden="{{isHidden}}" catchtap="closeMask">
+    <view class="masks" catchtap="prevent" animation="{{ani}}">
+        <view class="box">
+            <image class="leftImage" mode="widthFix" src="http://yanxuan.nosdn.127.net/eb2697a360243e29fe9b7ecbb31f8112.jpg"></image>
+            <view class="right">
+                <view class="title">
+                    <text class="name">Aquan</text>
+                </view>
+                <view class="info">
+                    <view class="field">Email</view>
+                    <view class="value">Aquanlerou@eunji.cn</view>
+                    <view class="field">Github</view>
+                    <view class="value">https://github.com/aquanlerou</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

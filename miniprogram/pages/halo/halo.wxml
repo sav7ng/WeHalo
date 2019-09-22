@@ -1,0 +1,118 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <text class="text-white text-bold">Dash Board</text>
+        </view>
+    </cu-custom>
+
+    <view class="content" wx:if="{{roleFlag}}">
+        <view class="cu-bar bg-white align-center margin-top">
+            <view class="action border-title">
+                <text class="text-xl text-bold text-blue">Halo 仪表盘</text>
+                <text class="bg-gradual-blue" style="width:4.2rem"></text>
+            </view>
+        </view>
+
+
+        <view class="grid col-2 padding-sm text-center">
+            <view class="padding-sm">
+                <view class="bg-red padding radius shadow-blur bg-image">
+                    <view class="title">文章</view>
+                    <view class="text-xxxl text-center">{{post}}</view>
+                </view>
+            </view>
+            
+            <view class="padding-sm">
+                <view class="bg-olive padding radius shadow-blur bg-image">
+                    <view class="title">评论</view>
+                    <view class="text-xxxl text-center">{{comment}}</view>
+                </view>
+            </view>
+            
+            <view class="padding-sm">
+                <view class="bg-blue padding radius shadow-blur bg-image">
+                    <view class="title">访问量</view>
+                    <view class="text-xxxl text-center">{{visit}}</view>
+                </view>
+            </view>
+            
+            <view class="padding-sm">
+                <view class="bg-purple padding radius shadow-blur bg-image">
+                    <view class="title">建立天数</view>
+                    <view class="text-xxxl text-center">{{day}}</view>
+                </view>
+            </view>
+        </view>
+
+        <view class="cu-bar bg-white align-center">
+            <view class="action border-title">
+                <text class="text-xl text-bold text-blue">最新评论</text>
+                <text class="bg-gradual-blue" style="width:2.8rem"></text>
+            </view>
+        </view>
+
+
+        <view class="cu-list menu-avatar">
+            <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{commentList}}" wx:for-item="commentList" wx:for-index="index" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}" data-id="{{index}}">
+                <view class="cu-avatar round lg" style="background-image:url({{commentList.email==''?commentList.authorUrl:'https://gravatar.loli.net/avatar/undefined/?s=256&d=mp'}});"></view>
+                <view class="grid col-1 basis-xl" style="min-height:120rpx;">
+                    <view class="padding-xs">
+                        <text class="text-black text-bold">{{commentList.author}}</text>
+                        <view class="fr text-xs" style="line-height: 32rpx;">
+                            <text class="text-grey">{{commentList.createTime}}</text>
+                        </view>
+                    </view>
+                    <view class="padding-left-xs">
+                        <view class="cu-tag radius sm">{{commentList.post.title}}</view>
+                    </view>
+                    <view class="padding-sm">
+                        <text class="text-sm">{{commentList.content}}</text>
+                    </view>
+                </view>
+                <view class="move">
+                    <view class="bg-blue" bindtap="showModal" data-target="Modal" data-commentId="{{commentList.id}}" data-postId="{{commentList.post.id}}" data-postTitle="{{commentList.post.title}}">回复</view>
+                    <!-- <view class="bg-red">删除</view> -->
+                </view>
+            </view>
+        </view>
+
+
+        
+        <view class="cu-modal {{modalName=='Modal'?'show':''}}" >
+            <view class="cu-dialog">
+                    <view class="cu-bar bg-white justify-end">
+                        <view class="content">回复</view>
+                        <view class="action" bindtap="hideModal">
+                            <text class="cuIcon-close text-red"></text>
+                        </view>
+                    </view>
+                    <!-- <view class="padding-xl"> -->
+                    <view class="cu-form-group">
+                    <!-- replyValue -->
+                            <textarea wx:if="{{textareaFlag}}" maxlength="-1" disabled="{{false}}" bindinput="textareaAInput" placeholder="回复内容..." bindblur='replyValue'></textarea>
+                    </view>
+                    <!-- </view> -->
+                    <view class="cu-bar bg-white">
+                        <view class="action margin-0 flex-sub text-green solid-left" bindtap="hideModal">取消</view>
+                        <view class="action margin-0 flex-sub  solid-left" bindtap="reply">确定</view>
+                    </view>
+            </view>
+        </view>
+
+        
+    </view>
+    <block wx:else>
+        <view class="flex justify-center grid col-1 margin-top-xl">
+            <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('https://blog.eunji.cn/upload/2019/6/cat20190730180226831.png');height: 400rpx; width:400rpx;">
+            </view>
+            <view class="flex justify-center animation-scale-up" style="width:100%; text-align:center;">
+                <view class="text-grey">您不是管理员无法访问</view>
+            </view>
+            <view class="text-xs flex justify-center" style="height:250rpx;">
+            </view>
+        </view>
+    </block>
+
+</scroll-view>

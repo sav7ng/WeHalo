@@ -1,0 +1,85 @@
+/* components/authorCard/wh-authorCard.wxss */
+
+/* ====================== */
+/*   设置背景遮罩层样式   */
+/* ====================== */
+.mask {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1030;
+}
+
+.masks {
+    width: 100%;
+    /* background-color: white; */
+    position: absolute;
+    left: -100%;
+    opacity: 0;
+    text-align: center;
+}
+
+.maskImg {
+    width: 30%;
+    float: left;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    height: 300rpx;
+    padding: 20rpx;
+}
+
+.left {
+    width: 35%;
+    height: 100%;
+    border-radius: 20rpx;
+}
+
+.leftImage {
+    width: 300rpx;
+    border-radius: 12rpx;
+}
+
+.right {
+    width: 65%;
+    height: 230rpx;
+    background-color: #fff;
+    border: 4rpx solid #e6e6e6;
+    border-radius: 0 20rpx 20rpx 0;
+}
+
+.info {
+    text-align: left;
+    padding-left: 20rpx;
+}
+
+.field {
+    color: #b6b6b6;
+    font-size: 24rpx;
+}
+
+.value {
+    font-size: 29rpx;
+    margin: 8rpx;
+}
+
+.title {
+    font-family: 微软雅黑;
+    line-height: 1.15;
+    font-weight: 800;
+    text-rendering: optimizeLegibility;
+    margin: 14rpx;
+}
+
+.name {
+    font-size:34rpx;
+}

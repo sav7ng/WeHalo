@@ -1,0 +1,5 @@
+/* colorui/components/cu-custom.wxss */
+.gif-black {
+    display: block;
+}
+

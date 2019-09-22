@@ -1,2 +1,0 @@
-<!-- <canvas canvas-id="k-canvas" style="{{painterStyle}}{{customStyle}}" /> -->
-<canvas canvas-id="k-canvas" style="{{painterStyle}}" />

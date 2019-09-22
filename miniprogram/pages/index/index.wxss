@@ -1,0 +1,202 @@
+.carousel-img {
+    height: 380rpx;
+    width: 95%;
+    /* margin: 20rpx; */
+}
+
+/* =========== */
+/*   Home键   */
+/* =========== */
+
+@keyframes scaleDraw {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.3);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.3);
+    }
+}
+
+.home {
+    /* -webkit-animation: scaleDraw 5s ease-in-out infinite; */
+    position: fixed;
+    left: 5%;
+    top: 4%;
+    z-index: 10000;
+}
+
+.home-btn {
+    width: 60rpx !important;
+    height: 60rpx !important;
+}
+
+
+
+/* =========== */
+/*   全屏抽屉   */
+/* =========== */
+
+page {
+    background-image: var(--gradualShadow);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.DrawerPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    background-color: #f1f1f1;
+    transition: all 0.4s;
+}
+
+.DrawerPage.show {
+    transform: scale(0.9, 0.9);
+    left: 85vw;
+    box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+    transform-origin: 0;
+}
+
+.DrawerWindow {
+    position: absolute;
+    width: 85vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    transform: scale(0.9, 0.9) translateX(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+
+.DrawerWindow.show {
+    transform: scale(1, 1) translateX(0%);
+    opacity: 1;
+    pointer-events: all;
+}
+
+.DrawerClose {
+    position: absolute;
+    width: 40vw;
+    height: 100vh;
+    right: 0;
+    top: 0;
+    color: transparent;
+    padding-bottom: 30rpx;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    background-image: linear-gradient(90deg, rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 0.6));
+    letter-spacing: 5px;
+    font-size: 50rpx;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+
+.DrawerClose.show {
+    opacity: 1;
+    pointer-events: all;
+    width: 15vw;
+    color: #fff;
+}
+
+.DrawerPage .cu-bar.tabbar .action button.icon {
+    width: 64rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    margin: 0;
+    display: inline-block;
+}
+
+.DrawerPage .cu-bar.tabbar .action .cu-avatar {
+    margin: 0;
+}
+
+.DrawerPage .nav {
+    flex: 1;
+}
+
+.DrawerPage .nav .cu-item.cur {
+    border-bottom: 0;
+    position: relative;
+}
+
+.DrawerPage .nav .cu-item.cur::after {
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background-color: currentColor;
+    position: absolute;
+    bottom: 10rpx;
+    border-radius: 10rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.DrawerPage .cu-bar.tabbar .action {
+    flex: initial;
+}
+
+.menu-img {
+    display:inline-block;
+    margin-right:10rpx;
+    width:1.6em;
+    text-align:center;
+}
+
+.mdl-layout__title {
+    display: block;
+    position: relative;
+    font-family: "Roboto","Helvetica","Arial",sans-serif;
+    font-size: 20px;
+    line-height: 1;
+    letter-spacing: .02em;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+
+
+/* =========== */
+/*   波浪动画   */
+/* =========== */
+@import "../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+    /* border-radius: 6rpx; */
+    display: block;
+}
+
+.gif-wave{
+    /* position: absolute; */
+    width: 100%;
+    bottom: -2rpx;
+    left: 0;
+    z-index: 99;
+    mix-blend-mode: screen;  
+    height: 100rpx;   
+}
+
+.fall-container {
+    width: 100%;
+    display: flex;
+}
+
+.fall-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.fall-right {
+    display: flex;
+    flex-direction: column;
+}
