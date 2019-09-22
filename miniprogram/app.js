@@ -92,11 +92,11 @@ App({
         userInfo: null,
         skin: null,
         roleFlag: false,
-        url: "http://182.61.150.176:8090",
-        blogName: "Aquan",
-        token: "lerou961018",
+        url: "xx",
+        blogName: "xx",
+        token: "xx",
         adminToken: "",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
-        adminOpenid: "ogogn47AhczrMBgcTCPbUwugqLcU",
+        adminOpenid: "xx",
     }
 })

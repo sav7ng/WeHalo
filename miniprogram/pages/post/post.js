@@ -1,4 +1,4 @@
-﻿// miniprogram/pages/post/post.js
+// miniprogram/pages/post/post.js
 const app = getApp()
 const request = require('../../utils/request.js');
 let time = require('../../utils/util.js');
@@ -22,6 +22,28 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+
+
+
+        // 在页面中定义插屏广告
+        let interstitialAd = null
+
+        // 在页面onLoad回调事件中创建插屏广告实例
+        if (wx.createInterstitialAd) {
+        interstitialAd = wx.createInterstitialAd({
+            adUnitId: 'adunit-296c920c08da636d'
+        })
+        interstitialAd.onLoad(() => { })
+        interstitialAd.onError((err) => { })
+        interstitialAd.onClose(() => { })
+        }
+
+        // 在适合的场景显示插屏广告
+        if (interstitialAd) {
+        interstitialAd.show().catch((err) => {
+            console.error(err)
+        })
+        }
 
 
         var postId = options.postId;
@@ -149,7 +171,9 @@ Page({
             postLikes: res.data.likes,
             postContent: res.data.originalContent,
             postDate: time.customFormatTime(createTime, 'Y-M-D'),
+            postTags: res.data.tags
         })
+        console.warn(postTags);
 
     },
     /**

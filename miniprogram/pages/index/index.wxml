@@ -55,6 +55,10 @@
         </swiper>
     </view>
 
+
+    <view style="margin-right:20rpx; margin-left:20rpx;">
+        <official-account style=""></official-account>
+    </view>
     
     <view class="cu-bar search bg-white">
         <view class="search-form round">
@@ -65,7 +69,7 @@
             <button class="cu-btn bg-lightBlue shadow-blur round">搜索</button>
         </view>
     </view>
-    
+
     <scroll-view scroll-x class="bg-white nav text-center" style="background-color: {{skin?'#ffffff':'#ffffff'}};">
         <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{pages>6?pages:6}}" wx:key wx:for-index="index" bindtap="tabSelect" data-id="{{index}}" style="line-height:60rpx;">
             <!-- {{index}} -->

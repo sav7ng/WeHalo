@@ -2,7 +2,7 @@
     <!-- <view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}"> -->
     <view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}" style="padding-right:0rpx;height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
         
-        <image style="height:100rpx; position: absolute; bottom: 0rpx;" src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-black response"></image>
+        <image style="height:100rpx; position: absolute; bottom: 0rpx;" src="https://image.aquan.run/wave.gif" mode="scaleToFill" class="gif-black response"></image>
         <view class="action" bindtap="BackPage" wx:if="{{isBack}}">
             <text class="cuIcon-back"></text>
             <slot name="backText"></slot>

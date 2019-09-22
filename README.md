@@ -1,8 +1,8 @@
 [![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
 
-## WeHalo正在脱胎换骨中，敬请期待...
+## WeHalo正在脱胎换骨中，敬请期待.....
 
-大家的支持，鼓励，认可，是我坚持开源的动力（准备上线，开发收尾中）
+大家的支持，鼓励，认可，是我坚持开源的动力（准备上线，开发收尾中,预计8月完成）
 
 > WeHalo **简约风** 的微信小程序版博客（注意：现在WeHalo仅支持到Halo_v0.0.4：[https://github.com/halo-dev/halo/releases/tag/v0.4.4](https://github.com/halo-dev/halo/releases/tag/v0.4.4))
 
@@ -194,5 +194,6 @@ WeHalo的诞生离不开下面这些项目：
 | 2019-05-08 |  * 家 | 微信 | 5.20 | 支持开源 |
 | 2019-06-08 |  * x | 微信 | 10.01 | 感谢开源 |
 | 2019-06-21 | W * e | 微信 | 20.00 | 好东西，感谢 |
+| 2019-06-21 | * 杰 | 支付宝 | 6.66 | 无留言 |
 
 

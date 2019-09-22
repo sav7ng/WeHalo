@@ -140,7 +140,26 @@ Page({
         })
     },
     onLoad: function () {
-        
+
+        // 在页面中定义插屏广告
+        let interstitialAd = null
+
+        // 在页面onLoad回调事件中创建插屏广告实例
+        if (wx.createInterstitialAd) {
+            interstitialAd = wx.createInterstitialAd({
+                adUnitId: 'adunit-f117e72a7c599593'
+            })
+            interstitialAd.onLoad(() => { })
+            interstitialAd.onError((err) => { })
+            interstitialAd.onClose(() => { })
+        }
+
+        // 在适合的场景显示插屏广告
+        if (interstitialAd) {
+            interstitialAd.show().catch((err) => {
+                console.error(err)
+            })
+        }
 
         // 每日诗词
         jinrishici.load(result => {
@@ -172,7 +191,7 @@ Page({
         var urlAdminLogin = app.globalData.url + '/api/admin/login';
         var paramAdminLogin = {
             username: "aquan",
-            password: "lerou961018"
+            password: "Aquan*970817"
         };
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);
@@ -314,6 +333,7 @@ Page({
         });
         var urlPostList = app.globalData.url + '/api/content/posts';
         var token = app.globalData.token;
+        console.warn(e.currentTarget.dataset.id);
         var params = {
             page: e.currentTarget.dataset.id,
             size: 10,
@@ -412,7 +432,6 @@ Page({
         var that = this;
         var list = res.data.content;
         for (let i = 0; i < list.length; ++i) {
-            list[i].thumbnail = "https://blog.eunji.cn" + list[i].thumbnail;
             list[i].createTime = util.customFormatTime(list[i].createTime, 'Y.M.D');
         }
         that.setData({
@@ -436,7 +455,6 @@ Page({
         // console.warn(res.data.content);
         var list = res.data.content;
         for (let i = 0; i < list.length; ++i) {
-            list[i].thumbnail = "https://blog.eunji.cn" + list[i].thumbnail;
             list[i].createTime = util.customFormatTime(list[i].createTime, 'Y.M.D');
         }
         if (res.data.content != "") {
@@ -453,6 +471,7 @@ Page({
             });
         }
 
+        // console.warn(list)
         // var time = setInterval(function () {
 
         //     console.warn('time');

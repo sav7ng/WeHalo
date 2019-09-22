@@ -6,13 +6,21 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"coverView": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.4.2",
@@ -42,7 +50,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 3,
 			"list": [
 				{
 					"id": 0,
@@ -64,6 +72,12 @@
 					"pathName": "pages/post/post",
 					"query": "postId=33",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "关注公众号",
+					"pathName": "pages/index/index",
+					"scene": 1011
 				}
 			]
 		}

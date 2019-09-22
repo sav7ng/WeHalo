@@ -26,8 +26,7 @@
     <view class="margin-lr-sm flex flex-wrap">
         <view class="padding-xs bg-white">
             <!-- <view class="cu-tag radius sm">Java</view> -->
-            <view class="cu-tag radius">Java</view>
-            <view class="cu-tag radius">MySql</view>
+            <view class="cu-tag radius" wx:for="{{postTags}}" wx:for-item="postTags" wx:for-index="index">{{postTags.name}}</view>
         </view>
     </view>
 
@@ -72,11 +71,12 @@
         </view>
     </view>
 
-    <view class="cu-bar input">
+<!-- 评论接口 -->
+    <!-- <view class="cu-bar input"> -->
         <!-- <view class="action">
             <text class="cuIcon-sound text-grey"></text>
         </view> -->
-        <view class="flex justify-center" style="width:100%" wx:if="{{!hasUserInfo && canIUse}}"> 
+        <!-- <view class="flex justify-center" style="width:100%" wx:if="{{!hasUserInfo && canIUse}}"> 
             <view>
                 <button class="cu-btn bg-blue shadow-blur round"role="button"aria-disabled="false" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后可评论</button>
             </view>
@@ -88,7 +88,7 @@
             </view>
             <button class="cu-btn bg-lightBlue shadow-blur">发送</button>
         </block>
-    </view>
+    </view> -->
     
     <view class="margin-bottom">
         <view class="margin-sm flex flex-wrap align-center" wx:for="{{commentList}}"  wx:for-item="commentList" wx:key wx:for-index="index" data-id="{{index}}">
