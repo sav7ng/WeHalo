@@ -93,10 +93,11 @@ App({
         skin: null,
         roleFlag: false,
         url: "xx",
-        blogName: "xx",
+        BlogName: "xx",
         token: "xx",
-        adminToken: "",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
         adminOpenid: "xx",
+        HaloUser: "xx",
+        HaloPassword: "xx",
     }
 })

@@ -69,16 +69,9 @@ globalData: { //全局变量
         token: "",//Halo博客后台设置
         highlightStyle: "dracula",//代码高亮样式，可用值default,darcula,dracula,tomorrow
         adminOpenid: "ogogn47AhczrMBgcTCPbUwugqLcU",//导入项目后可以在Console中看到  openidCloudResult: xxxxxxx  (xxx就是adminOpenid)
+        HaloUser: "xx",//Halo后台用户名
+        HaloPassword: "xx",//Halo后台密码
  }
-```
-
-修改``miniprogram\pages\index``的192行代码以下地方
-```
-var urlAdminLogin = app.globalData.url + '/api/admin/login';
-        var paramAdminLogin = {
-            username: "XXX",//Halo后台账号
-            password: "XXX"//Halo后台密码
-};
 ```
 
 
