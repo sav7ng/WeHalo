@@ -72,6 +72,15 @@ globalData: { //全局变量
  }
 ```
 
+修改``miniprogram\pages\index``的192行代码以下地方
+```
+var urlAdminLogin = app.globalData.url + '/api/admin/login';
+        var paramAdminLogin = {
+            username: "XXX",//Halo后台账号
+            password: "XXX"//Halo后台密码
+};
+```
+
 
 html2wxml插件版本准备
 

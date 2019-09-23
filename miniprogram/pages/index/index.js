@@ -191,8 +191,8 @@ Page({
         
         var urlAdminLogin = app.globalData.url + '/api/admin/login';
         var paramAdminLogin = {
-            username: "aquan",
-            password: "Aquan*970817"
+            username: "XXX",
+            password: "XXX"
         };
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);
