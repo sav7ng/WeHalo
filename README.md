@@ -74,6 +74,18 @@ globalData: { //全局变量
  }
 ```
 
+设置个人专属**Logo** 修改 ``WeHalo\miniprogram\colorui\main.wxss`` 文件最后面的
+
+``` 
+.home-img{
+    padding: 24rpx;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-image:url(../image/cat.png); */
+    background-image:url('xxxxx');//logo图片地址
+}
+```
+
 
 html2wxml插件版本准备
 
