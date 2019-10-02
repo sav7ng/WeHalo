@@ -1,4 +1,4 @@
-[![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/WeHalo.png)](https://github.com/aquanlerou/WeHalo)
+[![](https://image.aquan.run/wehalo.jpg)](https://github.com/aquanlerou/WeHalo)
 
 ## WeHalo 支持最新版本 Halo
 
@@ -69,7 +69,21 @@ globalData: { //全局变量
         token: "",//Halo博客后台设置
         highlightStyle: "dracula",//代码高亮样式，可用值default,darcula,dracula,tomorrow
         adminOpenid: "ogogn47AhczrMBgcTCPbUwugqLcU",//导入项目后可以在Console中看到  openidCloudResult: xxxxxxx  (xxx就是adminOpenid)
+        HaloUser: "xx",//Halo后台用户名
+        HaloPassword: "xx",//Halo后台密码
  }
+```
+
+设置个人专属**Logo** 修改 ``WeHalo\miniprogram\colorui\main.wxss`` 文件最后面的
+
+``` 
+.home-img{
+    padding: 24rpx;
+    background-repeat: no-repeat;
+    background-size: contain;
+    /* background-image:url(../image/cat.png); */
+    background-image:url('xxxxx');//logo图片地址
+}
 ```
 
 

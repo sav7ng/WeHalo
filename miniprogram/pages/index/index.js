@@ -505,5 +505,58 @@ Page({
     failAdminLogin: function (res, selfObj) {
         console.error('failAdminLogin', res)
     },
+
+
+    /**
+     * 搜索文章模块
+     */
+    Search: function(e) {
+        var content = e.detail.value;
+        // console.log(content);
+        var that = this;
+        that.setData({
+            SearchContent: content,
+        });
+    },
+    SearchSubmit: function (e) {
+        // console.warn(this.data.SearchContent);
+
+        var that = this;
+        that.setData({
+            postList: null,
+        });
+
+        var urlPostList = app.globalData.url + '/api/content/posts/search?sort=createTime%2Cdesc&keyword=' + this.data.SearchContent;
+        var token = app.globalData.token;
+        var params = {};
+
+
+        //@todo 搜索文章网络请求API数据
+        request.requestPostApi(urlPostList, token, params, this, this.successSearch, this.failSearch);
+    },
+    successSearch: function (res, selfObj) {
+        var that = this;
+        // console.warn(res.data.content);
+        var list = res.data.content;
+        for (let i = 0; i < list.length; ++i) {
+            list[i].createTime = util.customFormatTime(list[i].createTime, 'Y.M.D');
+        }
+        if (res.data.content != "") {
+            that.setData({
+                postList: res.data.content,
+                moreFlag: false,
+                pages: res.data.pages,
+            });
+        } else {
+            that.setData({
+                postList: res.data.content,
+                moreFlag: true,
+                pages: res.data.pages,
+            });
+        }
+    },
+    failSearch: function (res, selfObj) {
+        console.error('failSearch', res)
+    },
 })
 

@@ -63,10 +63,10 @@
     <view class="cu-bar search bg-white">
         <view class="search-form round">
             <text class="cuIcon-search"></text>
-            <input type="text" placeholder="搜索文章、关键词（未开发）" confirm-type="search"></input>
+            <input bindinput="Search" id="search" name="content" type="text" placeholder="搜索文章、关键词" confirm-type="search"></input>
         </view>
         <view class="action">
-            <button class="cu-btn bg-lightBlue shadow-blur round">搜索</button>
+            <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="SearchSubmit">搜索</button>
         </view>
     </view>
 
@@ -118,7 +118,7 @@
     </view>
 
     <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
-        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('https://blog.eunji.cn/upload/2019/6/cat20190730180226831.png');height: 400rpx; width:400rpx;">
+        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xxx');height: 400rpx; width:400rpx;">
         </view>
         <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
             <view class="text-grey">作者会努力更新文章的 . . . </view>

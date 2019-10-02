@@ -92,11 +92,11 @@ App({
         userInfo: null,
         skin: null,
         roleFlag: false,
-        url: "xx",
-        blogName: "xx",
-        token: "xx",
+        url: "xxx",
+        BlogName: "xxx",
+        token: "xxx",
         adminToken: "",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
-        adminOpenid: "xx",
+        adminOpenid: "xxx",
     }
 })
