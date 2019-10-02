@@ -15,6 +15,8 @@ Page({
         CustomBar: app.globalData.CustomBar,
         Custom: app.globalData.Custom,
         BlogName: app.globalData.BlogName,
+        HaloUser: app.globalData.HaloUser,
+        HaloPassword: app.globalData.HaloPassword,
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userInfo: {},
@@ -191,8 +193,8 @@ Page({
         
         var urlAdminLogin = app.globalData.url + '/api/admin/login';
         var paramAdminLogin = {
-            username: "aquan",
-            password: "Aquan*970817"
+            username: this.data.HaloUser,
+            password: this.data.HaloPassword
         };
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);

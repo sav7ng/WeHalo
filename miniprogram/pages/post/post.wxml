@@ -26,7 +26,7 @@
     <view class="margin-lr-sm flex flex-wrap">
         <view class="padding-xs bg-white">
             <!-- <view class="cu-tag radius sm">Java</view> -->
-            <view class="cu-tag radius" wx:for="{{postTags}}" wx:for-item="postTags" wx:for-index="index">{{postTags.name}}</view>
+            <view class="cu-tag radius" wx:for="{{postTags}}" wx:key="key" wx:for-item="postTags" wx:for-index="index">{{postTags.name}}</view>
         </view>
     </view>
 

@@ -173,7 +173,7 @@ Page({
             postDate: time.customFormatTime(createTime, 'Y-M-D'),
             postTags: res.data.tags
         })
-        console.warn(postTags);
+        // console.warn(postTags);
 
     },
     /**

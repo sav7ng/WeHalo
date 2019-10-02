@@ -4069,5 +4069,5 @@ scroll-view.cu-steps .cu-item {
     background-repeat: no-repeat;
     background-size: contain;
     /* background-image:url(../image/cat.png); */
-    background-image:url('xxx');
+    background-image:url('xxxxx');
 }
