@@ -2,6 +2,7 @@
 const app = getApp()
 const request = require('../../utils/request.js');
 let time = require('../../utils/util.js');
+var countdown = 60;
 
 Page({
 
@@ -16,6 +17,14 @@ Page({
         style: app.globalData.highlightStyle,
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
+        CommentShow: false,
+        ButtonTimer: '',//  按钮定时器
+        LastTime: 60,
+        CommentSwitch: true,
+    },
+
+    getUserInfo: function (e) {
+        app.globalData.userInfo = e.detail.userInfo;
     },
 
     /**
@@ -30,19 +39,19 @@ Page({
 
         // 在页面onLoad回调事件中创建插屏广告实例
         if (wx.createInterstitialAd) {
-        interstitialAd = wx.createInterstitialAd({
-            adUnitId: 'adunit-296c920c08da636d'
-        })
-        interstitialAd.onLoad(() => { })
-        interstitialAd.onError((err) => { })
-        interstitialAd.onClose(() => { })
+            interstitialAd = wx.createInterstitialAd({
+                adUnitId: 'adunit-296c920c08da636d'
+            })
+            interstitialAd.onLoad(() => { })
+            interstitialAd.onError((err) => { })
+            interstitialAd.onClose(() => { })
         }
 
         // 在适合的场景显示插屏广告
         if (interstitialAd) {
-        interstitialAd.show().catch((err) => {
-            console.error(err)
-        })
+            interstitialAd.show().catch((err) => {
+                console.error(err)
+            })
         }
 
 
@@ -62,6 +71,9 @@ Page({
         var urlComments = urlContent + '/comments/list_view';
         //@todo 评论列表网络请求API数据
         request.requestGetApi(urlComments, token, params, this, this.successComment, this.failComment);
+        var urlSwitch = app.globalData.url + '/api/content/options/keys/comment_api_enabled';
+        //@todo 评论开启按钮网络请求API数据
+        request.requestGetApi(urlSwitch, token, params, this, this.successSwitch, this.failSwitch);
 
 
     },
@@ -77,6 +89,8 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
+
+        // console.warn(app.globalData.userInfo);
 
         if (app.globalData.userInfo) {
             this.setData({
@@ -138,7 +152,12 @@ Page({
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        // console.warn(this.data.postId);
+        return {
+            title: this.data.postTitle,
+            path: '/pages/post/post?postId=' + this.data.postId,
+            imageUrl: this.data.postThumbnail,
+        }
     },
 
     getUserInfo: function (e) {
@@ -171,7 +190,8 @@ Page({
             postLikes: res.data.likes,
             postContent: res.data.originalContent,
             postDate: time.customFormatTime(createTime, 'Y-M-D'),
-            postTags: res.data.tags
+            postTags: res.data.tags,
+            postThumbnail: res.data.thumbnail,
         })
         // console.warn(postTags);
 
@@ -189,7 +209,7 @@ Page({
      */
     successComment: function (res, selfObj) {
         var that = this;
-        console.warn(res.data);
+        // console.warn(res.data);
         var list = res.data.content;
         for (let i = 0; i < list.length; ++i) {
             list[i].createTime = time.customFormatTime(list[i].createTime, 'Y-M-D  h:m:s');
@@ -211,4 +231,120 @@ Page({
     failComment: function (res, selfObj) {
         console.error('failComment', res)
     },
+
+
+
+    /**
+     * 评论模块
+     */
+    Comment: function (e) {
+        var content = e.detail.value.replace(/\s+/g, '');
+        // console.log(content);
+        var that = this;
+        that.setData({
+            CommentContent: content,
+        });
+    },
+
+    CommentSubmit: function (e) {
+
+        // console.warn(this.userInfo);
+        var that = this;
+
+        if (!that.data.CommentContent) {
+            wx.showToast({
+                title: '评论内容不能为空！',
+                icon: 'none',
+                duration: 2000
+            })
+            // console.error("评论内容为空!");
+        } else {
+            that.setData({
+                CommentShow: true,
+            });
+            that.data.ButtonTimer = setInterval(function () {
+                if (countdown == 0) {
+                    that.setData({
+                        CommentShow: false,
+                    })
+                    countdown = 60;
+                    clearInterval(that.data.ButtonTimer);
+                    return;
+                } else {
+                    that.setData({
+                        LastTime: countdown
+                    });
+                    // console.warn(countdown);
+                    countdown--;
+                }
+            }, 1000)
+            // console.warn(that.data.CommentContent);
+
+            var urlPostList = app.globalData.url + '/api/content/posts/comments';
+            var token = app.globalData.token;
+            var params = {
+                author: app.globalData.userInfo.nickName,
+                authorUrl: "https://github.com/aquanlerou/WeHalo",
+                content: that.data.CommentContent,
+                email: "aquanlerou@eunji.cn",
+                parentId: 0,
+                postId: that.data.postId,
+            };
+
+
+            //@todo 搜索文章网络请求API数据
+            request.requestPostApi(urlPostList, token, params, this, this.successSendComment, this.failSendComment);
+        }
+
+
+        
+    },
+
+    CommentSubmitTips: function() {
+        wx.showToast({
+            title: this.data.LastTime + "s 后再次评论",
+            icon: 'none',
+            duration: 1000
+        })
+    },
+
+    Likes: function() {
+        wx.showToast({
+            title: "文章点赞功能开发中...",
+            icon: 'none',
+            duration: 2000
+        })
+    },
+
+
+    successSendComment: function (res, selfObj) {
+        var that = this;
+        // console.warn(res.data);
+        var token = app.globalData.token;
+        var urlContent = app.globalData.url + '/api/content/posts/' + that.data.postId;
+        var urlComments = urlContent + '/comments/list_view';
+        var params = {};
+        //@todo 评论列表网络请求API数据
+        request.requestGetApi(urlComments, token, params, this, this.successComment, this.failComment);
+    },
+
+    failSendComment: function (res, selfObj) {
+        console.error('failComment', res)
+    },
+
+     /**
+     * 评论开关按钮回调
+     */
+    successSwitch: function(res, selfObj) {
+        var that = this;
+        // console.warn(res.data);
+        that.setData({
+            CommentSwitch: !res.data,
+        });
+    },
+    failSwitch: function (res, selfObj) {
+        console.error('failSwitch', res)
+    },
+
+
 })
