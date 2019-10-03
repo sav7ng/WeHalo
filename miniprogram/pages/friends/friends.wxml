@@ -1,0 +1,37 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <!-- <text class="text-white text-bold">WeHalo</text> -->
+        </view>
+    </cu-custom>
+
+    <view class="cu-bar justify-center bg-white margin-sm">
+        <view class="action sub-title">
+            <text class="text-xxl text-bold text-black">友情链接</text>
+            <text class="text-ABC text-black">Friends</text>
+            <!-- last-child选择器-->
+        </view>
+    </view>
+
+    <block wx:for="{{LinksList}}" wx:key wx:for-index="index" wx:for-item="LinksList">
+        <view class="margin-sm FriendsRound shadow-blur {{colourList[(index+randomNum)%10].colour}} animation-slide-bottom margin-lr-df margin-tb-df" style="animation-delay: {{(index+1)*0.6*animationTime}}s;" catchtap="prevent" data-url="{{LinksList.url}}">
+            <view class="flex-sub align-end" style="border-radius:6rpx; height:100%;">
+                <view class="padding-sm text-white">
+                    <view class="padding-xs flex flex-wrap align-center">
+                        <view class="basis-xs">
+                            <view class="cu-avatar xl round shadow-blur margin-right-lg" style="background-image:url({{LinksList.logo}});"></view>
+                        </view>
+                        <view class="grid col-1" style="flex-basis: 74%">
+                            <view class="margin-bottom-sm text-xl text-bold text-shadow">{{LinksList.name}}</view>
+                            <view class="text-shadow margin-bottom-sm">{{LinksList.description}}</view>
+                            <view class="text-shadow text-bold" style="text-align: right;">{{LinksList.url}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+
+</scroll-view>

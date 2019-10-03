@@ -3,7 +3,8 @@
         "pages/index/index",
         "pages/wehalo/wehalo",
         "pages/halo/halo",
-        "pages/post/post"
+        "pages/post/post",
+        "pages/friends/friends"
     ],
     "window": {
         "backgroundTextStyle": "light",

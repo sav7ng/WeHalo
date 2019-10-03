@@ -1,0 +1,92 @@
+/* miniprogram/pages/wehalo/wehalo.wxss */
+/* =========== */
+/*   波浪动画   */
+/* =========== */
+@import "../../colorui/animation.wxss";
+
+image[class*="gif-"] {
+    /* border-radius: 6rpx; */
+    display: block;
+}
+
+.gif-wave{
+    /* position: absolute; */
+    width: 100%;
+    bottom: -2rpx;
+    left: 0;
+    z-index: 99;
+    mix-blend-mode: screen;
+    height: 100rpx;
+}
+
+page {
+    background-image: var(--gradualShadow);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.DrawerPage {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0vw;
+    background-color: #f1f1f1;
+    transition: all 0.4s;
+}
+
+.DrawerPage.show {
+    transform: scale(0.9, 0.9);
+    left: 85vw;
+    box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
+    transform-origin: 0;
+}
+
+.DrawerPage .cu-bar.tabbar .action button.icon {
+    width: 64rpx;
+    height: 64rpx;
+    line-height: 64rpx;
+    margin: 0;
+    display: inline-block;
+}
+
+.DrawerPage .cu-bar.tabbar .action .cu-avatar {
+    margin: 0;
+}
+
+.DrawerPage .nav {
+    flex: 1;
+}
+
+.DrawerPage .nav .cu-item.cur {
+    border-bottom: 0;
+    position: relative;
+}
+
+.DrawerPage .nav .cu-item.cur::after {
+    content: "";
+    width: 10rpx;
+    height: 10rpx;
+    background-color: currentColor;
+    position: absolute;
+    bottom: 10rpx;
+    border-radius: 10rpx;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.DrawerPage .cu-bar.tabbar .action {
+    flex: initial;
+}
+
+.cu-time {
+    padding-left:20rpx !important;
+}
+
+
+/**
+ * Friends 样式
+ **/
+.FriendsRound {
+	border-radius: 20rpx;
+}

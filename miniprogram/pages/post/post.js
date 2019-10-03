@@ -1,5 +1,5 @@
 // miniprogram/pages/post/post.js
-const app = getApp()
+const app = getApp();
 const request = require('../../utils/request.js');
 let time = require('../../utils/util.js');
 var countdown = 60;
