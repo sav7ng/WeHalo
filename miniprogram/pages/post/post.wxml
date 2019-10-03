@@ -64,6 +64,10 @@
         <htmltowxml text="{{postContent}}" type="md" highlightStyle="{{style}}" linenums="{{false}}" showLoading="{{false}}" bindWxmlTagATap="wxmlTagATap" imghost=""></htmltowxml>
     </view>
     
+    <view class="ad">
+        <ad unit-id="adunit-da5b1800a9eae6d3" ad-intervals="30"></ad>
+    </view>
+
     <view class="cu-bar bg-white align-center">
         <view class="action border-title">
             <text class="text-xxl text-bold text-blue">评论</text>
@@ -72,23 +76,24 @@
     </view>
 
 <!-- 评论接口 -->
-    <!-- <view class="cu-bar input"> -->
+    <view class="cu-bar input" hidden="{{CommentSwitch}}">
         <!-- <view class="action">
             <text class="cuIcon-sound text-grey"></text>
         </view> -->
-        <!-- <view class="flex justify-center" style="width:100%" wx:if="{{!hasUserInfo && canIUse}}"> 
+        <view class="flex justify-center" style="width:100%" wx:if="{{!hasUserInfo && canIUse}}"> 
             <view>
                 <button class="cu-btn bg-blue shadow-blur round"role="button"aria-disabled="false" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权后可评论</button>
             </view>
         </view>
         <block wx:else>
-            <input class="solid-bottom" type="text" focus="{{false}}" maxlength="300" cursor-spacing="10" placeholder="尽管吐槽吧....."></input>
+            <input bindinput="Comment" style="margin-left: 40rpx;" class="solid-bottom" type="text" focus="{{false}}" maxlength="300" cursor-spacing="10" placeholder="尽管吐槽吧....."></input>
             <view class="action">
-                <text class="{{false?'cuIcon-likefill text-red':'cuIcon-like text-grey'}}"></text>
+                <text class="{{false?'cuIcon-likefill text-red':'cuIcon-like text-grey'}}" bindtap="Likes"></text>
             </view>
-            <button class="cu-btn bg-lightBlue shadow-blur">发送</button>
+            <button class="cu-btn bg-lightBlue shadow-blur" bindtap="CommentSubmit" hidden="{{CommentShow}}">发送</button>
+            <button class="cu-btn bg-grey shadow-blur" bindtap="CommentSubmitTips" hidden="{{!CommentShow}}">{{LastTime}}S</button>
         </block>
-    </view> -->
+    </view>
     
     <view class="margin-bottom">
         <view class="margin-sm flex flex-wrap align-center" wx:for="{{commentList}}"  wx:for-item="commentList" wx:key wx:for-index="index" data-id="{{index}}">

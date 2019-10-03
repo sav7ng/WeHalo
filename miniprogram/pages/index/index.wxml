@@ -15,7 +15,7 @@
                 <text class="text-white text-bold">{{BlogName}}</text>
             </view>
             <view class="text-xl padding text-shadow-meow text-white text-bold"role=""aria-label="">
-                <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>
+                <wh-typeWriter whContent="{{jinrishici==null?'三十年河东，三十年河西，莫欺少年穷。':jinrishici}}"></wh-typeWriter>
             </view>
         </view>
     </view>
@@ -118,7 +118,7 @@
     </view>
 
     <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
-        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xxx');height: 400rpx; width:400rpx;">
+        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xx');height: 400rpx; width:400rpx;">
         </view>
         <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
             <view class="text-grey">作者会努力更新文章的 . . . </view>

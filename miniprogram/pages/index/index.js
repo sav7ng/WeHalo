@@ -199,6 +199,7 @@ Page({
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);
 
+
     },
     getUserInfo: function (e) {
         // console.log(e.detail.errMsg)
@@ -513,7 +514,7 @@ Page({
      * 搜索文章模块
      */
     Search: function(e) {
-        var content = e.detail.value;
+        var content = e.detail.value.replace(/\s+/g, '');
         // console.log(content);
         var that = this;
         that.setData({
@@ -559,6 +560,17 @@ Page({
     },
     failSearch: function (res, selfObj) {
         console.error('failSearch', res)
+    },
+
+    /**
+    * 用户点击右上角分享
+    */
+    onShareAppMessage: function () {
+        return {
+            title: this.data.jinrishici,
+            path: '/pages/index/index',
+            imageUrl: 'https://image.aquan.run/poster.jpg',
+        }
     },
 })
 
