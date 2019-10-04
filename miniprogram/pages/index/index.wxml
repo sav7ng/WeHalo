@@ -6,60 +6,48 @@
             <text class="text-white text-bold">{{BlogName}}</text>
         </view>
     </cu-custom>
-
     <wh-addTips text="Meow~ 点击「添加到我的小程序」" duration="2"></wh-addTips>
-
     <view bindtouchstart="touchStart" bindtouchend="touchEnd" class="flex justify-center align-center bg-white" style="width:100%; height:460rpx; background-image:url(https://i.loli.net/2019/07/05/5d1eb991a72de80058.png); background-repeat: no-repeat; background-size: 100% 100%;">
         <view class="grid col-1 margin-bottom text-center">
-            <view class="text-xxxl padding text-shadow-meow"role=""aria-label="">
+            <view class="text-xxxl padding text-shadow-meow" role="" aria-label="">
                 <text class="text-white text-bold">{{BlogName}}</text>
             </view>
-            <view class="text-xl padding text-shadow-meow text-white text-bold"role=""aria-label="">
-                <wh-typeWriter whContent="{{jinrishici==null?'三十年河东，三十年河西，莫欺少年穷。':jinrishici}}"></wh-typeWriter>
+            <view class="text-xl padding text-shadow-meow text-white text-bold" role="" aria-label="">
+                <wh-typeWriter whContent="{{jinrishici}}"></wh-typeWriter>
             </view>
         </view>
     </view>
-
-   
     <view class="home text-shadow-meow" bindtap="showModal" data-target="viewModal">
-        <view class="home-btn home-img shadow-blur">
-        </view>
+        <view class="home-btn home-img shadow-blur"></view>
     </view>
-
     <!-- catch:touchstart="maopao" catch:touchend="maopao" -->
     <view style="margin-top: -100rpx;">
         <swiper bindchange="cardSwiper" class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" circular="true" autoplay="true" interval="5000" duration="500">
             <swiper-item wx:for="{{bannerPost? bannerPost:5}}" wx:for-item="bannerPost" wx:for-index="index" wx:key class="{{cardCur==index?'cur':''}}" wx:if="{{index<5}}">
-                
                 <navigator url="../post/post?postId={{bannerPost.id}}" open-type="navigate">
                     <view class="swiper-item" style="padding: 20rpx; padding-bottom:26rpx;">
                         <view class="carousel-img radius shadow-meow bg-lightGrey bg-img" style="background-image:url({{bannerPost.thumbnail}}); width:100%">
                             <view class="bg-maskCard flex-sub" style="border-radius:6rpx; height:100%; position:relative;">
                                 <view class="padding-lg text-white">
                                     <view class="padding-xs text-xl text-bold text-shadow">
-                                    {{bannerPost.title}}
+                                        {{bannerPost.title}}
                                     </view>
                                 </view>
                                 <view class="padding-lg text-white" style="position:absolute; bottom:0; right:0;">
                                     <view class="padding-xs text-df text-bold text-shadow">
-                                    {{bannerPost.createTime}}
+                                        {{bannerPost.createTime}}
                                     </view>
                                 </view>
                             </view>
-
                         </view>
                     </view>
                 </navigator>
-
             </swiper-item>
         </swiper>
     </view>
-
-
     <view style="margin-right:20rpx; margin-left:20rpx;">
         <official-account style=""></official-account>
     </view>
-    
     <view class="cu-bar search bg-white">
         <view class="search-form round">
             <text class="cuIcon-search"></text>
@@ -69,23 +57,19 @@
             <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="SearchSubmit">搜索</button>
         </view>
     </view>
-
     <scroll-view scroll-x class="bg-white nav text-center" style="background-color: {{skin?'#ffffff':'#ffffff'}};">
         <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{pages>6?pages:6}}" wx:key wx:for-index="index" bindtap="tabSelect" data-id="{{index}}" style="line-height:60rpx;">
             <!-- {{index}} -->
             {{index==0?'W':''}} {{index==1?'e':''}} {{index==2?'H':''}} {{index==3?'a':''}} {{index==4?'l':''}} {{index!=0 & index!=1 & index!=2 & index!=3 & index!=4 ?'o':''}}
         </view>
     </scroll-view>
-
-
     <!-- 瀑布流 -->
     <!-- <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if="{{0==TabCur}}"> -->
     <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd">
         <view class="fall-left">
             <block wx:for="{{postList}}" wx:key wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==0}}">
-                
                 <navigator url="../post/post?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
-                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-right:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.1*animationTime}}s;">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-right:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.2*animationTime}}s;">
                         <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
                             <view class="padding-lg text-white">
                                 <view class="padding-xs text-xl text-bold text-shadow">
@@ -95,14 +79,12 @@
                         </view>
                     </view>
                 </navigator>
-
             </block>
         </view>
         <view class="fall-right">
             <block wx:for="{{postList}}" wx:key wx:for-index="index" wx:for-item="postList" wx:if="{{index%2==1}}">
-
                 <navigator url="../post/post?postId={{postList.id}}" open-type="navigate" data-id="{{index}}">
-                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-left:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.1*animationTime}}s;">
+                    <view class="margin-sm radius shadow-blur bg-img {{colourList[(index+randomNum)%10].colour}} animation-scale-up" style="margin-left:10rpx; margin-top:0; background-image:url({{skin?postList.thumbnail:''}}); animation-delay: {{(index+1)*0.2*animationTime}}s;">
                         <view class="bg-maskCards flex-sub align-end" style="border-radius:6rpx; height:100%;">
                             <view class="padding-lg text-white">
                                 <view class="padding-xs text-xl text-bold text-shadow">
@@ -112,29 +94,22 @@
                         </view>
                     </view>
                 </navigator>
-
             </block>
         </view>
     </view>
-
     <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
-        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xx');height: 400rpx; width:400rpx;">
-        </view>
+        <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('xxxxx');height: 400rpx; width:400rpx;"></view>
         <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
-            <view class="text-grey">作者会努力更新文章的 . . . </view>
+            <view class="text-grey">作者会努力更新文章的 . . .</view>
         </view>
-        <view class="text-xs flex justify-center" style="height:250rpx;">
-        </view>
+        <view class="text-xs flex justify-center" style="height:250rpx;"></view>
     </view>
-
 </scroll-view>
-
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
     <text class="cuIcon-pullright"></text>
 </view>
-
 <scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
-    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl padding-bottom" style="margin-top:100rpx;">        
+    <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl padding-bottom" style="margin-top:100rpx;">
         <view class="cu-list menu sm-border card-menu margin-top shadow-meow">
             <view class="cu-item" style='min-height: 200rpx;'>
                 <view wx:if="{{!hasUserInfo && canIUse}}" class="content grid col-1">
@@ -142,7 +117,9 @@
                         <text class="text-grey">允许微信授权后，可体验更多功能</text>
                     </view>
                     <view class="padding-sm flex justify-center">
-                        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 微信授权 </button>
+                        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>
+                            微信授权
+                        </button>
                     </view>
                 </view>
                 <block wx:else>
@@ -161,7 +138,6 @@
                     </view>
                 </block>
             </view>
-
             <view class="cu-item arrow">
                 <view class="content" bindtap="showMask">
                     <text class="cuIcon-github text-gray menu-img"></text>
@@ -174,7 +150,6 @@
                     <text class="text-grey">联系作者</text>
                 </button>
             </view>
-            
             <view wx:if="{{!roleFlag}}" class="cu-item arrow">
                 <view class="content">
                     <text class="cuIcon-discoverfill text-gray menu-img"></text>
@@ -189,7 +164,6 @@
                     </navigator>
                 </view>
             </block>
-
             <view class="cu-item arrow">
                 <navigator class="content" hover-class="none" url="../wehalo/wehalo" open-type="navigate" bindtap="shutDownDrawer">
                     <text class="cuIcon-formfill text-lightBlue menu-img"></text>
@@ -211,12 +185,16 @@
                     <text class="text-grey">意见反馈</text>
                 </button>
             </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hover-class="none" url="../friends/friends" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-group_fill text-gray menu-img"></text>
+                    <text class="text-grey">Friends</text>
+                </navigator>
+            </view>
         </view>
     </view>
-    
     <view class="text-xs flex justify-center" style="position:fixed; bottom:20rpx; width:100%; text-align:center;">
         <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
         <view class="text-lightBlue">WeHalo</view>
     </view>
-    
 </scroll-view>
