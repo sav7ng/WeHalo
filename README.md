@@ -173,7 +173,8 @@ WeHalo的诞生离不开下面这些项目：
 | 2019-06-21 | * 杰 | 支付宝 | 6.66 | 无留言 |
 | 2019-08-04 | * 杰 | 支付宝 | 6.66 | 无留言 |
 | 2019-08-04 | * 海强 | 支付宝 | 8.88 | 开源辛苦 |
+| 2019-10-04 | * 礼 | 微信 | 8.88 | 无留言 |
+| 2019-10-08 | MaxWell | 微信 | 8.88 | 开源不易，继续努力。 |
 
-
-
-
+## Stargazers over time
+[![Stargazers over time](https://starchart.cc/aquanlerou/WeHalo.svg)](https://starchart.cc/aquanlerou/WeHalo)
