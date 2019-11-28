@@ -32,8 +32,16 @@
 
         <view class="cu-item text-blue cuIcon-favorfill">
             <view class="bg-blue content shadow-blur">
-                <wh-typeWriter whContent="2019.09.23 WeHalo支持最新版本Halo"></wh-typeWriter>
+                <wh-typeWriter whContent=" WeHalo 在 GitHub 上 Star 破 500"></wh-typeWriter>
                 <text decode="{{true}}" space="{{true}}">&nbsp;</text>
+            </view>
+        </view>
+        
+        <view class="cu-time">2019.10.10</view>
+
+        <view class="cu-item text-orange">
+            <view class="bg-orange content shadow-blur">
+                2019.09.23 WeHalo支持最新版本Halo
             </view>
         </view>
         
