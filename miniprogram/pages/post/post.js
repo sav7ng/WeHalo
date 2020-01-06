@@ -211,16 +211,18 @@ Page({
         var that = this;
         // console.warn(res.data);
         var list = res.data.content;
-        for (let i = 0; i < list.length; ++i) {
-            list[i].createTime = time.customFormatTime(list[i].createTime, 'Y-M-D  h:m:s');
-            list[i].falg = true;
-            if (list[i].isAdmin) {
-                list[i].email = '';
-                list[i].authorUrl = 'https://cn.gravatar.com/avatar/3958035fa354403fa9ca3fca36b08068?s=256&d=mm';
-            }
+		if(list.length != 0){
+			for (let i = 0; i < list.length; ++i) {
+				list[i].createTime = time.customFormatTime(list[i].createTime, 'Y-M-D  h:m:s');
+				list[i].falg = true;
+				if (list[i].isAdmin) {
+					list[i].email = '';
+					list[i].authorUrl = 'https://cn.gravatar.com/avatar/3958035fa354403fa9ca3fca36b08068?s=256&d=mm';
+				}
         }
 
         list[list.length - 1].falg = false;
+	   }
         that.setData({
             commentList: res.data.content,
         })
