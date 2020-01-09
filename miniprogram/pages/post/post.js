@@ -21,6 +21,7 @@ Page({
         ButtonTimer: '',//  按钮定时器
         LastTime: 60,
         CommentSwitch: true,
+		commentValue:''
     },
 
     getUserInfo: function (e) {
@@ -293,13 +294,13 @@ Page({
                 postId: that.data.postId,
             };
 
-
+			
             //@todo 搜索文章网络请求API数据
             request.requestPostApi(urlPostList, token, params, this, this.successSendComment, this.failSendComment);
         }
 
 
-        
+ 
     },
 
     CommentSubmitTips: function() {
@@ -322,6 +323,15 @@ Page({
     successSendComment: function (res, selfObj) {
         var that = this;
         // console.warn(res.data);
+		that.setData({
+			commentValue:"",
+			CommentContent:undefined
+		})
+		wx.showToast({
+                title: '博主审核通过后可显示！',
+                icon: 'none',
+                duration: 2000
+            })
         var token = app.globalData.token;
         var urlContent = app.globalData.url + '/api/content/posts/' + that.data.postId;
         var urlComments = urlContent + '/comments/list_view';
