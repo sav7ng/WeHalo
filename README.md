@@ -107,6 +107,8 @@ html2wxml插件版本准备
 
 ![WeHalo](https://github.com/aquanlerou/WeHalo/blob/master/image/wx.png)
 
+#### [**更多演示**](https://github.com/aquanlerou/WeHalo/issues/53)
+
 
 ## 许可证
 
