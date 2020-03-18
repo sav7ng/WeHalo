@@ -24,10 +24,6 @@ Page({
 		commentValue:''
     },
 
-    getUserInfo: function (e) {
-        app.globalData.userInfo = e.detail.userInfo;
-    },
-
     /**
      * 生命周期函数--监听页面加载
      */

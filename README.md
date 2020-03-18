@@ -74,6 +74,9 @@ globalData: { //全局变量
  }
 ```
 
+**注：
+关于新版本 ``WeHalo`` 找不到 ``adminOpenid`` 的处理方法： ``https://gitee.com/Aquan_LeRou/WeHalo/issues/I12J1G``  **
+
 设置个人专属**Logo** 修改 ``WeHalo\miniprogram\colorui\main.wxss`` 文件最后面的
 
 ``` 
@@ -103,6 +106,8 @@ html2wxml插件版本准备
 ## 演示
 
 ![WeHalo](https://github.com/aquanlerou/WeHalo/blob/master/image/wx.png)
+
+#### [**更多演示**](https://github.com/aquanlerou/WeHalo/issues/53)
 
 
 ## 许可证
@@ -155,8 +160,10 @@ WeHalo的诞生离不开下面这些项目：
 
 | 日期 | 名称 | 方式 | 金额 | 留言 |
 | :------------: | :------------: | :------------: | :------------: | :------------: |
+| 2020-03-17 | M * l | 微信 | 10.24 | 无留言 |
 | 2020-01-17 | * 放 | 微信 | 6.66 | 值得学习 |
 | 2020-01-08 | S * o | 微信 | 3.30 | WeHalo捐赠 By 五月 |
+| 2020-01-07 | * 海洋 | 支付宝 | 16.66 | WeHalo捐献 爱吸猫 |
 | 2020-01-01 | O * l | 微信 | 2.00 | 2020冲！感谢作者 |
 | 2019-11-28 | * 华 | 微信 | 10.24 | 无留言 |
 | 2019-11-27 | * 李 | 微信 | 10.24 | WeHalo捐赠，超级棒！ |
