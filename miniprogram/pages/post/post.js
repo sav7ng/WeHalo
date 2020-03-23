@@ -278,21 +278,43 @@ Page({
                 }
             }, 1000)
             // console.warn(that.data.CommentContent);
-
-            var urlPostList = app.globalData.url + '/api/content/posts/comments';
-            var token = app.globalData.token;
-            var params = {
-                author: app.globalData.userInfo.nickName,
-                authorUrl: "https://github.com/aquanlerou/WeHalo",
-                content: that.data.CommentContent,
-                email: "aquanlerou@eunji.cn",
-                parentId: 0,
-                postId: that.data.postId,
-            };
-
-			
-            //@todo 搜索文章网络请求API数据
-            request.requestPostApi(urlPostList, token, params, this, this.successSendComment, this.failSendComment);
+            wx.cloud.callFunction({
+                name: 'msg_sec_check',
+                data: {
+                    content: that.data.CommentContent
+                }
+            }).then(ckres => {
+                if (ckres.result.errCode == 0) {
+                    var urlPostList = app.globalData.url + '/api/content/posts/comments';
+                    var token = app.globalData.token;
+                    var params = {
+                        author: app.globalData.userInfo.nickName,
+                        authorUrl: "https://github.com/aquanlerou/WeHalo",
+                        content: that.data.CommentContent,
+                        email: "aquanlerou@eunji.cn",
+                        parentId: 0,
+                        postId: that.data.postId,
+                    };
+                    //@todo 网络请求API数据
+                    request.requestPostApi(urlPostList, token, params, this, this.successSendComment, this.failSendComment);
+                } else {
+                    // wx.hideLoading();
+                    // wx.showModal({
+                    //     title: '提醒',
+                    //     content: '请注意言论',
+                    //     showCancel: false
+                    // })
+                    wx.showToast({
+                        title: '请注意言论！',
+                        icon: 'none',
+                        duration: 2000
+                    })
+                    that.setData({
+                        commentValue: "",
+                        CommentContent: undefined
+                    })
+                }
+            })
         }
 
 
@@ -324,7 +346,7 @@ Page({
 			CommentContent:undefined
 		})
 		wx.showToast({
-                title: '博主审核通过后可显示！',
+                title: '感谢你的评论与支持！',
                 icon: 'none',
                 duration: 2000
             })
