@@ -36,7 +36,7 @@
 
 **WeHalo** [wiˈheɪloʊ]，意为我们的光环，嘻嘻。
 
-配合 [**Halo**](https://github.com/ruibaby/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
+配合 [**Halo**](https://github.com/halo-dev/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
 > QQ交流群: 260050047
 
@@ -139,7 +139,7 @@ html2wxml插件版本准备
 
 WeHalo的诞生离不开下面这些项目：
 
-- **[Halo](https://github.com/ruibaby/halo)：轻快，简洁，功能强大，使用Java开发的博客系统**
+- **[Halo](https://github.com/halo-dev/halo)： 一个优秀的开源博客发布应用。**
 - **[ColorUI](https://github.com/weilanwl/ColorUI)：鲜亮的高饱和色彩，专注视觉的小程序组件库**
 - **[iView Weapp](https://github.com/TalkingData/iview-weapp)：一套高质量的微信小程序 UI 组件库**
 - **[Painter](https://github.com/Kujiale-Mobile/Painter)：微信小程序生成图片库，绘制一张可以发到朋友圈的图片**
