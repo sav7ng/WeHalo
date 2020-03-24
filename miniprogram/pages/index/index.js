@@ -337,7 +337,7 @@ Page({
         });
         var urlPostList = app.globalData.url + '/api/content/posts';
         var token = app.globalData.token;
-        console.warn(e.currentTarget.dataset.id);
+        // console.warn(e.currentTarget.dataset.id);
         var params = {
             page: e.currentTarget.dataset.id,
             size: 10,
@@ -500,7 +500,7 @@ Page({
         // })
         app.globalData.adminToken = res.data.access_token;
         // clearTimeout(delay);
-        console.warn(res)
+        // console.warn(res)
     },
     /**
      * 后台登入请求--接口调用失败处理
