@@ -96,7 +96,7 @@
     </view>
     
     <view class="margin-bottom">
-        <view class="margin-sm flex flex-wrap align-center" wx:for="{{commentList}}"  wx:for-item="commentItem" wx:key wx:for-index="index" data-id="{{index}}">
+        <view class="margin-sm flex flex-wrap align-center" wx:for="{{commentList}}" wx:key="keyId" wx:for-item="commentItem" wx:for-index="index" data-id="{{index}}">
             <view class="basis-xs">
                 <!-- <view class="cu-avatar lg round margin-left-sm" style="background-image:url({{commentItem.email==''?commentItem.authorUrl:'https://gravatar.loli.net/avatar/undefined/?s=256&d=mp'}});"></view> -->
                 <view class="cu-avatar lg round margin-left-sm" style="background-image:url({{commentItem.email==''?commentItem.authorUrl:'https://gravatar.loli.net/avatar/undefined/?s=256&d=mp'}});"></view>
