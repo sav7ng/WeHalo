@@ -7,9 +7,6 @@
             <!-- <text class="text-white text-bold">WeHalo</text> -->
         </view>
     </cu-custom>
-    <!-- 这里的图片url可自行设置 -->
-    <view class="bg-img padding-tb-xl" style="background-image: url('https://i.loli.net/2020/04/18/hqxNdgZIRFrYLTH.jpg');height: 414rpx;">
-    </view>
 
     <view class="cu-bar bg-white align-center margin-top">
         <view class="action border-title">
@@ -17,18 +14,12 @@
             <text class="bg-gradual-blue"></text>
         </view>
     </view>
-    
-    <view class="padding bg-white" style="padding-top：0;">
-        <view class="cu-progress radius striped active">
-            <view class="bg-olive" style="width:{{loading?'100%':''}};">end</view>
-        </view>
-    </view>
 
     <view class="cu-timeline" >
 
         <view class="cu-item text-blue cuIcon-favorfill">
             <view class="bg-blue content shadow-blur">
-                <wh-typeWriter whContent=" 行到水穷处，坐看云起时"></wh-typeWriter>
+                <wh-typeWriter whContent="三十年河东，三十年河西，莫欺少年穷。"></wh-typeWriter>
                 <text decode="{{true}}" space="{{true}}">&nbsp;</text>
             </view>
         </view>
