@@ -180,16 +180,22 @@
                 </view>
             </view>
             <view class="cu-item arrow">
-                <button class="cu-btn content" open-type="feedback">
-                    <text class="cuIcon-writefill text-lightBlue"></text>
-                    <text class="text-grey">意见反馈</text>
-                </button>
+                <navigator class="content" hover-class="none" url="../journal/journal" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-time text-lightBlue menu-img"></text>
+                    <text class="text-grey">日记本</text>
+                </navigator>
             </view>
             <view class="cu-item arrow">
                 <navigator class="content" hover-class="none" url="../friends/friends" open-type="navigate" bindtap="shutDownDrawer">
                     <text class="cuIcon-group_fill text-gray menu-img"></text>
                     <text class="text-grey">Friends</text>
                 </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <button class="cu-btn content" open-type="feedback">
+                    <text class="cuIcon-writefill text-lightBlue"></text>
+                    <text class="text-grey">意见反馈</text>
+                </button>
             </view>
         </view>
     </view>
