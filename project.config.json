@@ -90,6 +90,13 @@
 					"pathName": "pages/friends/friends",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "journal",
+					"pathName": "pages/journal/journal",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

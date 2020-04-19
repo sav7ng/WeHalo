@@ -1,0 +1,52 @@
+<!--miniprogram/pages/journal/journal.wxml-->
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true" style="background-color: {{skin?'#030852':'#ffffff'}};">
+
+    <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+        <view slot="backText">返回</view>
+        <view slot="content" class="text-shadow-meows">
+            <!-- <text class="text-white text-bold">WeHalo</text> -->
+        </view>
+    </cu-custom>
+    <!-- 这里的图片url可自行设置 -->
+    <view class="bg-img padding-tb-xl" style="background-image: url('https://i.loli.net/2020/04/18/hqxNdgZIRFrYLTH.jpg');height: 414rpx;">
+    </view>
+
+    <view class="cu-bar bg-white align-center margin-top">
+        <view class="action border-title">
+            <text class="text-xl text-bold text-blue">TalkShow✨</text>
+            <text class="bg-gradual-blue"></text>
+        </view>
+    </view>
+    
+    <view class="padding bg-white" style="padding-top：0;">
+        <view class="cu-progress radius striped active">
+            <view class="bg-olive" style="width:{{loading?'100%':''}};">end</view>
+        </view>
+    </view>
+
+    <view class="cu-timeline" >
+
+        <view class="cu-item text-blue cuIcon-favorfill">
+            <view class="bg-blue content shadow-blur">
+                <wh-typeWriter whContent=" 行到水穷处，坐看云起时"></wh-typeWriter>
+                <text decode="{{true}}" space="{{true}}">&nbsp;</text>
+            </view>
+        </view>
+        
+      <view wx:for="{{jourContent}}" wx:key="key" wx:for-item="jourContent" wx:for-index="index">
+          <view wx:if="{{jourContent.hasTime}}" class="cu-time">{{jourContent.createTime}}</view>
+
+          <view class="cu-item {{jourContent.textColor}}" >
+              <view class="{{jourContent.bgColor}} content shadow-blur">
+                  {{jourContent.sourceContent}}
+              </view>
+          </view>
+      </view>
+
+    </view>
+
+    <view class="text-xs flex justify-center" style="margin-bottom: 20rpx; width: 100%; text-align: center;">
+        <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
+        <view class="text-lightBlue">WeHalo</view>
+    </view>
+</scroll-view>
