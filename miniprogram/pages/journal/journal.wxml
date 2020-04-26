@@ -10,7 +10,7 @@
 
     <view class="cu-bar bg-white align-center margin-top">
         <view class="action border-title">
-            <text class="text-xl text-bold text-blue">TalkShow✨</text>
+            <text class="text-xl text-bold text-blue">TalkShow</text>
             <text class="bg-gradual-blue"></text>
         </view>
     </view>
