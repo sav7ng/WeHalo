@@ -15,7 +15,7 @@
 [![](https://img.shields.io/github/languages/code-size/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo)
 [![GitHub LICENSE](https://img.shields.io/github/license/aquanlerou/WeHalo.svg?style=flat-square)](https://github.com/aquanlerou/WeHalo/blob/master/LICENSE)
 [![star](https://img.shields.io/github/stars/aquanlerou/WeHalo.svg?label=Stars&style=social)](https://github.com/aquanlerou/WeHalo)
-[![star](https://gitee.com/Aquan_LeRou/WeHalo/badge/star.svg?theme=white)](https://gitee.com/Aquan_LeRou/WeHalo/stargazers)
+[![star](https://gitee.com/aquanrun/WeHalo/badge/star.svg?theme=white)](https://gitee.com/aquanrun/WeHalo/stargazers)
 
 ------------------------------
 
