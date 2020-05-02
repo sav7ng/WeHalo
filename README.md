@@ -75,7 +75,7 @@ globalData: { //全局变量
 ```
 
 **注：
-关于新版本 ``WeHalo`` 找不到 ``adminOpenid`` 的处理方法： ``https://gitee.com/Aquan_LeRou/WeHalo/issues/I12J1G``  **
+关于新版本 ``WeHalo`` 找不到 ``adminOpenid`` 的处理方法： ``https://gitee.com/aquanrun/WeHalo/issues/I12J1G``  **
 
 设置个人专属**Logo** 修改 ``WeHalo\miniprogram\colorui\main.wxss`` 文件最后面的
 
