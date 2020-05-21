@@ -199,8 +199,15 @@
             </view>
         </view>
     </view>
-    <view class="text-xs flex justify-center" style="position:fixed; bottom:20rpx; width:100%; text-align:center;">
-        <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
-        <view class="text-lightBlue">WeHalo</view>
+    
+    <view class="grid col-1 text-xs" style="position:fixed;bottom:20rpx;width:100%;text-align:center;">
+        <view class="flex justify-center padding-xs">
+            <view class="text-grey" style="margin-right:4rpx;">{{ miniProgram.envVersion }} Version</view>
+            <view class="text-techBlue text-bold">{{ miniProgram.version }}</view>
+        </view>
+        <view class="flex justify-center">
+            <view class="text-grey" style="margin-right:4rpx;">Powered by</view>
+            <view class="text-lightBlue">WeHalo</view>
+        </view>
     </view>
 </scroll-view>

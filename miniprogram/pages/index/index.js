@@ -17,6 +17,7 @@ Page({
         BlogName: app.globalData.BlogName,
         HaloUser: app.globalData.HaloUser,
         HaloPassword: app.globalData.HaloPassword,
+        miniProgram: app.globalData.miniProgram,
         hasUserInfo: false,
         canIUse: wx.canIUse('button.open-type.getUserInfo'),
         userInfo: {},
