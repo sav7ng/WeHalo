@@ -55,6 +55,7 @@ page {
     left: 0vw;
     background-color: #f1f1f1;
     transition: all 0.4s;
+	overflow-y: auto;
 }
 
 .DrawerPage.show {

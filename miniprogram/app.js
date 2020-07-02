@@ -51,6 +51,10 @@ App({
                 this.globalData.CustomBar = custom.bottom + custom.top - e.statusBarHeight;
             }
         })
+
+        const miniProgram = wx.getAccountInfoSync()
+        console.log(miniProgram)
+        this.globalData.miniProgram = miniProgram.miniProgram
         
         // 获取小程序更新机制兼容
         if (wx.canIUse('getUpdateManager')) {
@@ -92,13 +96,13 @@ App({
         userInfo: null,
         skin: null,
         roleFlag: false,
-        url: "xx",//http://localhost:8090
-        BlogName: "xx",
-        token: "xx",
+        url: "xxx",//http://localhost:8090
+        BlogName: "xxx",
+        token: "xxx",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
-        adminOpenid: "xx",
-        HaloUser: "xx",
-        HaloPassword: "xx"
+        adminOpenid: "xxx",
+        HaloUser: "xxx",
+        HaloPassword: "xxxxx"
     }
     
 })
