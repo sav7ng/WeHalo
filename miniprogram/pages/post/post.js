@@ -157,6 +157,18 @@ Page({
         }
     },
 
+    /**
+     * 用户点击右上角分享
+     */
+    onShareTimeline: function () {
+        // console.warn(this.data.postId);
+        return {
+            title: this.data.postTitle,
+            path: '/pages/post/post?postId=' + this.data.postId,
+            imageUrl: this.data.postThumbnail,
+        }
+    },
+
     getUserInfo: function (e) {
         // console.log(e)
         app.globalData.userInfo = e.detail.userInfo;

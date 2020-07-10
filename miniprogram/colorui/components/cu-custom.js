@@ -1,4 +1,4 @@
-const app = getApp();
+const app = getApp()
 Component({
   /**
    * 组件的一些选项
@@ -27,14 +27,6 @@ Component({
       type: String,
       default: ''
     },
-    isNav: {
-        type: [Boolean, String],
-        default: true
-    },
-    isFixed: {
-        type: String,
-        default: ''
-    },
   },
   /**
    * 组件的初始数据
@@ -51,6 +43,11 @@ Component({
     BackPage() {
       wx.navigateBack({
         delta: 1
+      }).catch(error => {
+        console.info("error", error)
+        wx.reLaunch({
+          url: '/pages/index/index',
+        })
       });
     },
     toHome(){
