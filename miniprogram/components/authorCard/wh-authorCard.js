@@ -28,7 +28,7 @@ Component({
             console.log("防止冒泡");
             var self = this;
             wx.setClipboardData({
-                data: "https://github.com/aquanlerou"
+                data: "https://github.com/java-aodeng"
             });
 
         },

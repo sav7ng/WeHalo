@@ -96,13 +96,13 @@ App({
         userInfo: null,
         skin: null,
         roleFlag: false,
-        url: "xxx",//http://localhost:8090
-        BlogName: "xxx",
-        token: "xxx",
+        url: "https://ilovey.live",//http://localhost:8090
+        BlogName: "低调小熊猫",
+        token: "aodeng",
         highlightStyle: "dracula", //代码高亮样式，可用值default,darcula,dracula,tomorrow
         adminOpenid: "xxx",
-        HaloUser: "xxx",
-        HaloPassword: "xxxxx"
+        HaloUser: "低调小熊猫",
+        HaloPassword: "aodeng5696.coM"
     }
     
 })
