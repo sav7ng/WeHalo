@@ -8,6 +8,8 @@
 
 新版本使用的问题不懂可以通过小程序联系作者找到我或者添加``QQ交流群: 260050047``
 
+B站部署视频： https://www.bilibili.com/video/BV1s5411Y7Pp/
+
 > ✍ Halo 一款现代化的个人独立博客系统 [Halo](https://halo.run)
 
 [![Github](https://img.shields.io/badge/Author-Aquan-FF4500.svg?style=flat-square)](https://github.com/aquanlerou)
