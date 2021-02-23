@@ -40,7 +40,7 @@ B站部署视频： https://www.bilibili.com/video/BV1s5411Y7Pp/
 
 配合 [**Halo**](https://github.com/halo-dev/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-> QQ交流群: 260050047
+> QQ交流群: 260050047 / 559856207
 
 ## 快速开始
 
