@@ -117,7 +117,7 @@
                         <text class="text-grey">允许微信授权后，可体验更多功能</text>
                     </view>
                     <view class="padding-sm flex justify-center">
-                        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>
+                        <button open-type="getUserInfo" bindtap="getUserProfile" class='cu-btn round bg-green shadow'>
                             微信授权
                         </button>
                     </view>
