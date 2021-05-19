@@ -1,107 +1,118 @@
 {
-	"miniprogramRoot": "miniprogram/",
-	"cloudfunctionRoot": "cloudfunctions/",
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": true,
-		"es6": true,
-		"postcss": true,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"autoAudits": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
-	"appid": "wxe0face0d131e0bd2",
-	"projectname": "meow",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": 3,
-			"list": [
-				{
-					"id": 0,
-					"name": "WeHalo",
-					"pathName": "pages/wehalo/wehalo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "仪表盘",
-					"pathName": "pages/halo/halo",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 2,
-					"name": "POST",
-					"pathName": "pages/post/post",
-					"query": "postId=15",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "关注公众号",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": 1011
-				},
-				{
-					"id": 4,
-					"name": "Friends",
-					"pathName": "pages/friends/friends",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "journal",
-					"pathName": "pages/journal/journal",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": false,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.1",
+  "appid": "",
+  "projectname": "meow",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "WeHalo",
+          "pathName": "pages/wehalo/wehalo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "仪表盘",
+          "pathName": "pages/halo/halo",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "POST",
+          "pathName": "pages/post/post",
+          "query": "postId=15",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "关注公众号",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": 1011
+        },
+        {
+          "id": 4,
+          "name": "Friends",
+          "pathName": "pages/friends/friends",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "journal",
+          "pathName": "pages/journal/journal",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
 }
