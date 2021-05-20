@@ -5,7 +5,9 @@
     "pages/halo/halo",
     "pages/post/post",
     "pages/friends/friends",
-    "pages/journal/journal"
+    "pages/journal/journal",
+    "pages/photos/photos",
+    "pages/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",

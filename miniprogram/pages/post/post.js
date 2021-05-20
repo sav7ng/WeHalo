@@ -88,10 +88,10 @@ Page({
     onShow: function () {
 
         // console.warn(app.globalData.userInfo);
-
-        if (app.globalData.userInfo) {
+        var userInfo = wx.getStorageSync('userInfo')
+        if (userInfo) {
             this.setData({
-                userInfo: app.globalData.userInfo,
+                userInfo: userInfo,
                 hasUserInfo: true
             })
         } else if (this.data.canIUse) {
@@ -103,17 +103,6 @@ Page({
                     hasUserInfo: true,
                 })
             }
-        } else {
-            // 在没有 open-type=getUserInfo 版本的兼容处理
-            wx.getUserInfo({
-                success: res => {
-                    app.globalData.userInfo = res.userInfo
-                    this.setData({
-                        userInfo: res.userInfo,
-                        hasUserInfo: true
-                    })
-                }
-            })
         }
     },
 
@@ -169,15 +158,26 @@ Page({
         }
     },
 
-    getUserInfo: function (e) {
-        // console.log(e)
-        app.globalData.userInfo = e.detail.userInfo;
-        // app.globalData.nickName = e.detail.userInfo.nickName;
-        // app.globalData.avatarUrl = e.detail.userInfo.avatarUrl;
-        this.setData({
-            userInfo: e.detail.userInfo,
-            hasUserInfo: true
-        });
+    getUserProfile: function () {
+        var that = this
+        wx.getUserProfile({
+            desc: '用于完善用户资料',
+            success: (res) => {
+                if (res.errMsg == "getUserProfile:ok") {
+                    wx.setStorageSync('userInfo',res.userInfo)
+                    that.setData({
+                        userInfo: res.userInfo,
+                        hasUserInfo: true,
+                    })
+                }
+            } ,fail: err => {
+                wx.showToast({
+                    title: '授权后才能评论哦',
+                    icon: 'none',
+                    duration: 3000
+                })
+            },
+        })
     },
 
     /**
@@ -300,7 +300,7 @@ Page({
                     var urlPostList = app.globalData.url + '/api/content/posts/comments';
                     var token = app.globalData.token;
                     var params = {
-                        author: app.globalData.userInfo.nickName,
+                        author: that.data.userInfo.nickName,
                         authorUrl: "https://github.com/aquanlerou/WeHalo",
                         content: that.data.CommentContent,
                         email: "aquanlerou@eunji.cn",

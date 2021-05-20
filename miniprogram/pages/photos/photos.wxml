@@ -1,0 +1,98 @@
+<!-- <web-view src="https://www.xtyu.top/photos"></web-view> -->
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true"
+  style="background-color: {{skin?'#030852':'#ffffff'}};">
+  <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content" class="text-shadow-meows">
+      <text class="text-white text-bold">图库</text>
+    </view>
+  </cu-custom>
+
+  <scroll-view scroll-x class="bg-white nav text-center" scroll-with-animation scroll-left="{{scrollLeft}}">
+    <view class="cu-item {{index==TabCur?'text-blue cur':''}}" wx:for="{{Tab}}" wx:key bindtap="tabSelect"
+      data-id="{{index}}" data-item="{{item}}">
+      {{item}}
+    </view>
+  </scroll-view>
+
+  <view class="cu-bar bg-white solid-bottom">
+    <view class='action'>
+      <view class="cu-tag line-blue">
+        精简排列
+      </view>
+    </view>
+    <view class='action'>
+      <switch class='sm' checked='{{isCard}}'  bindchange='isCard'></switch>
+    </view>
+  </view>
+  <view class="cu-card case" style="margin-top:'500rpx'" wx:for="{{items}}" hidden='{{isCard}}'>
+    <view class="cu-item shadow">
+      <view class="image">
+        <image src="{{item.url}}" mode="widthFix" bindtap="onlongclick" data-url="{{item.url}}"></image>
+        <view class="cu-tag bg-blue">{{item.team==""?'未分组':item.team}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="grid flex-sub padding-lr col-3 grid-square"  hidden='{{!isCard}}'>
+    <view class="bg-img" bindtap="onlongclick" data-url="{{item.url}}"
+      style="background-image:url({{item.url}});"
+      wx:for="{{items}}" wx:key="{{index}}">
+    </view>
+  </view>
+
+
+  <view class="cu-modal {{isShow?'show':''}}">
+    <view class="cu-dialog">
+      <view class="bg-img" style="background-image: url({{selected}});height:200px;">
+        <view class="cu-bar justify-end text-blue">
+          <view class="action" bindtap="hideModal">
+            <text class="cuIcon-close "></text>
+          </view>
+        </view>
+      </view>
+      <view class="bg-white padding" hidden="{{!isDownload}}">
+        <view class="cu-steps">
+          <view class="cu-item {{index>basics?'':'text-red'}}" wx:for="{{basicsList}}" wx:key>
+            <text class="cuIcon-{{item.icon}}"></text> {{item.name}}
+          </view>
+        </view>
+      </view>
+      <view class="cu-bar bg-white" hidden="{{isDownload}}">
+        <view class="action margin-0 flex-sub solid-left text-blue" bindtap="saveImage">下载</view>
+      </view>
+    </view>
+  </view>
+<!-- 添加照片图标 -->
+<view bindtap="imageShow" class="add" wx:if="{{isImageIcon}}">
+		<text class="cuIcon-cameraadd" style="font-size:90rpx; color: #1ABDE6;"></text>
+</view>
+<!-- 图片上传弹框 -->
+<view class="cu-modal show" bindtap="hideImageModal" wx:if="{{isImageShow}}">
+  <view class="cu-dialog" catchtap>
+    <radio-group class="block">
+      <view class="cu-list menu text-left">
+        <view class="cu-item" wx:for="{{Tab}}" wx:key wx:if="{{item!='全部'}}">
+          <label class="flex justify-between align-center flex-sub" >
+            <view class="flex-sub" >{{item}}</view>
+            <radio class="round" data-group="{{item}}" bindtap="checkedGroup"></radio>
+          </label>
+        </view>
+        <view class="cu-item">
+          <input placeholder="自定义分组" bindinput="groudBindblur"></input>
+          <radio class="round" data-group="{{customGrouping}}" bindtap="checkedGroup"></radio>
+        </view>
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub text-green " bindtap="ChooseImage">
+        <text class="cuIcon-pic"></text>图片上传</view>
+      </view>
+    </radio-group>
+  </view>
+</view>
+<!-- 图片上传加载框 -->
+<view class='cu-load load-modal' wx:if="{{isUpload}}">
+  <image src='https://oss.xtyu.top/blog-image/logo_1619769775860.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>图片上传中</view>
+</view>
+</scroll-view>

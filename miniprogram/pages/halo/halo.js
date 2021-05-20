@@ -20,7 +20,7 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-        var urlCounts = app.globalData.url + '/api/admin/counts';
+        var urlCounts = app.globalData.url + '/api/admin/statistics';
         var paramCounts = {};
         // @todo 后台总览数据网络请求API数据
         request.requestGetApi(urlCounts, app.globalData.adminToken, paramCounts, this, this.successCounts, this.failCounts);
@@ -288,6 +288,10 @@ Page({
             if (list[i].isAdmin) {
                 list[i].email = '';
                 list[i].authorUrl = app.globalData.userInfo.avatarUrl;
+            }
+            let title=list[i].post.title;
+            if(title.length>15){
+                list[i].post.title=title.substring(0,15)+'...'
             }
         }
         that.setData({

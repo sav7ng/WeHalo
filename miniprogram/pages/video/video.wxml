@@ -1,0 +1,125 @@
+<scroll-view scroll-y class="DrawerPage" scroll-with-animation="true"
+  style="background-color: {{skin?'#030852':'#ffffff'}};">
+  <cu-custom bgColor="bg-lightGrey" isBack="{{false}}" isCustom="{{true}}" isNav="{{false}}">
+    <view slot="backText">返回</view>
+    <view slot="content" class="text-shadow-meows">
+      <text class="text-white text-bold">短视频解析</text>
+    </view>
+  </cu-custom>
+</scroll-view>
+
+
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../image/video-image/logo-douyin.png" class="png" mode="aspectFit"></image>
+      <text class="text-grey">抖音</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">支持</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../image/video-image/logo-gitShow.png" class="png" mode="aspectFit"></image>
+      <text class="text-grey">快手</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">支持</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../image/video-image/logo-ppx.png" class="png" mode="aspectFit"></image>
+      <text class="text-grey">皮皮虾</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">支持</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../image/video-image/logo-microview.png" class="png" mode="aspectFit"></image>
+      <text class="text-grey">微视</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">适配中</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <image src="../../image/video-image/logo-zuiyou.png" class="png" mode="aspectFit"></image>
+      <text class="text-grey">最右</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">支持</text>
+    </view>
+  </view>
+  <view class="cu-item">
+    <view class="content">
+      <text class="cuIcon-link text-green"></text>
+      <text class="text-grey">链接</text>
+    </view>
+    <view class="action">
+      <text class="text-grey text-sm">{{shortVideoUrl?shortVideoUrl:"短视频平台复制分享链接后会自动抓取"}}</text>
+    </view>
+  </view>
+  <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">注意</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">如果出现解析失败的情况请等两分钟再试</text>
+      </view>
+    </view>
+</view>
+
+<view class="padding flex flex-direction">
+  <button bindtap="submit" class="cu-btn bg-blue lg">
+    <text wx:if="{{isButton}}">一键去除视频水印</text>
+    <text wx:if="{{!isButton}}" class="cuIcon-loading2 iconfont-spin"></text>
+  </button>
+</view>
+
+<view class="cu-modal {{isShow?'show':''}}">
+  <view class="cu-dialog">
+    <video src="{{url}}" controls="false" autoplay="true" muted="true">
+      <view class="cu-bar justify-end text-blue">
+        <view class="action" bindtap="hideModal">
+          <text class="cuIcon-close "></text>
+        </view>
+      </view>
+    </video>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub solid-left text-blue" bindtap="saveVideo">保存到相册</view>
+    </view>
+  </view>
+</view>
+<view class='cu-load load-modal' wx:if="{{isDownload}}">
+  <image src='https://oss.xtyu.top/blog-image/logo_1619769775860.png' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>视频保存中</view>
+</view>
+
+
+<view class="cu-modal show" wx:if="{{isUrlDownload}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">微信域解析异常</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view>
+      你可以复制以下链接到浏览器进行下载
+    </view>
+    <view class="padding-xl">
+      <text style="-webkit-line-clamp: 2;">{{shortUrl}}</text>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn bg-blue margin-left" bindtap="prevent">复制</button>
+      </view>
+    </view>
+  </view>
+</view>

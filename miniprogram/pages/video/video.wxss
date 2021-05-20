@@ -1,0 +1,9 @@
+/* miniprogram/pages/photos.wxss */
+@import "../../colorui/animation.wxss";
+
+
+
+video{
+  position:relative;
+  width:100%;
+} 
