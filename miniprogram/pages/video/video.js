@@ -73,7 +73,8 @@ Page({
     var params = {
       url: this.data.videoUrl,
     };
-    request.requestGetApi('https://video.xtyu.top', null, params, this, function (res) {
+    var url = ''; //填入自己的视频解析服务链接，解析服务搭建可参考各类开源短视频解析接口。如有疑问可联系作者
+    request.requestGetApi(url, null, params, this, function (res) {
       if (res.code == 201) {
         wx.showToast({
           title: '解析失败请检查链接正确性,或重试一次',
