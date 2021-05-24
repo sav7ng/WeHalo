@@ -76,78 +76,19 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-
-        if (app.globalData.userInfo) {
+        var userInfo = wx.getStorageSync('userInfo')
+        if (userInfo) {
             this.setData({
-                userInfo: app.globalData.userInfo,
+                userInfo: userInfo,
                 hasUserInfo: true
             })
-        } else if (this.data.canIUse) {
-            // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-            // 所以此处加入 callback 以防止这种情况
-            app.userInfoReadyCallback = res => {
-                this.setData({
-                    userInfo: res.userInfo,
-                    hasUserInfo: true,
-                })
-            }
-        } else {
-            // 在没有 open-type=getUserInfo 版本的兼容处理
-            wx.getUserInfo({
-                success: res => {
-                    app.globalData.userInfo = res.userInfo
-                    this.setData({
-                        userInfo: res.userInfo,
-                        hasUserInfo: true
-                    })
-                }
-            })
+            this.getPermissions()
         }
-
-
-        var that = this;
-        // 云函数调用
-        wx.cloud.callFunction({
-            // 云函数名称
-            name: 'get_wx_context',
-            // 传给云函数的参数
-            data: {
-            },
-            success(res) {
-                // console.log("CloudResult:", res);
-                console.log("openidCloudResult:", res.result.openid);
-                that.setData({
-                    openid: res.result.openid
-                });
-                if (res.result.openid == that.data.adminOpenid) {
-                    app.globalData.roleFlag = true;
-                    that.setData({
-                        Role: '管理员',
-                    });
-                    if (app.globalData.userInfo) {
-                        that.setData({
-                            roleFlag: true,
-                        });
-                    }
-                    // console.warn("你是管理员！");
-                } else {
-                    app.globalData.roleFlag = false;
-                    that.setData({
-                        Role: '游客',
-                        roleFlag: false,
-                    });
-                    // console.warn("你不是管理员！");
-                };
-            },
-            fail: err => {
-            },
-        })
     },
-    onLoad: function () {
 
+    onLoad: function () {
         // 在页面中定义插屏广告
         let interstitialAd = null
-
         // 在页面onLoad回调事件中创建插屏广告实例
         if (wx.createInterstitialAd) {
             interstitialAd = wx.createInterstitialAd({
@@ -157,14 +98,12 @@ Page({
             interstitialAd.onError((err) => { })
             interstitialAd.onClose(() => { })
         }
-
         // 在适合的场景显示插屏广告
         if (interstitialAd) {
             interstitialAd.show().catch((err) => {
                 console.error(err)
             })
         }
-
         // 每日诗词
         jinrishici.load(result => {
             // 下面是处理逻辑示例
@@ -172,7 +111,6 @@ Page({
                 jinrishici: result.data.content
             });
         });
-
         var urlPostList = app.globalData.url + '/api/content/posts';
         var token = app.globalData.token;
         var params = {
@@ -189,9 +127,6 @@ Page({
         request.requestGetApi(urlPostList, token, params, this, this.successPostList, this.failPostList);
         // @todo 文章Banner网络请求API数据
         request.requestGetApi(urlPostList, token, paramBanner, this, this.successBanner, this.failBanner);
-
-
-        
         var urlAdminLogin = app.globalData.url + '/api/admin/login';
         var paramAdminLogin = {
             username: this.data.HaloUser,
@@ -199,61 +134,48 @@ Page({
         };
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);
-
-
     },
-    getUserInfo: function (e) {
-        // console.log(e.detail.errMsg)
-        // console.log(e.detail.userInfo)
-        // console.log(e.detail.rawData)
+
+    getUserProfile: function () {
         var that = this;
-        if(e.detail.errMsg == "getUserInfo:fail auth deny") {
-            that.setData({
-                hasUserInfo: false,
-                Role: '游客',
-                roleFlag: false,
-            })
-        }else {
-
-            app.globalData.userInfo = e.detail.userInfo;
-            that.setData({
-                userInfo: e.detail.userInfo,
-                hasUserInfo: true,
-            })
-            var that = this;
-            // 云函数调用
-            wx.cloud.callFunction({
-                // 云函数名称
-                name: 'get_wx_context',
-                // 传给云函数的参数
-                data: {
-                },
-                success(res) {
-                    // console.log("CloudResult:", res);
-                    // console.log("openidCloudResult:", res.result.openid);
+        wx.getUserProfile({
+            desc: '用于完善用户资料',
+            success: (res) => {
+                if (res.errMsg == "getUserProfile:ok") {
+                    wx.setStorageSync('userInfo',res.userInfo)
+                    app.globalData.userInfo = res.userInfo
                     that.setData({
-                        openid: res.result.openid
+                        userInfo: res.userInfo,
+                        hasUserInfo: true,
+                    })
+                    that.getPermissions()
+                }
+            } ,fail: err => {
+                wx.showToast({
+                    title: '授权后才能体验更多功能哦',
+                    icon: 'none',
+                    duration: 3000
+                })
+            },
+        })
+    },
+
+    getPermissions: function () {
+        var that = this;
+            wx.cloud.callFunction({
+                name: 'get_wx_context',
+                success(res) {
+                    wx.setStorageSync('openid',res.result.openid)
+                    var role = res.result.openid == that.data.adminOpenid ? '管理员':'游客'
+                    app.globalData.roleFlag = res.result.openid == that.data.adminOpenid;
+                    that.setData({
+                        Role: role,
+                        roleFlag: res.result.openid == that.data.adminOpenid,
                     });
-                    if (res.result.openid == that.data.adminOpenid) {
-                        that.setData({
-                            Role: '管理员',
-                            roleFlag: true,
-                        });
-                        // console.warn("你是管理员！");
-                    } else {
-                        that.setData({
-                            Role: '游客',
-                            roleFlag: false,
-                        });
-                        // console.warn("你不是管理员！");
-                    };
-                },
-                fail: err => {
                 },
             })
-        }
-       
     },
+
     DotStyle(e) {
         this.setData({
             DotStyle: e.detail.value

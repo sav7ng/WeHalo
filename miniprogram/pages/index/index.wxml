@@ -117,7 +117,7 @@
                         <text class="text-grey">允许微信授权后，可体验更多功能</text>
                     </view>
                     <view class="padding-sm flex justify-center">
-                        <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'>
+                        <button open-type="getUserInfo" bindtap="getUserProfile" class='cu-btn round bg-green shadow'>
                             微信授权
                         </button>
                     </view>
@@ -196,6 +196,18 @@
                     <text class="cuIcon-writefill text-lightBlue"></text>
                     <text class="text-grey">意见反馈</text>
                 </button>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hover-class="none" url="../photos/photos" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-pic text-gray menu-img"></text>
+                    <text class="text-grey">图库</text>
+                </navigator>
+            </view>
+            <view class="cu-item arrow">
+                <navigator class="content" hover-class="none" url="../video/video" open-type="navigate" bindtap="shutDownDrawer">
+                    <text class="cuIcon-video text-gray menu-img"></text>
+                    <text class="text-grey">短视频去水印</text>
+                </navigator>
             </view>
         </view>
     </view>

@@ -77,7 +77,7 @@ globalData: { //全局变量
 ```
 
 **注：
-关于新版本 ``WeHalo`` 找不到 ``adminOpenid`` 的处理方法： ``https://gitee.com/aquanrun/WeHalo/issues/I12J1G``  **
+关于新版本 ``WeHalo`` 找不到 ``adminOpenid`` 的处理方法： ``https://gitee.com/aquanrun/WeHalo/issues/I12J1G``**
 
 设置个人专属**Logo** 修改 ``WeHalo\miniprogram\colorui\main.wxss`` 文件最后面的
 
@@ -136,6 +136,9 @@ html2wxml插件版本准备
 - [ ] 文章浏览统计功能（云函数）
 - [ ] 用户回复评论追评功能
 - [ ] 生成海报（微信朋友圈装X）
+- [x] 图库展示([小熊随笔](https://www.xtyu.top/)贡献开发)
+- [x] 图库图片上传([小熊随笔](https://www.xtyu.top/)贡献开发)
+- [x] 短视频去水印([小熊随笔](https://www.xtyu.top/)贡献开发)
 - [ ] 想到就写...
 
 ## 感谢
