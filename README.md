@@ -139,6 +139,8 @@ html2wxml插件版本准备
 - [x] 图库展示([小熊随笔](https://www.xtyu.top/)贡献开发)
 - [x] 图库图片上传([小熊随笔](https://www.xtyu.top/)贡献开发)
 - [x] 短视频去水印([小熊随笔](https://www.xtyu.top/)贡献开发)
+- [x] 按类别导航([小熊随笔](https://www.xtyu.top/)贡献开发)
+- [x] 加密分类限制([小熊随笔](https://www.xtyu.top/)贡献开发)
 - [ ] 想到就写...
 
 ## 感谢
