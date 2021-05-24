@@ -201,3 +201,9 @@ image[class*="gif-"] {
     display: flex;
     flex-direction: column;
 }
+
+.list {
+    position:fixed;
+    bottom:5%;
+    left:85%;
+  }

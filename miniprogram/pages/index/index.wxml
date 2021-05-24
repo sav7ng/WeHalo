@@ -104,6 +104,11 @@
         </view>
         <view class="text-xs flex justify-center" style="height:250rpx;"></view>
     </view>
+    <view  class="list" bindtap="showModal" data-target="viewModal">
+        <button class="cu-btn icon" >
+        <text class="cuIcon-list"></text>
+      </button>
+    </view>
 </scroll-view>
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
     <text class="cuIcon-pullright"></text>
