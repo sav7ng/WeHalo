@@ -57,12 +57,14 @@
             <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="SearchSubmit">搜索</button>
         </view>
     </view>
+
     <scroll-view scroll-x class="bg-white nav text-center" style="background-color: {{skin?'#ffffff':'#ffffff'}};">
-        <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{pages>6?pages:6}}" wx:key="keyId" wx:for-index="index" bindtap="tabSelect" data-id="{{index}}" style="line-height:60rpx;">
-            <!-- {{index}} -->
-            {{index==0?'W':''}} {{index==1?'e':''}} {{index==2?'H':''}} {{index==3?'a':''}} {{index==4?'l':''}} {{index!=0 & index!=1 & index!=2 & index!=3 & index!=4 ?'o':''}}
+        <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{categories}}" wx:key="keyId" wx:for-index="index" bindtap="tabSelect" data-slug="{{item.slug}}" data-id="{{index}}" style="line-height:60rpx;">
+            {{item.name}}
         </view>
     </scroll-view>
+
+
     <!-- 瀑布流 -->
     <!-- <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if="{{0==TabCur}}"> -->
     <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd">
