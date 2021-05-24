@@ -1,4 +1,4 @@
-[![](https://image.aquan.run/wehalo.jpg)](https://github.com/aquanlerou/WeHalo)
+[![](https://raw.githubusercontent.com/aquanlerou/WeHalo/master/image/wehalo.jpg)](https://github.com/aquanlerou/WeHalo)
 
 ## WeHalo 支持最新版本 Halo
 
