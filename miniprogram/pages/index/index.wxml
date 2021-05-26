@@ -57,12 +57,14 @@
             <button class="cu-btn bg-lightBlue shadow-blur round" bindtap="SearchSubmit">搜索</button>
         </view>
     </view>
+
     <scroll-view scroll-x class="bg-white nav text-center" style="background-color: {{skin?'#ffffff':'#ffffff'}};">
-        <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{pages>6?pages:6}}" wx:key="keyId" wx:for-index="index" bindtap="tabSelect" data-id="{{index}}" style="line-height:60rpx;">
-            <!-- {{index}} -->
-            {{index==0?'W':''}} {{index==1?'e':''}} {{index==2?'H':''}} {{index==3?'a':''}} {{index==4?'l':''}} {{index!=0 & index!=1 & index!=2 & index!=3 & index!=4 ?'o':''}}
+        <view class="cu-item {{index==TabCur?'text-blue text-shadow text-xl':''}}  text-bold text-lg" wx:for="{{categories}}" wx:key="keyId" wx:for-index="index" bindtap="tabSelect" data-slug="{{item.slug}}" data-id="{{index}}" style="line-height:60rpx;">
+            {{item.name}}
         </view>
     </scroll-view>
+
+
     <!-- 瀑布流 -->
     <!-- <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd" wx:if="{{0==TabCur}}"> -->
     <view class="grid col-2 content text-center" bindtouchstart="touchStart" bindtouchend="touchEnd">
@@ -100,10 +102,29 @@
     <view class="flex justify-center grid col-1" hidden="{{!moreFlag}}" bindtouchstart="touchStart" bindtouchend="touchEnd">
         <view class="bg-img animation-scale-up shadow-blur margin" style="background-image: url('https://image.aquan.run/cat.png');height: 400rpx; width:400rpx;"></view>
         <view class="text-xs flex justify-center animation-scale-up" style="width:100%; text-align:center;">
-            <view class="text-grey">作者会努力更新文章的 . . .</view>
+            <view class="text-grey">{{noPostTitle}}</view>
         </view>
         <view class="text-xs flex justify-center" style="height:250rpx;"></view>
     </view>
+    <view  class="list" bindtap="showModal" data-target="viewModal">
+        <button class="cu-btn icon" >
+        <text class="cuIcon-list"></text>
+      </button>
+    </view>
+    <!-- 访问密码 -->
+<view class="cu-modal show" bindtap="hidePasswordModal" wx:if="{{isPasswordShow}}">
+  <view class="cu-dialog" catchtap>
+      <view class="cu-list menu text-left">
+        <view class="cu-item">
+          <input placeholder="请输入访问密码" bindinput="inputPassword" type="password"></input>
+        </view>
+      </view>
+      <view class="cu-bar bg-white">
+        <view class="action margin-0 flex-sub text-blue " bindtap="clickPassword">
+        <text></text>确认</view>
+      </view>
+  </view>
+</view>
 </scroll-view>
 <view class="DrawerClose {{modalName=='viewModal'?'show':''}}" bindtap="hideModal">
     <text class="cuIcon-pullright"></text>

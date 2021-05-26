@@ -56,6 +56,10 @@ Page({
         }, {
             colour: 'bg-lightBlue'
         }],
+        categories : [{name:"全部",slug:"all"}],
+        isPasswordShow : false,
+        password : null,
+        secretUrl : null,
     },
     /**
      * 监听屏幕滚动 判断上下滚动
@@ -115,7 +119,7 @@ Page({
         var token = app.globalData.token;
         var params = {
             page: 0,
-            size: 10,
+            size: 100,//不带参数请求默认10条，又没有查所有文章的接口，所以先暂定100
             sort: 'createTime,desc',
         };
         var paramBanner = {
@@ -134,6 +138,17 @@ Page({
         };
         // @todo 获取后台token网络请求API数据
         request.requestPostApi(urlAdminLogin, token, paramAdminLogin, this, this.successAdminLogin, this.failAdminLogin);
+        var that =this;
+        var urlCategoriesList = app.globalData.url + '/api/content/categories';
+        // 查分类
+        request.requestGetApi(urlCategoriesList, token, {sort:'createTime'}, this, function(res){
+            res.data.forEach(element => {
+                that.data.categories.push(element)
+            });
+            that.setData({
+                categories : that.data.categories
+            })
+        }, null);
     },
 
     getUserProfile: function () {
@@ -253,29 +268,28 @@ Page({
         })
     },
     tabSelect(e) {
-
         this.randomNum();
         this.setData({
             postList: [],
         });
-        var urlPostList = app.globalData.url + '/api/content/posts';
+        var slug = e.currentTarget.dataset.slug;
+        var url = slug != 'all'? "/api/content/categories/"+slug+"/posts" : "/api/content/posts";
+        var urlPostList = app.globalData.url + url;
         var token = app.globalData.token;
-        // console.warn(e.currentTarget.dataset.id);
         var params = {
-            page: e.currentTarget.dataset.id,
-            size: 10,
+            size: 100,
             sort: 'createTime,desc',
+            password : wx.getStorageSync('password'),
         };
-
-
         //@todo 文章内容网络请求API数据
         request.requestGetApi(urlPostList, token, params, this, this.successPostList, this.failPostList);
-
         this.setData({
             TabCur: e.currentTarget.dataset.id,
-            scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+            scrollLeft: (e.currentTarget.dataset.id - 1) * 60,
+            secretUrl : slug
         });
     },
+    
     switchSex: function (e) {
         // console.warn(e.detail.value);
         app.globalData.skin = e.detail.value
@@ -376,34 +390,38 @@ Page({
     /**
      * 文章列表请求--接口调用成功处理
      */
+    /**
+     * 文章列表请求--接口调用成功处理
+     */
     successPostList: function (res, selfObj) {
         var that = this;
-
-        // console.warn(res.data.content);
+        if(res.status != 403){
         var list = res.data.content;
         for (let i = 0; i < list.length; ++i) {
             list[i].createTime = util.customFormatTime(list[i].createTime, 'Y.M.D');
+            if (list[i].title.length > 10) {
+                list[i].title = list[i].title.substring(0, 14) + '...'
+            }
         }
-        if (res.data.content != "") {
-            that.setData({
-                postList: res.data.content,
-                moreFlag: false,
-                pages: res.data.pages,
-            });
-        } else {
-            that.setData({
-                postList: res.data.content,
-                moreFlag: true,
-                pages: res.data.pages,
-            });
-        }
-
-        // console.warn(list)
-        // var time = setInterval(function () {
-
-        //     console.warn('time');
-        //     clearInterval(time);
-        // }, 100)
+        that.setData({
+            postList: res.data.content,
+            moreFlag: res.data.content == "",
+            pages: res.data.pages,
+            noPostTitle : "作者会努力更新文章的 . . ."
+        });
+    }else{
+        that.setData({
+            moreFlag : true,
+            isPasswordShow : true,
+            noPostTitle : "该列表为私密列表，请输入访问密码后访问"
+        });
+        wx.showToast({
+            title: '请输入正确密码',
+            icon: 'none',
+            duration: 2000,
+            mask: true
+          })
+    }
     },
     /**
      * 文章列表请求--接口调用失败处理
@@ -431,7 +449,6 @@ Page({
     failAdminLogin: function (res, selfObj) {
         console.error('failAdminLogin', res)
     },
-
 
     /**
      * 搜索文章模块
@@ -495,5 +512,40 @@ Page({
             imageUrl: 'https://image.aquan.run/poster.jpg',
         }
     },
+    hidePasswordModal(e) {
+        this.setData({
+          isPasswordShow: false
+        })
+    },
+    clickPassword (e){
+
+        this.setData({
+            isPasswordShow: false
+        })
+        wx.setStorageSync('password',this.data.password)
+        this.randomNum();
+        this.setData({
+            postList: [],
+        });
+        var urlPostList = app.globalData.url + "/api/content/categories/"+this.data.secretUrl+"/posts";
+        var token = app.globalData.token;
+        var params = {
+            size: 100,
+            sort: 'createTime,desc',
+            password : wx.getStorageSync('password')
+        };
+        //@todo 文章内容网络请求API数据
+        request.requestGetApi(urlPostList, token, params, this, this.successPostList, this.failPostList);
+        this.setData({
+            TabCur: e.currentTarget.dataset.id,
+            scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+        });
+    },
+    inputPassword(e){
+        this.setData({
+            password: e.detail.value
+        })
+    }
+    
 })
 
