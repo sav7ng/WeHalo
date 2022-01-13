@@ -216,7 +216,11 @@ WeHalo的诞生离不开下面这些项目：
 | 2019-02-27 | 黄 * i | 微信 | 1.00 | 无留言 |
 | 2019-02-11 | 。花 泽 类 、 | 微信 | 10.00 | 哇哈哈 |
 
-
-
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/aquanlerou/WeHalo.svg)](https://starchart.cc/aquanlerou/WeHalo)
+
+## Thanks to all the people who already contributed!
+
+<a href="https://github.com/savingrun/WeHalo/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=savingrun/WeHalo" />
+</a>
