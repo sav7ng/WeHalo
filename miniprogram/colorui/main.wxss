@@ -71,14 +71,6 @@ page {
 	font-size: 28rpx;
 	color: var(--black);
 	font-family: Helvetica Neue, Helvetica, sans-serif;
-
-    /* 自定义 */
-    --lightBlue: #40a9ff;
-    --lightGrey:  #ededed;
-    --gradualBlack: linear-gradient(45deg, #0000007a, #ffffff79);
-    --gradualDreamBlue: linear-gradient(45deg, #7667af, #84cfe3, #0f5396);
-    --gradualGrey: linear-gradient(#ededed, #ededed, #ededed);
-    --gradualShadow: linear-gradient(45deg, #c7c7c7, #ededed, #ffffff);
 }
 
 view,
@@ -312,24 +304,6 @@ radio.radio[checked]::after {
 .switch-sex[checked] .wx-switch-input {
 	background: var(--blue) !important;
 	border-color: var(--blue) !important;
-}
-
-.switch-theme::after {
-    content: "\e718";
-}
-
-.switch-theme::before {
-    content: "\e719";
-}
-
-.switch-theme .wx-switch-input {
-    background: var(--red) !important;
-    border-color: var(--red) !important;
-}
-
-.switch-theme[checked] .wx-switch-input {
-    background: var(--black) !important;
-    border-color: var(--black) !important;
 }
 
 switch.red[checked] .wx-switch-input,
@@ -649,10 +623,6 @@ radio.white[checked] .wx-radio-input {
 
 .shadow[class*='white'] {
 	--ShadowSize: 0 1rpx 6rpx;
-}
-
-.shadow-meow {
-  box-shadow: 4rpx 8rpx 26rpx rgba(0, 0, 0, 0.300);
 }
 
 .shadow-lg {
@@ -998,12 +968,6 @@ button.icon.lg {
 	font-size: 2.5em;
 }
 
-.cu-avatar.xxl {
-    width: 240rpx;
-    height: 240rpx;
-    font-size: 2.5em;
-}
-
 .cu-avatar .avatar-text {
 	font-size: 0.4em;
 }
@@ -1306,7 +1270,7 @@ button.icon.lg {
 	position: relative;
 	display: flex;
 	padding-right: 10rpx;
-	min-height: 140rpx;
+	height: 140rpx;
 	background-color: var(--white);
 	justify-content: flex-end;
 	align-items: center
@@ -2060,18 +2024,18 @@ button.icon.lg {
 	display: block;
 }
 
-.cu-timeline .cu-item {
+.cu-timeline>.cu-item {
 	padding: 30rpx 30rpx 30rpx 120rpx;
 	position: relative;
 	display: block;
 	z-index: 0;
 }
 
-.cu-timeline .cu-item:not([class*="text-"]) {
+.cu-timeline>.cu-item:not([class*="text-"]) {
 	color: #ccc;
 }
 
-.cu-timeline .cu-item::after {
+.cu-timeline>.cu-item::after {
 	content: "";
 	display: block;
 	position: absolute;
@@ -2083,7 +2047,7 @@ button.icon.lg {
 	z-index: 8;
 }
 
-.cu-timeline .cu-item::before {
+.cu-timeline>.cu-item::before {
 	font-family: "cuIcon";
 	display: block;
 	position: absolute;
@@ -2098,11 +2062,11 @@ button.icon.lg {
 	left: 36rpx;
 }
 
-.cu-timeline .cu-item:not([class*="cuIcon-"])::before {
+.cu-timeline>.cu-item:not([class*="cuIcon-"])::before {
 	content: "\e763";
 }
 
-.cu-timeline .cu-item[class*="cuIcon-"]::before {
+.cu-timeline>.cu-item[class*="cuIcon-"]::before {
 	background-color: var(--white);
 	width: 50rpx;
 	height: 50rpx;
@@ -2112,19 +2076,19 @@ button.icon.lg {
 	left: 36rpx;
 }
 
-.cu-timeline .cu-item>.content {
+.cu-timeline>.cu-item>.content {
 	padding: 30rpx;
 	border-radius: 6rpx;
 	display: block;
 	line-height: 1.6;
 }
 
-.cu-timeline .cu-item>.content:not([class*="bg-"]) {
+.cu-timeline>.cu-item>.content:not([class*="bg-"]) {
 	background-color: var(--ghostWhite);
 	color: var(--black);
 }
 
-.cu-timeline .cu-item>.content+.content {
+.cu-timeline>.cu-item>.content+.content {
 	margin-top: 20rpx;
 }
 
@@ -2612,19 +2576,14 @@ swiper.square-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 swiper.round-dot .wx-swiper-dot {
-	/* width: 10rpx;
+	width: 10rpx;
 	height: 10rpx;
 	position: relative;
-	margin: 4rpx 8rpx !important; */
-    width: 0rpx;
-    height: 0rpx;
-    top: -4rpx;
-    transition: all 0.3s ease-in-out 0s;
-    position: relative;
+	margin: 4rpx 8rpx !important;
 }
 
 swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active::after {
-	/* content: "";
+	content: "";
 	position: absolute;
 	width: 10rpx;
 	height: 10rpx;
@@ -2634,26 +2593,12 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active::after {
 	bottom: 0;
 	margin: auto;
 	background-color: var(--white);
-	border-radius: 20rpx; */
-    content: "";
-    position: absolute;
-    width: 0rpx;
-    height: 0rpx;
-    top: 0rpx;
-    left: 0rpx;
-    right: 0;
-    bottom: 0;
-    margin: auto;
-    background-color: #fff;
-    border-radius: 20rpx;
+	border-radius: 20rpx;
 }
 
 swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
-	/* width: 18rpx;
-	height: 18rpx; */
-    width: 0rpx;
-    height: 0rpx;
-    top: 0rpx;
+	width: 18rpx;
+	height: 18rpx;
 }
 
 .screen-swiper {
@@ -2672,19 +2617,15 @@ swiper.round-dot .wx-swiper-dot.wx-swiper-dot-active {
 }
 
 .card-swiper {
-	height: 440rpx !important;
+	height: 420rpx !important;
 }
 
 .card-swiper swiper-item {
-    /* width: 610rpx !important;
-    left: 70rpx;
-    box-sizing: border-box;
-    padding: 40rpx 0rpx 70rpx;
-    overflow: initial; */
-    width: 100% !important;
-    /* left: 20rpx; */
-    box-sizing: border-box;
-    overflow: initial;
+	width: 610rpx !important;
+	left: 70rpx;
+	box-sizing: border-box;
+	padding: 40rpx 0rpx 70rpx;
+	overflow: initial;
 }
 
 .card-swiper swiper-item .swiper-item {
@@ -3526,11 +3467,6 @@ scroll-view.cu-steps .cu-item {
 	color: var(--white);
 }
 
-.bg-lightBlue {
-    background-color: var(--lightBlue);
-    color: var(--white);
-}
-
 .bg-purple {
 	background-color: var(--purple);
 	color: var(--white);
@@ -3571,11 +3507,6 @@ scroll-view.cu-steps .cu-item {
 	color: var(--darkGray);
 }
 
-.bg-lightGrey {
-    background-color: var(--lightGrey);
-    color: var(--white);
-}
-
 .bg-shadeTop {
 	background-image: linear-gradient(rgba(0, 0, 0, 1), rgba(0, 0, 0, 0.01));
 	color: var(--white);
@@ -3583,17 +3514,6 @@ scroll-view.cu-steps .cu-item {
 
 .bg-shadeBottom {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.01), rgba(0, 0, 0, 1));
-	color: var(--white);
-}
-
-
-.bg-maskCard {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(254, 254, 254, 0), rgba(255, 255, 255, 0));
-	color: var(--white);
-}
-
-.bg-maskCards {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(1, 1, 1, 0.1));
 	color: var(--white);
 }
 
@@ -3630,11 +3550,6 @@ scroll-view.cu-steps .cu-item {
 .bg-blue.light {
 	color: var(--blue);
 	background-color: var(--blueLight);
-}
-
-.bg-lightBlue.light {
-  color: var(--lightBlue);
-  background-color: var(--blueLight);
 }
 
 .bg-purple.light {
@@ -3690,26 +3605,6 @@ scroll-view.cu-steps .cu-item {
 .bg-gradual-blue {
 	background-image: var(--gradualBlue);
 	color: var(--white);
-}
-
-.bg-gradual-black {
-    background-image: var(--gradualBlack);
-    color: var(--white);
-}
-
-.bg-gradual-dreamBlue {
-    background-image: var(--gradualDreamBlue);
-    color: var(--white);
-}
-
-.bg-gradual-Grey {
-    background-image: var(--gradualGrey);
-    color: var(--white);
-}
-
-.bg-gradual-shadow {
-  background-image: var(--gradualShadow);
-  color: var(--white);
 }
 
 .shadow[class*="-red"] {
@@ -3828,14 +3723,6 @@ scroll-view.cu-steps .cu-item {
 	text-shadow: var(--ShadowSize) var(--blackShadow);
 }
 
-.text-shadow-meows {
-    text-shadow: 2rpx 4rpx 20rpx rgba(0, 0, 0, 20);
-}
-
-.text-shadow-meow {
-    text-shadow: 4rpx 8rpx 20rpx rgba(0, 0, 0, 100);
-}
-
 .bg-img {
 	background-size: cover;
 	background-position: center;
@@ -3909,10 +3796,6 @@ scroll-view.cu-steps .cu-item {
 
 .text-xxl {
 	font-size: 44rpx;
-}
-
-.text-xxxl {
-    font-size: 52rpx;
 }
 
 .text-sl {
@@ -4009,12 +3892,6 @@ scroll-view.cu-steps .cu-item {
 	color: var(--blue);
 }
 
-.text-lightBlue, 
-.line-lightBlue, 
-.lines-lightBlue {
-    color: var(--lightBlue);
-}
-
 .text-purple,
 .line-purple,
 .lines-purple {
@@ -4061,13 +3938,4 @@ scroll-view.cu-steps .cu-item {
 .line-white,
 .lines-white {
 	color: var(--white);
-}
-
-
-.home-img{
-    padding: 24rpx;
-    background-repeat: no-repeat;
-    background-size: contain;
-    /* background-image:url(../image/cat.png); */
-    background-image:url('xxxxx');
 }
