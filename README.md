@@ -152,7 +152,7 @@ WeHalo的诞生离不开下面这些项目的支持：
 - **[html2wxml](https://github.com/qwqoffice/html2wxml)：用于微信小程序的HTML和Markdown格式的富文本渲染组件，支持代码高亮**
 - **[一言·古诗词](https://github.com/xenv/gushici)：Hitokoto API，随机返回一条古诗词名句。采用 Vert.x + Redis 全异步开发，毫秒级稳定响应。**
 
-<img src="/WeHalo/image/logo-jb.svg">
+[![](https://raw.githubusercontent.com/savingrun/WeHalo/master/image/logo-jb.svg)](https://github.com/savingrun/WeHalo)
 
 > 
 > 各位的哇哈哈，再次感谢各位的支持
