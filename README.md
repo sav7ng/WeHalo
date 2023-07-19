@@ -6,7 +6,7 @@
 
 后续更多功能开发并开发给大家使用，新版本 **WeHalo** 会存在不少问题欢迎大家多给我提 **Issues** 我会尽快处理
 
-新版本使用的问题不懂可以通过小程序联系作者找到我或者添加``QQ交流群: 260050047 / 559856207``
+新版本使用的问题不懂可以通过小程序联系作者找到我或者添加
 
 > ✍ Halo 一款现代化的个人独立博客系统 [Halo](https://halo.run)
 
@@ -38,14 +38,12 @@
 
 配合 [**Halo**](https://github.com/halo-dev/halo) 轻快，简洁，功能强大的博客系统而开发出来的 **简约风** 微信小程序版博客
 
-> QQ交流群: 260050047 / 559856207
-
 ## 快速开始
 
 **注：开源不易请留 WeHalo 底部署名不要删除**
 
 ```bash
-git clone https://github.com/aquanlerou/WeHalo.git
+git clone https://github.com/savingrun/WeHalo.git
 ```
 
 代码下载后，把 **image** 文件夹删除（放的是README中的图片与项目无关），用小程序 IDE 打开后即可使用。
@@ -57,7 +55,7 @@ git clone https://github.com/aquanlerou/WeHalo.git
 
 修改``app.js``文件的全局变量，改为你的 **Halo** 博客的地址，请更新最新的 **Halo** 配合使用
 
-**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://aquan.run``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
+**注：必须是HTTPS的因为，微信官方规定，还有把你的博客地址``如：https://savingrun.one``和``https://v2.jinrishici.com``添加到微信公众平台的 ``request 合法域名``中**
 
 ```
 globalData: { //全局变量
@@ -65,7 +63,7 @@ globalData: { //全局变量
         skin: null,
         roleFlag: false,
         BlogName: "爱敲代码的猫",//博客名字
-        url: "https://aquan.run",//博客地址（需HTTPS）
+        url: "https://savingrun.one",//博客地址（需HTTPS）
         token: "",//Halo博客后台设置
         highlightStyle: "dracula",//代码高亮样式，可用值default,darcula,dracula,tomorrow
         adminOpenid: "ogogn47AhczrMBgcTCPbUwugqLcU",//导入项目后可以在Console中看到  openidCloudResult: xxxxxxx  (xxx就是adminOpenid)
