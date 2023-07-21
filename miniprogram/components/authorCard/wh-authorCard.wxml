@@ -1,4 +1,3 @@
-<!-- 蒙版效果 -->
 <view class="mask" hidden="{{isHidden}}" catchtap="closeMask">
     <view class="masks" catchtap="prevent" animation="{{ani}}">
         <view class="box">

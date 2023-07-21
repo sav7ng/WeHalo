@@ -1,8 +1,5 @@
 /* components/authorCard/wh-authorCard.wxss */
 
-/* ====================== */
-/*   设置背景遮罩层样式   */
-/* ====================== */
 .mask {
     position: fixed;
     left: 0;
