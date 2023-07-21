@@ -11,6 +11,6 @@
   "dependencies": {
     "request": "^2.88.2",
     "request-promise": "^4.2.6",
-    "wx-server-sdk": "~2.6.3"
+    "wx-server-sdk": "~2.7.2"
   }
 }
