@@ -2,13 +2,10 @@
 const app = getApp();
 const request = require('../../utils/request.js');
 let util = require('../../utils/util.js');
-let delay;//延时器
+let delay;
 let i = 0;
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
         adminOpenid: app.globalData.adminOpenid,
         roleFlag: app.globalData.roleFlag,
@@ -16,19 +13,14 @@ Page({
         commentList: [],
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
     onLoad: function (options) {
         var urlCounts = app.globalData.url + '/api/admin/statistics';
         var paramCounts = {};
-        // @todo 后台总览数据网络请求API数据
         request.requestGetApi(urlCounts, app.globalData.adminToken, paramCounts, this, this.successCounts, this.failCounts);
         var urlLatestComments = app.globalData.url + '/api/admin/posts/comments/latest';
         var paramLatestComments = {
             top: 5,
         };
-        // @todo 后台总览数据网络请求API数据
         request.requestGetApi(urlLatestComments, app.globalData.adminToken, paramLatestComments, this, this.successLatestComments, this.failLatestComments);
         
         console.warn(app.globalData.userInfo);
@@ -36,31 +28,20 @@ Page({
         this.numDH();
     },
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
     onReady: function () {
     },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
     onShow: function () {
         this.setData({
             roleFlag: app.globalData.roleFlag,
             adminOpenid: app.globalData.adminOpenid,
         })
         var that = this;
-        // 云函数调用
         wx.cloud.callFunction({
-            // 云函数名称
             name: 'get_wx_context',
-            // 传给云函数的参数
             data: {
             },
             success(res) {
-                // console.log("CloudResult:", res);
-                // console.log("openidCloudResult:", res.result.openid);
                 that.setData({
                     openid: res.result.openid
                 });
@@ -69,13 +50,11 @@ Page({
                     that.setData({
                         roleFlag: true,
                     });
-                    // console.warn("你是管理员！");
                 } else {
                     app.globalData.roleFlag = false;
                     that.setData({
                         roleFlag: false,
                     });
-                    // console.warn("你不是管理员！");
                 };
             },
             fail: err => {
@@ -83,36 +62,21 @@ Page({
         })
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
     onHide: function () {
     },
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
     onUnload: function () {
         i = 0;
     },
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
     onPullDownRefresh: function () {
 
     },
 
-    /**
-     * 页面上拉触底事件的处理函数
-     */
     onReachBottom: function () {
 
     },
 
-    /**
-     * 用户点击右上角分享
-     */
     onShareAppMessage: function () {
 
     },
@@ -147,22 +111,19 @@ Page({
         }
         return e
     },
-    
-    // ListTouch触摸开始
+
     ListTouchStart(e) {
         this.setData({
             ListTouchStart: e.touches[0].pageX
         })
     },
 
-    // ListTouch计算方向
     ListTouchMove(e) {
         this.setData({
             ListTouchDirection: e.touches[0].pageX - this.data.ListTouchStart > 0 ? 'right' : 'left'
         })
     },
 
-    // ListTouch计算滚动
     ListTouchEnd(e) {
         if (this.data.ListTouchDirection == 'left') {
             this.setData({
@@ -200,9 +161,6 @@ Page({
         })
     },
 
-    /**
-     * 回复文本框获取值
-     */
     replyValue: function(e) {
         this.setData({
             replyValue: e.detail.value
@@ -251,10 +209,6 @@ Page({
         
     },
 
-
-    /**
-     * 后台数据请求--接口调用成功处理
-     */
     successCounts: function(res, selfObj) {
         var that = this;
         var time1 = Date.parse(new Date());
@@ -268,17 +222,11 @@ Page({
             birthday: day,
         })
     },
-    /**
-     * 后台数据请求--接口调用失败处理
-     */
+
     failCounts: function (res, selfObj) {
         console.error('failAdminLogin', res)
     },
 
-
-    /**
-     * 最新评论请求--接口调用成功处理
-     */
     successLatestComments: function(res, selfObj) {
         var that = this;
         console.warn(res)
@@ -299,17 +247,11 @@ Page({
         })
         console.warn(that.data.commentList)
     },
-    /**
-     * 最新评论请求--接口调用失败处理
-     */
+
     failLatestComments: function (res, selfObj) {
         console.error('failLatestComments', res)
     },
 
-    
-    /**
-     * 回复评论请求--接口调用成功处理
-     */
     successReply: function (res, selfObj) {
         var that = this;
         // console.warn(res);
@@ -337,9 +279,7 @@ Page({
             commentList: newComment.concat(that.data.commentList),
         });
     },
-    /**
-     * 回复评论请求--接口调用失败处理
-     */
+
     failReply: function (res, selfObj) {
         console.error('failReply', res)
     },
